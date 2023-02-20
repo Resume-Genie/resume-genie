@@ -12,5 +12,6 @@ https://avatars0.githubusercontent.com/u/17927649?v=4
   </tr>
 </table>
 
-License
-Completely free (MIT)! See LICENSE.md for more.
+## License
+
+Completely free (MIT)! See [LICENSE.md](LICENSE.md) for more.
