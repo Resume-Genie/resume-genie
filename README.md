@@ -21,6 +21,8 @@ So why wait? Start building your dream resume today with our innovative software
   - Dark Mode Support for all the late night last moment resumes!
   - All features completely FREE to use.
   - Extract information from resumes in image format and transform into pdf with new template
+  
+ <br>
 
 ## We Develop with Github
 We use github to host code, to track issues and feature requests, as well as accept pull requests.
