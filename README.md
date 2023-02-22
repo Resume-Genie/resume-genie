@@ -7,6 +7,7 @@
 ![Made-With-Express](https://img.shields.io/badge/MADE%20WITH-EXPRESS-000000.svg?colorA=222222&style=for-the-badge&logoWidth=14&logo=Express)
 ![Made-With-Express](https://img.shields.io/badge/MADE%20WITH-NODEMON-76D04B.svg?colorA=222222&style=for-the-badge&logoWidth=14&logo=Nodemon)
 ![Made-With-Express](https://img.shields.io/badge/MADE%20WITH-CSS-1572B6.svg?colorA=222222&style=for-the-badge&logoWidth=14&logo=CSS3)
+![Made-With-Express](https://img.shields.io/badge/MADE%20WITH-REDUX-764ABC.svg?colorA=222222&style=for-the-badge&logoWidth=14&logo=Redux)
 
 # ResumeGenie
 Resume Genie: The Next-Gen Resume Builder Software using Tesseract OCR engine is a free and open source resume builder that’s built to make the tiresome tasks of creating, updating and sharing your resume easy.  The system is malleable for creating an appropriate resume according to qualification by reducing the need of thinking. With the integration of the Tesseract OCR engine, our software makes it easy to extract information from resumes in image format and transform it into a comprehensive, professional looking document.
