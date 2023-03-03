@@ -150,7 +150,27 @@ async function login(req, res) {
 }
 
 // GET: http://localhost:8000/api/user/admin123
-async function getUser(req, res) {}
+async function getUser(req, res) {
+  const { username } = req.params;
+
+  try {
+    if (!username) return res.status(501).send({ error: 'Invalid Username' });
+
+    let user;
+    try {
+      user = await userModel.findOne({ username });
+
+      //Remove password from the User
+      const { password, ...rest } = Object.assign({}, user.toJSON());
+
+      return res.status(201).send(rest);
+    } catch (err) {
+      return res.status(501).send({ error: "Couldn't Find the User" });
+    }
+  } catch (error) {
+    return res.status(404).send({ error: 'Cannot Find User Data' });
+  }
+}
 
 // GET: http://localhost:8000/api/generateOTP
 async function generateOTP(req, res) {
