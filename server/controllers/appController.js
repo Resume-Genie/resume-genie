@@ -1,3 +1,8 @@
+const userModel = require('./../model/userModel');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const ENV = require('./../utils/config');
+
 /** POST: http://localhost:8000/api/register
  * @param: {
  * "email": "example@gmail.com",
@@ -6,7 +11,81 @@
  * }
  */
 async function register(req, res) {
-  res.json('register route');
+  try {
+    const { username, password, email } = req.body;
+
+    // check the existing user
+    let existUsername;
+    try {
+      existUsername = await userModel.findOne({ username });
+    } catch (err) {
+      return res.status(409).send({
+        error: 'Please use unique username',
+      });
+    }
+    // const existUsername = new Promise((resolve, reject) => {
+    //   userModel.findOne({ username }).then((err, user) => {
+    //     console.log(err);
+    //     console.log(user);
+    //     if (err) reject({ error });
+    //     if (user) reject({ error: 'Please use unique username' });
+
+    //     resolve();
+    //   });
+    // });
+
+    // check for existing email
+    let existEmail;
+    try {
+      existEmail = await userModel.findOne({ email });
+    } catch (err) {
+      return res.status(409).send({
+        error: 'Please use unique email',
+      });
+    }
+
+    // const existEmail = new Promise((resolve, reject) => {
+    //   userModel.findOne({ email }).then((err, email) => {
+    //     if (err) reject({ error });
+    //     if (email) reject({ error: 'Please use unique Email' });
+
+    //     resolve();
+    //   });
+    // });
+
+    Promise.all([existUsername, existEmail])
+      .then(() => {
+        if (password) {
+          bcrypt
+            .hash(password, 10)
+            .then((hashedPassword) => {
+              const user = new userModel({
+                username,
+                password: hashedPassword,
+                email,
+              });
+
+              // return save result as a response
+              user
+                .save()
+                .then((result) =>
+                  res.status(201).send({ msg: 'User Register Successfully' })
+                )
+                .catch((error) => res.status(500).send(error.message));
+            })
+            .catch((error) => {
+              return res.status(500).send({
+                error: 'Enable to hashed password',
+              });
+            });
+        }
+      })
+      .catch((error) => {
+        return res.status(500).send(error.message);
+      });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
 }
 
 /** POST: http://localhost:8000/api/login
@@ -15,14 +94,10 @@ async function register(req, res) {
  * "password": "admin@123",
  * }
  */
-async function login(req, res) {
-  res.json('login route');
-}
+async function login(req, res) {}
 
 // GET: http://localhost:8000/api/user/admin123
-async function getUser(req, res) {
-  res.json('getUser route');
-}
+async function getUser(req, res) {}
 
 // GET: http://localhost:8000/api/generateOTP
 async function generateOTP(req, res) {
@@ -57,6 +132,7 @@ async function resetPassword(req, res) {
 }
 
 module.exports = {
+  verifyUser,
   register,
   login,
   getUser,
