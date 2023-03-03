@@ -3,6 +3,19 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const ENV = require('./../utils/config');
 
+async function verifyUser(req, res, next) {
+  try {
+    const { email } = req.method == 'GET' ? req.query : req.body;
+
+    // check the user existance
+    let exist = await userModel.findOne({ email });
+    if (!exist) return res.status(404).send({ error: "Can't find User!" });
+    next();
+  } catch (error) {
+    return res.status(404).send({ error: 'Authentication Error' });
+  }
+}
+
 /** POST: http://localhost:8000/api/register
  * @param: {
  * "email": "example@gmail.com",
@@ -94,7 +107,47 @@ async function register(req, res) {
  * "password": "admin@123",
  * }
  */
-async function login(req, res) {}
+async function login(req, res) {
+  const { email, password } = req.body;
+
+  try {
+    userModel
+      .findOne({ email })
+      .then((user) => {
+        bcrypt
+          .compare(password, user.password)
+          .then((passwordCheck) => {
+            if (!passwordCheck)
+              return res.status(400).send({ error: "Don't have Password" });
+
+            // create jwt token
+            const token = jwt.sign(
+              {
+                userId: user._id,
+                email: user.email,
+              },
+              ENV.JWT_SECRET,
+              { expiresIn: '24h' }
+            );
+
+            return res.status(200).send({
+              msg: 'Login Successful...!',
+              email: user.email,
+              token,
+            });
+          })
+          .catch((error) => {
+            return res.status(400).send({ error: 'Invalid Credentials' });
+          });
+      })
+      .catch((error) => {
+        return res.status(404).send({ error: 'Invalid Credentials' });
+      });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).send({ error: 'hi' });
+  }
+}
 
 // GET: http://localhost:8000/api/user/admin123
 async function getUser(req, res) {}
