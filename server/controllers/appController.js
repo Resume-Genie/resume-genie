@@ -12,7 +12,7 @@ async function verifyUser(req, res, next) {
     if (!exist) return res.status(404).send({ error: "Can't find User!" });
     next();
   } catch (error) {
-    return res.status(404).send({ error: 'Authentication Error' });
+    return res.status(510).send({ error: 'Authentication Error' });
   }
 }
 
@@ -33,19 +33,9 @@ async function register(req, res) {
       existUsername = await userModel.findOne({ username });
     } catch (err) {
       return res.status(409).send({
-        error: 'Please use unique username',
+        error: 'Username already Exist',
       });
     }
-    // const existUsername = new Promise((resolve, reject) => {
-    //   userModel.findOne({ username }).then((err, user) => {
-    //     console.log(err);
-    //     console.log(user);
-    //     if (err) reject({ error });
-    //     if (user) reject({ error: 'Please use unique username' });
-
-    //     resolve();
-    //   });
-    // });
 
     // check for existing email
     let existEmail;
@@ -53,18 +43,9 @@ async function register(req, res) {
       existEmail = await userModel.findOne({ email });
     } catch (err) {
       return res.status(409).send({
-        error: 'Please use unique email',
+        error: 'Email already Exist',
       });
     }
-
-    // const existEmail = new Promise((resolve, reject) => {
-    //   userModel.findOne({ email }).then((err, email) => {
-    //     if (err) reject({ error });
-    //     if (email) reject({ error: 'Please use unique Email' });
-
-    //     resolve();
-    //   });
-    // });
 
     Promise.all([existUsername, existEmail])
       .then(() => {
@@ -88,7 +69,7 @@ async function register(req, res) {
             })
             .catch((error) => {
               return res.status(500).send({
-                error: 'Enable to hashed password',
+                error: error.message,
               });
             });
         }
@@ -118,7 +99,7 @@ async function login(req, res) {
           .compare(password, user.password)
           .then((passwordCheck) => {
             if (!passwordCheck)
-              return res.status(400).send({ error: "Don't have Password" });
+              return res.status(401).send({ error: 'Invalid Credentials' });
 
             // create jwt token
             const token = jwt.sign(
@@ -141,11 +122,10 @@ async function login(req, res) {
           });
       })
       .catch((error) => {
-        return res.status(404).send({ error: 'Invalid Credentials' });
+        return res.status(404).send({ error: 'User not found' });
       });
   } catch (error) {
-    console.error(error.message);
-    return res.status(500).send({ error: 'hi' });
+    return res.status(500).send({ error: error.message });
   }
 }
 
