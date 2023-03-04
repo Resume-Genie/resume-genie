@@ -176,7 +176,29 @@ async function createResetSession(req, res) {
  * }
  */
 async function updateUser(req, res) {
-  res.json('updateUser route');
+  try {
+    // const { userId } = req.user;
+    const id = req.query.id;
+
+    // if (userId) {
+    //   const body = req.body;
+    if (id) {
+      const body = req.body;
+
+      // update the data
+      let update;
+      try {
+        update = await userModel.findOneAndUpdate({ _id: id }, body);
+        return res.status(201).send({ msg: 'Record Updated...!' });
+      } catch (err) {
+        throw err;
+      }
+    } else {
+      return res.status(401).send({ error: 'User Not Found...!' });
+    }
+  } catch (error) {
+    return res.status(401).send(error.message);
+  }
 }
 
 /** PUT: http://localhost:8000/api/resetPassword */
