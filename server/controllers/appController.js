@@ -2,6 +2,7 @@ const userModel = require('./../model/userModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const ENV = require('./../utils/config');
+const otpGenerator = require('otp-generator');
 
 async function verifyUser(req, res, next) {
   try {
@@ -154,18 +155,32 @@ async function getUser(req, res) {
 
 // GET: http://localhost:8000/api/generateOTP
 async function generateOTP(req, res) {
-  res.json('generateOTP route');
+  req.app.locals.OTP = await otpGenerator.generate(6, {
+    lowerCaseAlphabets: false,
+    upperCaseAlphabets: false,
+    specialChars: false,
+  });
+  res.status(201).send({ code: req.app.locals.OTP });
 }
 
 // GET: http://localhost:8000/api/verifyOTP
 async function verifyOTP(req, res) {
-  res.json('verifyOTP route');
+  const { code } = req.query;
+  if (parseInt(req.app.locals.OTP) === parseInt(code)) {
+    req.app.locals.OTP = null; // reset the OTP value
+    req.app.locals.resetSession = true; // start session for reset password
+    return res.status(201).send({ msg: 'Verify Successsfully!' });
+  }
+  return res.status(400).send({ error: 'Invalid OTP' });
 }
 
 // Successfully redirect the user when OTP is valid
 // GET: http://localhost:8000/api/createResetSession
 async function createResetSession(req, res) {
-  res.json('createResetSession route');
+  if (req.app.locals.resetSession) {
+    return res.status(201).send({ flag: req.app.locals.resetSession });
+  }
+  return res.status(440).send({ error: 'Session expired!' });
 }
 
 /** PUT: http://localhost:8000/api/updateUser
@@ -199,9 +214,7 @@ async function updateUser(req, res) {
 }
 
 /** PUT: http://localhost:8000/api/resetPassword */
-async function resetPassword(req, res) {
-  res.json('resetPassword route');
-}
+async function resetPassword(req, res) {}
 
 module.exports = {
   verifyUser,
