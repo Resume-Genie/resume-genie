@@ -214,7 +214,48 @@ async function updateUser(req, res) {
 }
 
 /** PUT: http://localhost:8000/api/resetPassword */
-async function resetPassword(req, res) {}
+async function resetPassword(req, res) {
+  try {
+    if (!req.app.locals.resetSession)
+      return res.status(440).send({ error: 'Session expired!' });
+
+    const { email, password } = req.body;
+
+    try {
+      userModel
+        .findOne({ email })
+        .then((user) => {
+          bcrypt
+            .hash(password, 10)
+            .then(async (hashedPassword) => {
+              try {
+                await userModel.updateOne(
+                  { email: user.email },
+                  { password: hashedPassword }
+                );
+
+                req.app.locals.resetSession = false; // reset session
+                return res.status(201).send({ msg: 'Record Updated...!' });
+              } catch (err) {
+                throw err;
+              }
+            })
+            .catch((e) => {
+              return res.status(500).send({
+                error: 'Enable to hashed password',
+              });
+            });
+        })
+        .catch((error) => {
+          return res.status(404).send({ error: 'Email not Found' });
+        });
+    } catch (error) {
+      return res.status(500).send(error.message);
+    }
+  } catch (error) {
+    return res.status(401).send(error.message);
+  }
+}
 
 module.exports = {
   verifyUser,
