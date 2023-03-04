@@ -177,18 +177,15 @@ async function createResetSession(req, res) {
  */
 async function updateUser(req, res) {
   try {
-    // const { userId } = req.user;
-    const id = req.query.id;
+    const { userId } = req.user;
 
-    // if (userId) {
-    //   const body = req.body;
-    if (id) {
+    if (userId) {
       const body = req.body;
 
       // update the data
       let update;
       try {
-        update = await userModel.findOneAndUpdate({ _id: id }, body);
+        update = await userModel.findOneAndUpdate({ _id: userId }, body);
         return res.status(201).send({ msg: 'Record Updated...!' });
       } catch (err) {
         throw err;
