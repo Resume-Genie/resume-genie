@@ -9,7 +9,9 @@ const router = Router();
 // POST Method
 router.route('/register').post(controller.register);
 router.route('/registerMail').post(registerMail);
-router.route('/authentication').post((req, res) => res.end());
+router
+  .route('/authenticate')
+  .post(controller.verifyUser, (req, res) => res.end());
 router.route('/login').post(controller.verifyUser, controller.login);
 
 // GET Methods
