@@ -2,12 +2,13 @@ const { Router } = require('express');
 
 const controller = require('./../controllers/appController');
 const { Auth, localVariables } = require('./../auth/auth');
+const { registerMail } = require('../utils/sendMail');
 
 const router = Router();
 
 // POST Method
 router.route('/register').post(controller.register);
-// router.route('/registerMail').post(controller);
+router.route('/registerMail').post(registerMail);
 router.route('/authentication').post((req, res) => res.end());
 router.route('/login').post(controller.verifyUser, controller.login);
 
