@@ -44,6 +44,15 @@ const Login = () => {
               placeholder="Your Password"
             />
 
+            <div className="text-right max-w-[300px] mx-auto">
+              <a
+                href="/forgotPassword"
+                className="text-[var(--primary)] text-[14px]"
+              >
+                Forgot Password?
+              </a>
+            </div>
+
             <Button
               type="submit"
               text="LOG IN"
@@ -52,7 +61,7 @@ const Login = () => {
           </form>
 
           <div className="text-[18px] flex justify-center mt-[36px]">
-            <p className="text-[var(--text) mr-1">Don't have an Account?</p>
+            <p className="text-[var(--text) mr-2">Don't have an Account?</p>
             <a href="/register" className="text-[var(--primary)]">
               Sign up for free
             </a>
