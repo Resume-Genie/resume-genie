@@ -6,11 +6,12 @@ const Input = (props) => {
       <label for={props.for} className="invisible absolute">
         {props.label}
       </label>
+      
       <input
         type={props.type}
         id={props.for}
         placeholder={props.placeholder}
-        className="border-solid border-[#F0F0F0] rounded-[5px] border p-5 w-full max-w-[300px]"
+        className="border-solid border-[#F0F0F0] rounded-[5px] border p-5 w-full max-w-[300px] text-[16px]"
       />
     </div>
   );

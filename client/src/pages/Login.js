@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import Input from '../component/Input';
 import Button from '../component/Button';
 
-import logo from './../svg/logo.svg';
-import loginSvg from './../svg/login-svg.svg';
+import logo from './../assests/svg/logo.svg';
+import loginSvg from './../assests/svg/login-svg.svg';
 
 import './bg.css';
 
@@ -22,7 +22,7 @@ const Login = () => {
 
         <section className="mt-[20px] p-[40px] text-center">
           <div className="mb-[36px]">
-            <h2 className="text-[28px] tracking-[8%] font-bold text-[var(--text)]">
+            <h2 className="text-[28px] font-bold text-[var(--text)] tracking-wider">
               Welcome Back
             </h2>
             <p className="text-[16px] text-[var(--text-light)]">
