@@ -9,3 +9,14 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --text: #272643;
+  --text-light: #c5c5c5;
+  --white: #fff;
+  --light: #e3f6f5;
+  --med: #bae8e8;
+  --dark: #2c698d;
+  --primary: #45a1fa;
+  --secondary: #00c0ff;
+}
