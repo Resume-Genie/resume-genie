@@ -47,7 +47,7 @@ const Login = () => {
             <Button
               type="submit"
               text="LOG IN"
-              className="text-[var(--white)] text-[12px] bg-[var(--primary)] p-[18px] w-full rounded-[5px] max-w-[300px] my-[18px]"
+              className="text-[var(--white)] text-[12px] bg-[var(--primary)] p-[18px] w-full rounded-[5px] max-w-[300px] my-[18px] font-bold"
             />
           </form>
 
