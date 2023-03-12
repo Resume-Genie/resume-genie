@@ -11,6 +11,7 @@ import Reset from './pages/Reset';
 import Samples from './pages/Samples';
 
 import './App.css';
+import ForgotPassword from './pages/ForgotPassword';
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,15 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
+    path: '/forgotPassword',
+    element: <ForgotPassword />,
+  },
+  {
     path: '/recovery',
     element: <Recovery />,
   },
   {
-    path: '/reset',
+    path: '/resetPassword',
     element: <Reset />,
   },
   {
