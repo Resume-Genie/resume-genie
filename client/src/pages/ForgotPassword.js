@@ -35,7 +35,7 @@ const ForgotPassword = () => {
             <Input
               type="email"
               label="Email"
-              for="signup-mail"
+              for="forgot-mail"
               placeholder="Your Email"
             />
 
