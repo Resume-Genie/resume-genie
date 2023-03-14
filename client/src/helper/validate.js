@@ -6,7 +6,6 @@ export async function loginValidate(values) {
 
   if (values.email) {
     const { status } = await authenticate(values.email);
-    console.log(values.email);
 
     if (status !== 200) {
       errors.exist = toast.error('User does not exist...!');
@@ -32,7 +31,6 @@ export async function registerValidation(values) {
   const errors = usernameVerify({}, values);
   passwordVerify(errors, values);
   emailVerify(errors, values);
-  console.log('Validated');
 
   return errors;
 }
