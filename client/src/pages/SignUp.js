@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 import Input from '../component/Input';
 import Button from '../component/Button';
@@ -14,7 +15,13 @@ const SignUp = () => {
   }, []);
 
   return (
-    <section className="w-[100%] min-h-[100vh] flex bg-cover bg-no-repeat bg">
+    <motion.section
+      initial={{ opacity: 0, x: '-100%' }}
+      animate={{ opacity: 1, x: '0' }}
+      transition={{ duration: 0.75, ease: [0, 0.99, 1, 0.94] }}
+      exit={{ opacity: 0, x: '100%' }}
+      className="w-[100%] min-h-[100vh] flex bg-cover bg-no-repeat bg"
+    >
       <div className="w-2/5 p-[40px]">
         <div>
           <img src={logo} alt="Resume Genie Logo" />
@@ -34,19 +41,19 @@ const SignUp = () => {
             <Input
               type="text"
               label="Name"
-              for="signup-name"
+              labelFor="signup-name"
               placeholder="Your Name"
             />
             <Input
               type="email"
               label="Email"
-              for="signup-mail"
+              labelFor="signup-mail"
               placeholder="Your Email"
             />
             <Input
               type="password"
               label="Password"
-              for="signup-password"
+              labelFor="signup-password"
               placeholder="Your Password"
             />
 
@@ -73,7 +80,7 @@ const SignUp = () => {
           className="max-w-[calc(14vw+500px)]"
         />
       </div>
-    </section>
+    </motion.section>
   );
 };
 
