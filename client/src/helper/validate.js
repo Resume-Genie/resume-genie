@@ -32,6 +32,7 @@ export async function registerValidation(values) {
   const errors = usernameVerify({}, values);
   passwordVerify(errors, values);
   emailVerify(errors, values);
+  console.log('Validated');
 
   return errors;
 }
@@ -48,9 +49,9 @@ function passwordVerify(errors = {}, values) {
     errors.password = toast.error('Password Required...!');
   } else if (values.password.includes(' ')) {
     errors.password = toast.error('Wrong Password...!');
-  } else if (values.password.length < 4) {
+  } else if (values.password.length < 8) {
     errors.password = toast.error(
-      'Password must be more than 4 characters long'
+      'Password must be more than 8 characters long'
     );
   } else if (!specialChars.test(values.password)) {
     errors.password = toast.error('Password must have special character');
