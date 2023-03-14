@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 import Input from '../component/Input';
 import Button from '../component/Button';
@@ -14,7 +15,13 @@ const Reset = () => {
   }, []);
 
   return (
-    <section className="w-[100%] min-h-[100vh] flex bg-cover bg-no-repeat bg">
+    <motion.section
+      initial={{ opacity: 0, x: '-100%' }}
+      animate={{ opacity: 1, x: '0' }}
+      transition={{ duration: 0.75, ease: [0, 0.99, 1, 0.94] }}
+      exit={{ opacity: 0, x: '100%' }}
+      className="w-[100%] min-h-[100vh] flex bg-cover bg-no-repeat bg"
+    >
       <div className="w-2/5 p-[40px]">
         <div>
           <img src={logo} alt="Resume Genie Logo" />
@@ -34,7 +41,7 @@ const Reset = () => {
             <Input
               type="password"
               label="password"
-              for="reset-password"
+              labelFor="reset-password"
               placeholder="Enter New Password"
             />
 
@@ -45,12 +52,12 @@ const Reset = () => {
             <Input
               type="password"
               label="Password"
-              for="reset-password-confirm"
+              labelFor="reset-password-confirm"
               placeholder="Confirm New Password"
             />
 
             <div className="text-left max-w-[300px] mx-auto text-[14px] text-[var(--text-light)] mt-[-9px] mb-[18px] pl-[4px]">
-              Must be at least 8 character.
+              Both password must match.
             </div>
 
             <Button
@@ -62,7 +69,7 @@ const Reset = () => {
 
           <div className="text-[18px] flex justify-center mt-[36px]">
             <p className="text-[var(--text) mr-2">Remember Password?</p>
-            <a href="/register" className="text-[var(--primary)]">
+            <a href="/login" className="text-[var(--primary)]">
               Login Page
             </a>
           </div>
@@ -76,7 +83,7 @@ const Reset = () => {
           className="max-w-[calc(14vw+500px)]"
         />
       </div>
-    </section>
+    </motion.section>
   );
 };
 
