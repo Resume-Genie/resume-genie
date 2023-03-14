@@ -1,8 +1,13 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { toast, Toaster } from 'react-hot-toast';
+import { useFormik } from 'formik';
 
 import Input from '../component/Input';
 import Button from '../component/Button';
+import { loginValidate } from '../helper/validate';
+import { verifyPassword } from './../helper/helper';
 
 import logo from './../assests/svg/logo.svg';
 import loginSvg from './../assests/svg/login-svg.svg';
@@ -14,6 +19,35 @@ const Login = () => {
     document.title = 'Resume Genie | Login';
   }, []);
 
+  const navigate = useNavigate();
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validate: loginValidate,
+    validateOnBlur: false,
+    validateOnChange: false,
+    onSubmit: async (values) => {
+      let loginPromise = verifyPassword({
+        email: values.email,
+        password: values.password,
+      });
+      toast.promise(loginPromise, {
+        loading: 'Checking...',
+        success: <b>Login Successfully...!</b>,
+        error: <b>Password Not Match!</b>,
+      });
+
+      loginPromise.then((res) => {
+        let { token } = res.data;
+        localStorage.setItem('token', token);
+        navigate('/dashboard/all');
+      });
+    },
+  });
+
   return (
     <motion.section
       initial={{ opacity: 0, x: '-100%' }}
@@ -22,6 +56,8 @@ const Login = () => {
       exit={{ opacity: 0, x: '100%' }}
       className="w-[100%] min-h-[100vh] flex bg-cover bg-no-repeat bg"
     >
+      <Toaster position="top-center" reverseOrder={false}></Toaster>
+
       <div className="w-2/5 p-[40px]">
         <div>
           <img src={logo} alt="Resume Genie Logo" />
@@ -37,18 +73,20 @@ const Login = () => {
             </p>
           </div>
 
-          <form action="">
+          <form onSubmit={formik.handleSubmit}>
             <Input
               type="email"
               label="Email"
               labelFor="login-mail"
               placeholder="Your Email"
+              formik={formik.getFieldProps('email')}
             />
             <Input
               type="password"
               label="Password"
               labelFor="login-password"
               placeholder="Your Password"
+              formik={formik.getFieldProps('password')}
             />
 
             <div className="text-right max-w-[300px] mx-auto">
