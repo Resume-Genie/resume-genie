@@ -8,6 +8,7 @@ import Input from '../component/Input';
 import Button from '../component/Button';
 import { loginValidate } from '../helper/validate';
 import { verifyPassword } from './../helper/helper';
+import { useAuthStore } from '../store/Store';
 
 import logo from './../assests/svg/logo.svg';
 import loginSvg from './../assests/svg/login-svg.svg';
@@ -19,6 +20,7 @@ const Login = () => {
     document.title = 'Resume Genie | Login';
   }, []);
 
+  const setEmail = useAuthStore((state) => state.setEmail);
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -43,6 +45,7 @@ const Login = () => {
       loginPromise.then((res) => {
         let { token } = res.data;
         localStorage.setItem('token', token);
+        setEmail(values.email);
         navigate('/dashboard/all');
       });
     },

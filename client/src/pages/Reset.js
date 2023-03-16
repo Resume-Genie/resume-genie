@@ -21,8 +21,7 @@ const Reset = () => {
   }, []);
 
   const navigate = useNavigate();
-  // const { email } = useAuthStore((state) => state.auth);
-  const email = 'example@gmail.com';
+  const { email } = useAuthStore((state) => state.auth);
 
   const formik = useFormik({
     initialValues: {

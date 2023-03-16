@@ -17,9 +17,8 @@ const Recovery = () => {
     document.title = 'Resume Genie | Recovery';
   }, []);
 
-  // const { email } = useAuthStore((state) => state.auth);
+  const email = useAuthStore((state) => state.auth.email);
   const [otp, setOtp] = useState(new Array(6).fill(''));
-  let email = 'example@gmail.com';
   const navigate = useNavigate();
 
   const handleKeyUp = (e) => {
@@ -40,13 +39,6 @@ const Recovery = () => {
     }
   };
 
-  // useEffect(() => {
-  //   generateOTP(email).then((OTP) => {
-  //     console.log(OTP);
-  //     if (OTP) return toast.success('OTP has been send to your email!');
-  //     return toast.error('Problem while generating OTP!');
-  //   });
-  // }, [email]);
   async function onSubmit(e) {
     e.preventDefault();
     try {

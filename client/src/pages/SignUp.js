@@ -8,6 +8,7 @@ import { registerUser } from '../helper/helper';
 
 import Input from '../component/Input';
 import Button from '../component/Button';
+import { useAuthStore } from '../store/Store';
 
 import logo from './../assests/svg/logo.svg';
 import signupSvg from './../assests/svg/signup-svg.svg';
@@ -18,6 +19,8 @@ const SignUp = () => {
   useEffect(() => {
     document.title = 'Resume Genie | Register';
   }, []);
+
+  const setEmail = useAuthStore((state) => state.setEmail);
 
   const navigate = useNavigate();
 
@@ -39,6 +42,7 @@ const SignUp = () => {
       });
 
       registerPromise.then(() => {
+        setEmail(values.email);
         navigate('/dashboard/all');
       });
     },

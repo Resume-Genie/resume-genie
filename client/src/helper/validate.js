@@ -62,7 +62,7 @@ function usernameVerify(error = {}, values) {
   if (!values.username) {
     error.username = toast.error('Username Required...!');
   } else if (values.username.includes(' ')) {
-    error.username = toast.error('Invalid Username...!');
+    error.username = toast.error('Username cannot contain blank space!');
   }
 
   return error;

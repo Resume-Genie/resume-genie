@@ -111,6 +111,7 @@ export async function resetPassword({ email, password }) {
       email,
       password,
     });
+    
     return Promise.resolve({ data, status });
   } catch (error) {
     return Promise.reject({ error });
