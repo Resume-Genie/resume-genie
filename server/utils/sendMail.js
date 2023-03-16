@@ -7,10 +7,10 @@ const ENV = require('../utils/config.js');
 let nodeConfig = {
   host: 'smtp.ethereal.email',
   port: 587,
-  secure: false, // true for 465, false for other ports
+  secure: false,
   auth: {
-    user: ENV.EMAIL, // generated ethereal user
-    pass: ENV.PASSWORD, // generated ethereal password
+    user: ENV.EMAIL,
+    pass: ENV.PASSWORD,
   },
 };
 
@@ -35,7 +35,6 @@ let mailgenerator = new mailgen({
 exports.registerMail = async (req, res) => {
   const { username, userEmail, text, subject } = req.body;
 
-  // body of the email
   var email = {
     body: {
       name: username,
@@ -56,13 +55,10 @@ exports.registerMail = async (req, res) => {
     html: emailBody,
   };
 
-  // send mail
   transporter
     .sendMail(message)
     .then(() => {
-      return res
-        .status(200)
-        .send({ msg: 'Email Sent!' });
+      return res.status(200).send({ msg: 'Email Sent!' });
     })
     .catch((error) => res.status(500).send({ error }));
 };
