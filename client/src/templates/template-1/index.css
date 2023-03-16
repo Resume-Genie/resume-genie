@@ -1,0 +1,139 @@
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+$profileBg:#fff;
+$skillsBg:#3d3e42;
+$profileColor:#9099a0;
+$skillsColor:#9099a0; 
+$linkColor:#66cc99;
+$boldColor:#4a4e51;
+$time:0.6s;
+
+ 
+@mixin breakpoint($point) {
+  @if $point == papa-bear {
+    @media (max-width: 1500px)  { @content; }
+  }
+  @if $point == mama-bear {
+    @media (max-width: 1200px)  { @content; }
+  }
+  @if $point == brother-bear {
+    @media (max-width: 850px)  { @content; }
+  }
+  @else if $point == baby-bear {
+    @media (max-width: 450px)  { @content; }
+  }
+}
+
+*, *::after, *::before {
+  box-sizing:border-box;
+}
+
+html,body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size:16px;
+  line-height:1.5em;
+}
+a{color:$linkColor; text-decoration:none;}
+.clearfix::after, .clearfix::before {
+  content: " ";
+	display: table;
+}
+.clearfix::after{clear:both;}
+.bold {color:$boldColor; font-weight:400;}
+
+.resume-wrapper {
+  position:relative;
+  text-align:center;
+  height:100%;
+}
+
+.container {
+  min-height:600px;
+}
+
+.profile {
+  background:$profileBg;
+  width:40%;
+  float:left;
+  color:$profileColor;
+  @include breakpoint(brother-bear) { width: 100%; }
+  .name-wrapper {
+    float:left;
+    width:60%;
+  }
+  h1 {
+    font-size:2.5em;
+    text-align:left;
+    font-family: 'Varela Round', sans-serif;
+    color:$boldColor;
+    text-transform:uppercase;
+    line-height:1em;
+    padding-top:40px; 
+    @include breakpoint(mama-bear) {
+       padding-top:20px;
+    }
+    @include breakpoint(baby-bear) {
+      font-size:1.8em;  
+      padding-top:20px;
+    } 
+  }
+  li {
+      margin-bottom:10px;
+    }
+  .picture-resume-wrapper {
+    width:40%;
+    display:block;
+    float:left;
+    @include breakpoint(mama-bear) {
+       width:100%;
+    }
+  }
+  .picture-resume {
+    width:220px;
+    height:220px;
+    background-size:cover;
+    border-radius:50%;
+    margin-right:0px;
+    display:table;
+    position:relative;
+    vertical-align:middle;
+    span {
+        display:table-cell;
+        vertical-align: middle;
+        position:relative;
+        margin:0 auto;
+        z-index:10;
+       text-align:center
+    }
+    img {
+      border-radius:50%;
+      width:130px;
+      @include breakpoint(papa-bear) {
+        width:80px;
+      }
+      @include breakpoint(mama-bear) {
+        width:120px;
+        height:120px;
+      }
+    }
+    @include breakpoint(papa-bear) {
+      width:150px;
+      height:150px;
+    }
+    @include breakpoint(mama-bear) {
+      width:200px;
+      height:200px;
+    }
+     @include breakpoint(baby-bear) { width:180px;height:180px; } 
+  }
+  .contact-info{
+    margin-top:100px;
+    font-weight:300;
+    @include breakpoint(mama-bear) {margin-top:70px; } 
+    @include breakpoint(baby-bear) { margin-top:50px; } 
+  }
