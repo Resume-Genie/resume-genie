@@ -37,7 +37,7 @@ export async function registerUser(credentials) {
     let { username, email } = credentials;
 
     if (status === 201) {
-      await axios.post('/api/registerMail', {
+      await axios.post('/api/mail/registerMail', {
         username,
         userEmail: email,
         text: msg,
@@ -77,16 +77,15 @@ export async function updateUser(response) {
 export async function generateOTP(email) {
   try {
     const {
-      data: { code },
+      data: { code, username },
       status,
     } = await axios.get('/api/generateOTP', { params: { email } });
 
     if (status === 201) {
-      let text = `Your Password Recovery OTP is ${code}. Verify and recover your password.`;
-      await axios.post('/api/registerMail', {
+      await axios.post('/api/mail/sendOtp', {
         userEmail: email,
-        text,
-        subject: 'Password Recovery OTP',
+        OTP: code,
+        username,
       });
     }
     return Promise.resolve(code);
