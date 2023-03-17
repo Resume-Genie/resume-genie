@@ -1,8 +1,10 @@
 const userModel = require('./../model/userModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const ENV = require('./../utils/config');
+const dotenv = require('dotenv');
 const otpGenerator = require('otp-generator');
+
+dotenv.config({ path: './config.env' });
 
 async function verifyUser(req, res, next) {
   try {
@@ -105,7 +107,7 @@ async function login(req, res) {
                 userId: user._id,
                 email: user.email,
               },
-              ENV.JWT_SECRET,
+              process.env.JWT_SECRET,
               { expiresIn: '24h' }
             );
 
