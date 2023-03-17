@@ -1,8 +1,14 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { toast, Toaster } from 'react-hot-toast';
+import { useFormik } from 'formik';
 
 import Input from '../component/Input';
 import Button from '../component/Button';
+import { profileValidation } from '../helper/validate';
+import { generateOTP } from './../helper/helper';
+import { useAuthStore } from '../store/Store';
 
 import logo from './../assests/svg/logo.svg';
 import forgotPassword from './../assests/svg/forgot-password-svg.svg';
@@ -14,6 +20,32 @@ const ForgotPassword = () => {
     document.title = 'Resume Genie | Forgot Password';
   }, []);
 
+  const setEmail = useAuthStore((state) => state.setEmail);
+  const navigate = useNavigate();
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    validate: profileValidation,
+    validateOnBlur: false,
+    validateOnChange: false,
+    onSubmit: async (values) => {
+      let forgotPasswordPromise = generateOTP(values.email);
+
+      toast.promise(forgotPasswordPromise, {
+        loading: 'Checking...',
+        success: <b>OTP sent to Email...!</b>,
+        error: <b>Problem while generating OTP!</b>,
+      });
+
+      forgotPasswordPromise.then(() => {
+        setEmail(values.email);
+        navigate('/recovery');
+      });
+    },
+  });
+
   return (
     <motion.section
       initial={{ opacity: 0, x: '-100%' }}
@@ -22,6 +54,8 @@ const ForgotPassword = () => {
       exit={{ opacity: 0, x: '100%' }}
       className="w-[100%] min-h-[100vh] flex bg-cover bg-no-repeat bg"
     >
+      <Toaster position="top-center" reverseOrder={false}></Toaster>
+
       <div className="w-2/5 p-[40px]">
         <div>
           <img src={logo} alt="Resume Genie Logo" />
@@ -38,12 +72,13 @@ const ForgotPassword = () => {
             </p>
           </div>
 
-          <form action="">
+          <form onSubmit={formik.handleSubmit}>
             <Input
               type="email"
               label="Email"
               labelFor="forgot-mail"
               placeholder="Your Email"
+              formik={formik.getFieldProps('email')}
             />
 
             <Button
