@@ -1,8 +1,14 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { toast, Toaster } from 'react-hot-toast';
+import { useFormik } from 'formik';
 
 import Input from '../component/Input';
 import Button from '../component/Button';
+import { resetPasswordValidation } from '../helper/validate';
+import { resetPassword } from './../helper/helper';
+import { useAuthStore } from './../store/Store';
 
 import logo from './../assests/svg/logo.svg';
 import resetPasswordSvg from './../assests/svg/reset-password-svg.svg';
@@ -14,6 +20,32 @@ const Reset = () => {
     document.title = 'Resume Genie | Reset Password';
   }, []);
 
+  const navigate = useNavigate();
+  const { email } = useAuthStore((state) => state.auth);
+
+  const formik = useFormik({
+    initialValues: {
+      password: '',
+      confirm_pwd: '',
+    },
+    validate: resetPasswordValidation,
+    validateOnBlur: false,
+    validateOnChange: false,
+    onSubmit: async (values) => {
+      let resetPromise = resetPassword({ email, password: values.password });
+
+      toast.promise(resetPromise, {
+        loading: 'Updating...',
+        success: <b>Reset Successfully...!</b>,
+        error: <b>Could not Reset!</b>,
+      });
+
+      resetPromise.then(function () {
+        navigate('/dashboard/all');
+      });
+    },
+  });
+
   return (
     <motion.section
       initial={{ opacity: 0, x: '-100%' }}
@@ -22,6 +54,8 @@ const Reset = () => {
       exit={{ opacity: 0, x: '100%' }}
       className="w-[100%] min-h-[100vh] flex bg-cover bg-no-repeat bg"
     >
+      <Toaster position="top-center" reverseOrder={false}></Toaster>
+
       <div className="w-2/5 p-[40px]">
         <div>
           <img src={logo} alt="Resume Genie Logo" />
@@ -37,12 +71,13 @@ const Reset = () => {
             </p>
           </div>
 
-          <form action="">
+          <form onSubmit={formik.handleSubmit}>
             <Input
               type="password"
               label="password"
               labelFor="reset-password"
               placeholder="Enter New Password"
+              formik={formik.getFieldProps('password')}
             />
 
             <div className="text-left max-w-[300px] mx-auto text-[14px] text-[var(--text-light)] mt-[-9px] mb-[18px] pl-[4px]">
@@ -54,6 +89,7 @@ const Reset = () => {
               label="Password"
               labelFor="reset-password-confirm"
               placeholder="Confirm New Password"
+              formik={formik.getFieldProps('confirm_pwd')}
             />
 
             <div className="text-left max-w-[300px] mx-auto text-[14px] text-[var(--text-light)] mt-[-9px] mb-[18px] pl-[4px]">

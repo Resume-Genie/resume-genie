@@ -1,8 +1,14 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+import { useFormik } from 'formik';
+import { registerValidation } from '../helper/validate';
+import { registerUser } from '../helper/helper';
 
 import Input from '../component/Input';
 import Button from '../component/Button';
+import { useAuthStore } from '../store/Store';
 
 import logo from './../assests/svg/logo.svg';
 import signupSvg from './../assests/svg/signup-svg.svg';
@@ -14,6 +20,34 @@ const SignUp = () => {
     document.title = 'Resume Genie | Register';
   }, []);
 
+  const setEmail = useAuthStore((state) => state.setEmail);
+
+  const navigate = useNavigate();
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      username: '',
+      password: '',
+    },
+    validate: registerValidation,
+    validateOnBlur: false,
+    validateOnChange: false,
+    onSubmit: async (values) => {
+      let registerPromise = registerUser(values);
+      toast.promise(registerPromise, {
+        loading: 'Creating...',
+        success: <b>Register Successfully...!</b>,
+        error: <b>Could not Register.</b>,
+      });
+
+      registerPromise.then(() => {
+        setEmail(values.email);
+        navigate('/dashboard/all');
+      });
+    },
+  });
+
   return (
     <motion.section
       initial={{ opacity: 0, x: '-100%' }}
@@ -22,6 +56,8 @@ const SignUp = () => {
       exit={{ opacity: 0, x: '100%' }}
       className="w-[100%] min-h-[100vh] flex bg-cover bg-no-repeat bg"
     >
+      <Toaster position="top-center" reverseOrder={false}></Toaster>
+
       <div className="w-2/5 p-[40px]">
         <div>
           <img src={logo} alt="Resume Genie Logo" />
@@ -37,24 +73,27 @@ const SignUp = () => {
             </p>
           </div>
 
-          <form action="">
+          <form onSubmit={formik.handleSubmit}>
             <Input
               type="text"
               label="Name"
               labelFor="signup-name"
               placeholder="Your Name"
+              formik={formik.getFieldProps('username')}
             />
             <Input
               type="email"
               label="Email"
               labelFor="signup-mail"
               placeholder="Your Email"
+              formik={formik.getFieldProps('email')}
             />
             <Input
               type="password"
               label="Password"
               labelFor="signup-password"
               placeholder="Your Password"
+              formik={formik.getFieldProps('password')}
             />
 
             <Button

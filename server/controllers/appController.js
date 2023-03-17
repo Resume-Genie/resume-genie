@@ -28,7 +28,6 @@ async function register(req, res) {
   try {
     const { username, password, email } = req.body;
 
-    // check the existing user
     let existUsername;
     try {
       existUsername = await userModel.findOne({ username });
@@ -38,7 +37,6 @@ async function register(req, res) {
       });
     }
 
-    // check for existing email
     let existEmail;
     try {
       existEmail = await userModel.findOne({ email });
@@ -102,7 +100,6 @@ async function login(req, res) {
             if (!passwordCheck)
               return res.status(401).send({ error: 'Invalid Credentials' });
 
-            // create jwt token
             const token = jwt.sign(
               {
                 userId: user._id,
@@ -141,7 +138,6 @@ async function getUser(req, res) {
     try {
       user = await userModel.findOne({ username });
 
-      //Remove password from the User
       const { password, ...rest } = Object.assign({}, user.toJSON());
 
       return res.status(201).send(rest);
@@ -160,15 +156,17 @@ async function generateOTP(req, res) {
     upperCaseAlphabets: false,
     specialChars: false,
   });
-  res.status(201).send({ code: req.app.locals.OTP });
+  const user = await userModel.findOne(req.query);
+
+  res.status(201).send({ code: req.app.locals.OTP, username: user.username });
 }
 
 // GET: http://localhost:8000/api/verifyOTP
 async function verifyOTP(req, res) {
   const { code } = req.query;
   if (parseInt(req.app.locals.OTP) === parseInt(code)) {
-    req.app.locals.OTP = null; // reset the OTP value
-    req.app.locals.resetSession = true; // start session for reset password
+    req.app.locals.OTP = null;
+    req.app.locals.resetSession = true;
     return res.status(201).send({ msg: 'Verify Successsfully!' });
   }
   return res.status(400).send({ error: 'Invalid OTP' });
@@ -197,7 +195,6 @@ async function updateUser(req, res) {
     if (userId) {
       const body = req.body;
 
-      // update the data
       let update;
       try {
         update = await userModel.findOneAndUpdate({ _id: userId }, body);
@@ -234,7 +231,7 @@ async function resetPassword(req, res) {
                   { password: hashedPassword }
                 );
 
-                req.app.locals.resetSession = false; // reset session
+                req.app.locals.resetSession = false;
                 return res.status(201).send({ msg: 'Record Updated...!' });
               } catch (err) {
                 throw err;
