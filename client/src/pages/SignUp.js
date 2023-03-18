@@ -8,7 +8,7 @@ import { registerUser } from '../helper/helper';
 
 import Input from '../component/Input';
 import Button from '../component/Button';
-import { useAuthStore } from '../store/Store';
+import { useAuthStore, useAuthUsername } from '../store/Store';
 
 import logo from './../assests/svg/logo.svg';
 import signupSvg from './../assests/svg/signup-svg.svg';
@@ -21,6 +21,7 @@ const SignUp = () => {
   }, []);
 
   const setEmail = useAuthStore((state) => state.setEmail);
+  const setUsername = useAuthUsername((state) => state.setUsername);
 
   const navigate = useNavigate();
 
@@ -43,6 +44,7 @@ const SignUp = () => {
 
       registerPromise.then(() => {
         setEmail(values.email);
+        setUsername(values.username);
         navigate('/dashboard/all');
       });
     },
@@ -99,7 +101,7 @@ const SignUp = () => {
             <Button
               type="submit"
               text="CREATE AN ACCOUNT"
-              className="text-[var(--white)] text-[12px] bg-[var(--primary)] p-[18px] w-full rounded-[5px] max-w-[300px] my-[18px] font-bold"
+              className="text-[12px] bg-[var(--primary)] p-[18px] w-full max-w-[300px] my-[18px] font-bold"
             />
           </form>
 

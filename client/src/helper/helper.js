@@ -92,7 +92,7 @@ export async function generateOTP(email) {
         username,
       });
     }
-    return Promise.resolve(code);
+    return Promise.resolve({ code, username });
   } catch (error) {
     return Promise.reject({ error });
   }

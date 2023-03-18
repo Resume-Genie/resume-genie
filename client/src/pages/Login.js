@@ -8,7 +8,7 @@ import Input from '../component/Input';
 import Button from '../component/Button';
 import { loginValidate } from '../helper/validate';
 import { verifyPassword } from './../helper/helper';
-import { useAuthStore } from '../store/Store';
+import { useAuthStore, useAuthUsername } from '../store/Store';
 
 import logo from './../assests/svg/logo.svg';
 import loginSvg from './../assests/svg/login-svg.svg';
@@ -21,21 +21,24 @@ const Login = () => {
   }, []);
 
   const setEmail = useAuthStore((state) => state.setEmail);
+  const setUsername = useAuthUsername((state) => state.setUsername);
   const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: '',
+      email: 'example@gmail.com',
+      password: 'admin@123',
     },
     validate: loginValidate,
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
+      console.log(values);
       let loginPromise = verifyPassword({
         email: values.email,
         password: values.password,
       });
+
       toast.promise(loginPromise, {
         loading: 'Checking...',
         success: <b>Login Successfully...!</b>,
@@ -43,9 +46,10 @@ const Login = () => {
       });
 
       loginPromise.then((res) => {
-        let { token } = res.data;
+        let { token, username } = res.data;
         localStorage.setItem('token', token);
         setEmail(values.email);
+        setUsername(username);
         navigate('/dashboard/all');
       });
     },
@@ -104,7 +108,7 @@ const Login = () => {
             <Button
               type="submit"
               text="LOG IN"
-              className="text-[var(--white)] text-[12px] bg-[var(--primary)] p-[18px] w-full rounded-[5px] max-w-[300px] my-[18px] font-bold"
+              className="text-[12px] bg-[var(--primary)] p-[18px] w-full max-w-[300px] my-[18px] font-bold"
             />
           </form>
 

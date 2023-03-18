@@ -8,7 +8,7 @@ import Input from '../component/Input';
 import Button from '../component/Button';
 import { profileValidation } from '../helper/validate';
 import { generateOTP } from './../helper/helper';
-import { useAuthStore } from '../store/Store';
+import { useAuthStore, useAuthUsername } from '../store/Store';
 
 import logo from './../assests/svg/logo.svg';
 import forgotPassword from './../assests/svg/forgot-password-svg.svg';
@@ -21,6 +21,7 @@ const ForgotPassword = () => {
   }, []);
 
   const setEmail = useAuthStore((state) => state.setEmail);
+  const setUsername = useAuthUsername((state) => state.setUsername);
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -39,8 +40,9 @@ const ForgotPassword = () => {
         error: <b>Problem while generating OTP!</b>,
       });
 
-      forgotPasswordPromise.then(() => {
+      forgotPasswordPromise.then((res) => {
         setEmail(values.email);
+        setUsername(res.username);
         navigate('/recovery');
       });
     },
@@ -84,7 +86,7 @@ const ForgotPassword = () => {
             <Button
               type="submit"
               text="SEND OTP"
-              className="text-[var(--white)] text-[12px] bg-[var(--primary)] p-[18px] w-full rounded-[5px] max-w-[300px] my-[18px] font-bold"
+              className="text-[12px] bg-[var(--primary)] p-[18px] w-full max-w-[300px] my-[18px] font-bold"
             />
           </form>
 

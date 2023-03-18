@@ -114,6 +114,7 @@ async function login(req, res) {
             return res.status(200).send({
               msg: 'Login Successful...!',
               email: user.email,
+              username: user.username,
               token,
             });
           })
