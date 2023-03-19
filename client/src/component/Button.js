@@ -7,6 +7,7 @@ const Button = (props) => {
       className={
         'text-[var(--white)] bg-[var(--dark)] rounded-[5px] ' + props.className
       }
+      onClick={props.onClick}
     >
       {props.text}
     </button>
