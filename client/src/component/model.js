@@ -24,7 +24,9 @@ const Model = (props) => {
           </button>
         </section>
 
-        <section className="px-7 bg-[var(--light)]"></section>
+        <section className="px-7 bg-[var(--light)]">
+          <CreateResume />
+        </section>
       </section>
     </>
   );
