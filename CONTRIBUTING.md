@@ -18,9 +18,16 @@ We love your help! We want to make contributing to this project as easy and tran
   ```
   
 - Install the dependencies
-  ```
-  $ npm install
-  ```
+  - Front-End
+    ```
+    $ cd client
+    $ npm install
+    ```
+  - Back-End
+    ```
+    $ cd server
+    $ npm install
+    ```
   
 - Check out a new branch based and name it to what you intend to do:
   ```
