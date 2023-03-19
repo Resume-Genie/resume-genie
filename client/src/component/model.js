@@ -25,7 +25,8 @@ const Model = (props) => {
         </section>
 
         <section className="px-7 bg-[var(--light)]">
-          <CreateResume />
+          {/* <CreateResume /> */}
+          <DocumentType />
         </section>
       </section>
     </>
