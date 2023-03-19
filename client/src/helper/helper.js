@@ -1,7 +1,11 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+if (process.env.REACT_APP_ENV === 'development')
+  axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+else {
+  axios.defaults.baseURL = process.env.REACT_APP_PROD_SERVER_DOMAIN;
+}
 
 export async function getUsername() {
   const token = localStorage.getItem('token');
@@ -88,7 +92,7 @@ export async function generateOTP(email) {
         username,
       });
     }
-    return Promise.resolve(code);
+    return Promise.resolve({ code, username });
   } catch (error) {
     return Promise.reject({ error });
   }
@@ -111,7 +115,7 @@ export async function resetPassword({ email, password }) {
       email,
       password,
     });
-    
+
     return Promise.resolve({ data, status });
   } catch (error) {
     return Promise.reject({ error });

@@ -1,18 +1,32 @@
 const nodemailer = require('nodemailer');
 const mailgen = require('mailgen');
+const dotenv = require('dotenv');
 
-const ENV = require('../utils/config.js');
+dotenv.config({ path: './config.env' });
+
+let nodeConfig;
 
 // https://ethereal.email/create
-let nodeConfig = {
-  host: 'smtp.ethereal.email',
-  port: 587,
-  secure: false,
-  auth: {
-    user: ENV.EMAIL,
-    pass: ENV.PASSWORD,
-  },
-};
+if (process.env.NODE_ENV === 'development') {
+  nodeConfig = {
+    host: 'smtp.ethereal.email',
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
+    },
+  };
+}
+
+if (process.env.NODE_ENV === 'production')
+  nodeConfig = {
+    service: 'gmail',
+    auth: {
+      user: process.env.PROD_EMAIL,
+      pass: process.env.PROD_PASSWORD,
+    },
+  };
 
 let transporter = nodemailer.createTransport(nodeConfig);
 
@@ -24,9 +38,9 @@ let mailgenerator = new mailgen({
   },
 });
 
-function sendMail(email, usermail, subject, body, res) {
+function sendMail(usermail, subject, body, res) {
   let message = {
-    from: email,
+    from: '"Resume Genie" <no-reply@resumegenie.com>',
     to: usermail,
     subject: subject,
     html: body,
@@ -63,7 +77,7 @@ exports.registerMail = async (req, res) => {
 
   let emailBody = mailgenerator.generate(email);
 
-  sendMail(ENV.EMAIL, userEmail, 'Signup Successful', emailBody, res);
+  sendMail(userEmail, 'Signup Successful', emailBody, res);
 };
 
 /** POST: http://localhost:8080/api/mail/sendOtp 
@@ -94,5 +108,5 @@ exports.sendOtp = async (req, res) => {
 
   let emailBody = mailgenerator.generate(email);
 
-  sendMail(ENV.EMAIL, userEmail, 'Resume Genie: Recovery OTP', emailBody, res);
+  sendMail(userEmail, 'Resume Genie: Recovery OTP', emailBody, res);
 };

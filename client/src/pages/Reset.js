@@ -99,7 +99,7 @@ const Reset = () => {
             <Button
               type="submit"
               text="RESET PASSWORD"
-              className="text-[var(--white)] text-[12px] bg-[var(--primary)] p-[18px] w-full rounded-[5px] max-w-[300px] my-[18px] font-bold"
+              className="text-[12px] bg-[var(--primary)] p-[18px] w-full max-w-[300px] my-[18px] font-bold"
             />
           </form>
 

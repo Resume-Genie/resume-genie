@@ -1,18 +1,22 @@
 const express = require('express');
+const dotenv = require('dotenv');
 const cors = require('cors');
 const morgan = require('morgan');
 const connect = require('./database/connection');
 const router = require('./router/route');
 
+dotenv.config({ path: './config.env' });
+
 const app = express();
 
 // Middlewares
+if (process.env.NODE_ENV == 'development') app.use(morgan('dev'));
+
 app.use(express.json());
 app.use(cors());
-app.use(morgan('tiny'));
 app.disable('x-powered-by');
 
-const port = 8000;
+const port = process.env.PORT;
 
 // HTTP GET Request
 app.get('/', (req, res) => {
@@ -27,7 +31,7 @@ connect()
   .then(() => {
     try {
       app.listen(port, () => {
-        console.log('Server connected to http://localhost:${port}');
+        console.log(`Server connected to http://localhost:${port}`);
       });
     } catch (error) {
       console.log('Cannot connect to server');
