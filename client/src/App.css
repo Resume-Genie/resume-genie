@@ -1,0 +1,7 @@
+.model {
+  transition: all 0.2s ease-in;
+}
+
+.dragover {
+  opacity: 0.6;
+}

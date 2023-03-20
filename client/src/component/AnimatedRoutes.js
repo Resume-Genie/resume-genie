@@ -10,6 +10,7 @@ import Recovery from './../pages/Recovery';
 import Reset from './../pages/Reset';
 import Samples from './../pages/Samples';
 import ForgotPassword from './../pages/ForgotPassword';
+import CreateResume from '../pages/Form/CreateResume';
 
 import { AnimatePresence } from 'framer-motion';
 
@@ -28,6 +29,7 @@ const AnimatedRoutes = () => {
         <Route path="/dashboard/all" element={<Dashboard />} />
         <Route path="/dashboard/samples" element={<Samples />} />
         <Route path="/dashboard/profile" element={<Profile />} />
+        <Route path="/form/createResume" element={<CreateResume />} />
         <Route path="/page-not-found" element={<PageNotFound />} />
       </Routes>
     </AnimatePresence>
