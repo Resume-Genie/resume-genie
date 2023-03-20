@@ -22,8 +22,8 @@ const DocumentType = () => {
 
       <ul className="min-w-[650px]">
         {lists.map((list) => (
-          <li key={list} className="mb-[18px]">
-            <button className="bg-white w-full text-left p-[18px] rounded-[4px] ">
+          <li key={list.title} className="mb-[18px]">
+            <button className="bg-white w-full text-left p-[18px] rounded-[4px] shadow-[0_2px_4px_rgb(0,0,0,0.1)] hover:scale-[1.03] transition-transform">
               <div className="flex items-center">
                 <h3 className="text-[18px] font-bold text-[var(--text)]">
                   {list.title}

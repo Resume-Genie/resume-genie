@@ -5,7 +5,7 @@ import AnimatedRoutes from './component/AnimatedRoutes';
 
 function App() {
   return (
-    <main className="App">
+    <main className="App cursor-default">
       <BrowserRouter>
         <AnimatedRoutes />
       </BrowserRouter>

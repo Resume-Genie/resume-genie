@@ -10,7 +10,7 @@ const CreateResume = () => {
       <ul className="pb-[18px]">
         {lists.map((list) => (
           <li key={list} className="[&:not(:last-child)]:mb-[18px]">
-            <button className="bg-white w-full text-left p-[18px] text-[18px] font-bold rounded-[4px] text-[var(--text)]">
+            <button className="bg-white w-full text-left p-[18px] text-[18px] font-bold rounded-[4px] text-[var(--text)] shadow-[0_2px_4px_rgb(0,0,0,0.1)] hover:scale-[1.03] transition-transform">
               {list}
             </button>
           </li>
