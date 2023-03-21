@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import Button from '../component/Button';
+import DashboardLink from '../component/DashboardLink';
+import Model from '../component/model';
 import { useAuthUsername } from '../store/Store';
 
 import logo from './../assests/svg/logo.svg';
@@ -11,8 +13,6 @@ import library from './../assests/svg/dashboard/library-svg.svg';
 import profile from './../assests/svg/dashboard/profile-svg.svg';
 import logOut from './../assests/svg/dashboard/log-out-svg.svg';
 import add from './../assests/svg/dashboard/add-svg.svg';
-import DashboardLink from '../component/DashboardLink';
-import Model from '../component/model';
 
 const Dashboard = () => {
   useEffect(() => {
