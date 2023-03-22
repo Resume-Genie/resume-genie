@@ -25,7 +25,7 @@
   $ git checkout -b BRANCH_NAME
   ```
   
-- Setup **Environment Variable**: [Environment Variable](Environment_Variable)
+- Setup **Environment Variable**: [Environment Variable](ENVIRONMENT.md)
   
 - Run the project <br />
   - Front-End
