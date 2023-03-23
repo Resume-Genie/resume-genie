@@ -6,8 +6,8 @@ import { useFormik } from 'formik';
 import { registerValidation } from '../helper/validate';
 import { registerUser } from '../helper/helper';
 
-import Input from '../component/Input';
-import Button from '../component/Button';
+import Input from '../component/UI/Input';
+import Button from '../component/UI/Button';
 import { useAuthStore, useAuthUsername } from '../store/Store';
 
 import logo from './../assests/svg/logo.svg';
@@ -45,7 +45,7 @@ const SignUp = () => {
       registerPromise.then(() => {
         setEmail(values.email);
         setUsername(values.username);
-        navigate('/dashboard/all');
+        navigate('/login');
       });
     },
   });
@@ -82,6 +82,7 @@ const SignUp = () => {
               labelFor="signup-name"
               placeholder="Your Name"
               formik={formik.getFieldProps('username')}
+              className="invisible absolute"
             />
             <Input
               type="email"
@@ -89,6 +90,7 @@ const SignUp = () => {
               labelFor="signup-mail"
               placeholder="Your Email"
               formik={formik.getFieldProps('email')}
+              className="invisible absolute"
             />
             <Input
               type="password"
@@ -96,6 +98,7 @@ const SignUp = () => {
               labelFor="signup-password"
               placeholder="Your Password"
               formik={formik.getFieldProps('password')}
+              className="invisible absolute"
             />
 
             <Button

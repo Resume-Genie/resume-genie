@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { toast, Toaster } from 'react-hot-toast';
 
-import Button from '../component/Button';
+import Button from '../component/UI/Button';
 import { verifyOTP, generateOTP } from './../helper/helper';
 import { useAuthStore } from './../store/Store';
 
@@ -13,13 +13,22 @@ import recoverySVG from './../assests/svg/recovery-svg.svg';
 import './bg.css';
 
 const Recovery = () => {
-  useEffect(() => {
-    document.title = 'Resume Genie | Recovery';
-  }, []);
-
+  const [timer, setTimer] = useState(59);
   const email = useAuthStore((state) => state.auth.email);
+  const [isResend, setIsResend] = useState(false);
   const [otp, setOtp] = useState(new Array(6).fill(''));
   const navigate = useNavigate();
+  let interval;
+
+  useEffect(() => {
+    document.title = 'Resume Genie | Recovery';
+
+    interval = setInterval(() => {
+      setTimer((prevTime) => prevTime - 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleKeyUp = (e) => {
     const key = e.keyCode || e.charCode;
@@ -63,8 +72,15 @@ const Recovery = () => {
 
     sentPromise.then((OTP) => {
       console.log(OTP);
+      setTimer(59);
+      setTimeout(false);
     });
   }
+
+  setTimeout(() => {
+    clearInterval(interval);
+    setIsResend(true);
+  }, 59100);
 
   return (
     <motion.section
@@ -112,14 +128,19 @@ const Recovery = () => {
             <button
               onClick={resendOTP}
               type="button"
-              className="block max-w-[300px] mx-auto text-[14px] text-[var(--primary)] mb-[18px]"
+              className={
+                'block max-w-[300px] mx-auto text-[14px] text-[var(--primary)] mb-[18px]' +
+                (isResend ? '' : ' opacity-50 cursor-not-allowed')
+              }
             >
               Resned OTP
             </button>
 
             <p className="text-center max-w-[300px] mx-auto text-[14px] text-[var(--text)] mb-[18px]">
               OTP can be sent again in
-              <span className="ml-[4px] text-[#f23333]">0:59</span>
+              <span className="ml-[4px] text-[#f23333]">
+                {'0:' + (timer > 10 ? timer : timer > 0 ? '0' + timer : '00')}
+              </span>
             </p>
 
             <Button

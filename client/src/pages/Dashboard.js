@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
-import Button from '../component/Button';
+import Button from '../component/UI/Button';
 import DashboardLink from '../component/DashboardLink';
 import Model from '../component/model';
 import { useAuthUsername } from '../store/Store';
@@ -22,6 +23,7 @@ const Dashboard = () => {
   const username = useAuthUsername((state) => state.auth.username);
   const [isOpenModel, setIsOpenModel] = useState(false);
   const [modelNumber, setModelNumber] = useState(0);
+  const navigate = useNavigate();
 
   const openModel = () => {
     setIsOpenModel(true);
@@ -42,16 +44,21 @@ const Dashboard = () => {
     {
       logo: library,
       text: 'Sample Library',
-      link: '/library',
+      link: '/dashboard/samples',
     },
     {
       logo: profile,
       text: 'My Profile',
-      link: '/profile',
+      link: '/dashboard/profile',
     },
   ];
 
   const buttons = ['All', 'Resumes', 'Cover Letters', 'Resignation Letters'];
+
+  const logoutHandler = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
 
   return (
     <>
@@ -96,7 +103,7 @@ const Dashboard = () => {
             ))}
           </ul>
 
-          <button className="self-start mt-auto flex">
+          <button className="self-start mt-auto flex" onClick={logoutHandler}>
             <div className="w-[24px] h-[24px]">
               <img src={logOut} alt="Dashboard Logo" />
             </div>

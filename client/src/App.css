@@ -9,7 +9,8 @@
 .tooltip::after {
   background-color: var(--med);
   font-size: 11px;
-  width: 90px;
+  font-weight: bold;
+  width: 106px;
   border-radius: 5px;
   color: var(--text);
   display: none;
