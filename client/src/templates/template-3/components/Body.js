@@ -12,10 +12,9 @@ export default function Body({ data }) {
       <section className="w-[600px]">
         <Skills data={data.skills}/>
         <section className="mt-10">
-        <Others data={data.projects} />
+          <Others data={data.projects} />
+        </section>
       </section>
-      </section>
-      
     </section>
   );
 }

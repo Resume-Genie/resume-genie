@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { toast, Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
 
-import Input from '../component/Input';
-import Button from '../component/Button';
+import Input from '../component/UI/Input';
+import Button from '../component/UI/Button';
 import { profileValidation } from '../helper/validate';
 import { generateOTP } from './../helper/helper';
 import { useAuthStore, useAuthUsername } from '../store/Store';
@@ -81,6 +81,7 @@ const ForgotPassword = () => {
               labelFor="forgot-mail"
               placeholder="Your Email"
               formik={formik.getFieldProps('email')}
+              className="invisible absolute"
             />
 
             <Button
