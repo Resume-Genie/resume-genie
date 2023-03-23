@@ -5,3 +5,43 @@
 .dragover {
   opacity: 0.6;
 }
+
+.tooltip::after {
+  background-color: var(--med);
+  font-size: 11px;
+  width: 90px;
+  border-radius: 5px;
+  color: var(--text);
+  display: none;
+  padding: 4px 8px;
+  position: absolute;
+  text-align: center;
+  z-index: 999;
+}
+
+.tooltip.tooltip-right::after {
+  top: 0;
+  right: 0;
+  transform: translateX(calc(100% + 8px));
+}
+
+.tooltip::before {
+  background-color: #333;
+  content: ' ';
+  display: none;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  z-index: 999;
+}
+
+.tooltip.tooltip-right::before {
+  top: 50%;
+  right: 0;
+  transform: translate(calc(100% + 5px), -50%) rotate(45deg);
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+  display: block;
+}
