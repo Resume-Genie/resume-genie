@@ -6,7 +6,7 @@ export default function Template3() {
   return (
     <>
      <Navbar data={data.info} />
-     <Body data={data.education}/>
+     <Body data={data}/>
     </>
   );
 }
