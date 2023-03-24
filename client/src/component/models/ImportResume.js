@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-import Button from '../Button';
+import Button from '../UI/Button';
 
 import upload from '../../assests/svg/dashboard/upload.svg';
 import cross from '../../assests/svg/dashboard/add-svg.svg';

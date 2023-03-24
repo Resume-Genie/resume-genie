@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { toast, Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
 
-import Input from '../component/Input';
-import Button from '../component/Button';
+import Input from '../component/UI/Input';
+import Button from '../component/UI/Button';
 import { resetPasswordValidation } from '../helper/validate';
 import { resetPassword } from './../helper/helper';
 import { useAuthStore } from './../store/Store';
@@ -78,6 +78,7 @@ const Reset = () => {
               labelFor="reset-password"
               placeholder="Enter New Password"
               formik={formik.getFieldProps('password')}
+              className="invisible absolute"
             />
 
             <div className="text-left max-w-[300px] mx-auto text-[14px] text-[var(--text-light)] mt-[-9px] mb-[18px] pl-[4px]">
@@ -90,6 +91,7 @@ const Reset = () => {
               labelFor="reset-password-confirm"
               placeholder="Confirm New Password"
               formik={formik.getFieldProps('confirm_pwd')}
+              className="invisible absolute"
             />
 
             <div className="text-left max-w-[300px] mx-auto text-[14px] text-[var(--text-light)] mt-[-9px] mb-[18px] pl-[4px]">

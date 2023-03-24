@@ -19,7 +19,7 @@ const Model = (props) => {
         }}
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.2, ease: [0.2, 0.43, 0.57, 0.99] }}
+        transition={{ duration: 0.3, ease: [0.2, 0.43, 0.57, 0.99] }}
         exit={{ opacity: 0 }}
       ></motion.div>
 
@@ -32,7 +32,7 @@ const Model = (props) => {
         }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
-          duration: 0.3,
+          duration: 0.4,
           ease: [0.2, 0.43, 0.57, 0.99],
         }}
         exit={{ opacity: 0, scale: 0 }}

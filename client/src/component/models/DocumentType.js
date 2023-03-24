@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-import Button from '../Button';
+import Button from '../UI/Button';
 
 const DocumentType = (props) => {
   const navigate = useNavigate();

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 import DashboardLink from '../../component/DashboardLink';
 
@@ -9,23 +10,40 @@ import profile from './../../assests/svg/dashboard/profile-svg.svg';
 import logOut from './../../assests/svg/dashboard/log-out-svg.svg';
 
 const CreateResume = () => {
+  const navigate = useNavigate();
+
   const boardLinks = [
     {
       logo: dashboard,
-      text: 'My Dashboard',
+      text: 'MY DASHBOARD',
       link: '/dashboard/all',
     },
     {
       logo: library,
-      text: 'Sample Library',
+      text: 'SAMPLE LIBRARY',
       link: '/library',
     },
     {
       logo: profile,
-      text: 'My Profile',
+      text: 'MY PROFILE',
       link: '/profile',
     },
   ];
+
+  const buttons = [
+    'CONTACT',
+    'EXPERIENCE',
+    'PROJECTS',
+    'EDUCATION',
+    'SKILLS',
+    'CERTIFICATIONS',
+    'OTHERS',
+  ];
+
+  const logoutHandler = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
 
   return (
     <motion.section
@@ -37,7 +55,9 @@ const CreateResume = () => {
     >
       <section className="h-[100vh] bg-[#f1fffe] flex flex-col items-center py-[40px] px-3">
         <div>
-          <img src={logoShort} alt="Resume Genie Logo" />
+          <a href="/dashboard/all">
+            <img src={logoShort} alt="Resume Genie Logo" />
+          </a>
         </div>
 
         <ul className="mt-[15vh]">
@@ -56,8 +76,23 @@ const CreateResume = () => {
           className="mt-auto w-[24px] h-[24px] relative after:content-[attr(data-text)] tooltip tooltip-right"
           data-text="LogOut"
         >
-          <img src={logOut} alt="Dashboard Logo" />
+          <img src={logOut} alt="Dashboard Logo" onClick={logoutHandler} />
         </button>
+      </section>
+
+      <section className="p-4">
+        <ul className="flex">
+          {buttons.map((button) => (
+            <li
+              className="[&:not(:first-child)]:ml-[16px] text-white bg-[var(--dark)] rounded-[4px] font-bold"
+              key={button}
+            >
+              <button className="text-[12px] py-[4px] px-[8px] font-bolds tracking-wider">
+                {button}
+              </button>
+            </li>
+          ))}
+        </ul>
       </section>
     </motion.section>
   );
