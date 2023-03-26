@@ -1,3 +1,7 @@
+<img src="https://github.com/Gautam25Raj/resume-genie/blob/main/client/src/assests/svg/logo.svg" height="180" alt="Resume Genie logo"  />
+
+<br>
+
 ![Made-With-React](https://img.shields.io/badge/MADE%20WITH-REACT-00caef.svg?colorA=222222&style=for-the-badge&logoWidth=14&logo=react)
 ![Made-With-NodeJS](https://img.shields.io/badge/MADE%20WITH-NODE-339933.svg?colorA=222222&style=for-the-badge&logoWidth=14&logo=Node.js)
 ![Made-With-Tesseract](https://img.shields.io/badge/MADE%20WITH-TESSERACT-4285F4.svg?colorA=222222&style=for-the-badge&logoWidth=14&logo=Google)
