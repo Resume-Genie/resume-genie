@@ -1,0 +1,18 @@
+.nav::before {
+  background-color: #fff;
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 0;
+  transition: height 0.2s ease-in;
+  left: -16px;
+}
+
+.nav:hover {
+  transform: scale(1.1);
+  color: var(--white);
+}
+
+.nav:hover::before {
+  height: 100%;
+}
