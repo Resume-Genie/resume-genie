@@ -8,6 +8,8 @@ import library from './../../assests/svg/dashboard/library-svg.svg';
 import profile from './../../assests/svg/dashboard/profile-svg.svg';
 import logOut from './../../assests/svg/dashboard/log-out-svg.svg';
 
+import './SidebarClose.css';
+
 const SidebarClose = () => {
   const navigate = useNavigate();
 

@@ -5,7 +5,7 @@ export const HomeButton = (props) => {
     <button
       type="button"
       className={
-        'text-[var(--white)] rounded-[200px] px-9 border-[3px] border-solid hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-[1.02] transition-[transform,shadow] active:scale-[.98] ' +
+        'text-[var(--white)] text-[16px] font-bold rounded-[200px] px-9 border-[3px] border-solid hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-[1.02] transition-[transform,shadow] active:scale-[.98] ' +
         props.className
       }
       onClick={props.onClick}
