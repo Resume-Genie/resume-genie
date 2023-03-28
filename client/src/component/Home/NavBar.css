@@ -1,0 +1,30 @@
+.nav:hover .nav-item {
+  color: var(--home-dark);
+}
+
+.nav-item::before {
+  background-color: #fff;
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 0;
+  transition: height 0.2s ease-in;
+  left: -16px;
+}
+
+.nav .nav-item:hover {
+  transform: scale(1.1);
+  color: var(--white);
+}
+
+.nav-item:hover::before {
+  height: 100%;
+}
+
+.nav-item:first-child::before {
+  height: 100%;
+}
+
+.nav:hover .nav-item:first-child::before {
+  height: 0%;
+}
