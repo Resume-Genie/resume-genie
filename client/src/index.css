@@ -1,15 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-*,
-*::after,
-*::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 :root {
   --text: #272643;
   --text-light: #c5c5c5;
@@ -19,6 +10,17 @@
   --dark: #2c698d;
   --primary: #45a1fa;
   --secondary: #00c0ff;
+  --primary-green: #54b862;
+  --home-dark: #3b4536;
+  --home-bg: #0a1805;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
