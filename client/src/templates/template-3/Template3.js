@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import data from "./data";
+import data from "../data";
 import Body from "./components/Body";
 
 export default function Template3() {
