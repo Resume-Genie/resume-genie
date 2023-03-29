@@ -8,7 +8,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="flex justify-between items-center">
+    <section className="flex justify-between items-center max-w-[1376px] mx-auto">
       <div>
         <img src={hero} alt="Smiling girl with resume template" />
       </div>

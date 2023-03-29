@@ -15,7 +15,7 @@ const NavBar = () => {
   ];
 
   return (
-    <section className="flex justify-between pt-[60px] mb-20">
+    <section className="flex justify-between mb-20 max-w-[1376px] mx-auto">
       <div>
         <Logo fill="#fff" />
       </div>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import Hero from '../component/Home/Hero';
 
 import NavBar from '../component/Home/NavBar';
+import Steps from '../component/Home/Steps';
 
 import './bg.css';
 import './Home.css';
@@ -13,10 +14,14 @@ const Home = () => {
       animate={{ x: '0' }}
       transition={{ duration: 0.75, ease: [0, 0.99, 1, 0.94] }}
       exit={{ opacity: 0, x: '100%' }}
-      className="px-20 bg-[var(--home-bg)] home-bg"
+      className="bg-[var(--home-bg)]"
     >
-      <NavBar />
-      <Hero />
+      <header className="py-[60px] home-bg">
+        <NavBar />
+        <Hero />
+      </header>
+
+      <Steps />
     </motion.section>
   );
 };
