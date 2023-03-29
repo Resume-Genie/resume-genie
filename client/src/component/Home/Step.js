@@ -17,7 +17,7 @@ const Step = (props) => {
           <p className="font-bold text-[36px]">{props.id}</p>
         </div>
         <h3 className="text-white font-bold mb-9 text-[28px]">{props.title}</h3>
-        <p className="text-white text-lg">{props.description}</p>
+        <p className="text-white text-[18px]">{props.description}</p>
       </div>
 
       <div

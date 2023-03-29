@@ -49,7 +49,7 @@ const ImportResume = (props) => {
     return (
       <div className="flex items-center justify-between bg-white rounded-md h-[60px] mt-4 p-4 cursor-pointer group">
         <div className="flex items-center">
-          <img src={img} alt="" className="w-[36px] h-[36px]" />
+          <img src={img} alt="" className="w-9 h-9" />
           <div className="ml-8">
             <p>{name[0]}</p>
             <p>{Math.ceil(props.fileSize / 1024) + ' MB'}</p>
@@ -92,7 +92,7 @@ const ImportResume = (props) => {
           className="rounded-[10px] border-dashed border-2 w-full border-[var(--dark)] bg-white p-9 relative hover:opacity-60"
         >
           <div onClick={onDragEnter} className="flex flex-col items-center">
-            <img src={upload} alt="" className="w-[24px] h-[24px]" />
+            <img src={upload} alt="" className="w-6 h-6" />
             <p className="text-[18px] mt-[18px] text-[var(--text)]">
               Drag and Drop or Choose File to Upload
             </p>
@@ -121,7 +121,7 @@ const ImportResume = (props) => {
           <Button
             type="button"
             text="Back"
-            className="text-[16px] py-[8px] px-[18px] font-medium"
+            className="text-[16px] py-2 px-[18px] font-medium"
             onClick={() => {
               props.setModelNumber(1);
             }}
@@ -130,7 +130,7 @@ const ImportResume = (props) => {
           <Button
             type="submit"
             text="Submit"
-            className="text-[16px] py-[8px] px-[18px] font-medium"
+            className="text-[16px] py-2 px-[18px] font-medium"
           />
         </div>
       </motion.form>

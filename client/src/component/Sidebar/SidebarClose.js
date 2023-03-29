@@ -37,7 +37,7 @@ const SidebarClose = () => {
   };
 
   return (
-    <section className="h-[100vh] bg-[#f1fffe] flex flex-col items-center py-[40px] px-3">
+    <section className="h-[100vh] bg-[#f1fffe] flex flex-col items-center py-10 px-3">
       <div>
         <a href="/dashboard/all">
           <img src={logoShort} alt="Resume Genie Logo" />
@@ -58,7 +58,7 @@ const SidebarClose = () => {
 
       <button
         className="mt-auto w-[24px] h-[24px] relative after:content-[attr(data-text)] tooltip tooltip-right"
-        data-text="LogOut"
+        data-text="Log Out"
       >
         <img src={logOut} alt="Dashboard Logo" onClick={logoutHandler} />
       </button>

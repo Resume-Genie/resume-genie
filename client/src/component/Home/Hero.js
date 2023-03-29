@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { HomeButton } from '../UI/Button';
 
@@ -19,21 +19,21 @@ const Hero = () => {
           <span className="span">resume!</span>
         </h1>
 
-        <p className="text-[18px] text-white tracking-[0.08em] mb-14 max-w-[500px]">
+        <p className="text-white text-[18px] tracking-[0.08em] mb-14 max-w-[500px]">
           Say goodbye to boring, outdated resumes and hello to your future dream
           job. Start building your resume today!
         </p>
 
         <HomeButton
-          className="bg-[var(--primary-green)] py-[9px] border-[var(--primary-green)] hover:bg-transparent transition-colors mr-[28px]"
+          className="bg-[var(--primary-green)] py-[9px] border-[var(--primary-green)] hover:bg-transparent mr-7"
           text="Create Free Resume"
           onClick={() => navigate('/register')}
         />
 
         <HomeButton
-          className="py-[9px] border-[var(--primary-green)] mr-7 hover:bg-[var(--primary-green)] transition-colors"
+          className="py-[9px] border-[var(--primary-green)] hover:bg-[var(--primary-green)]"
           text="Know More"
-          onClick={() => navigate('#whyus')}
+          onClick={() => document.getElementById('howto').scrollIntoView()}
         />
       </section>
     </section>

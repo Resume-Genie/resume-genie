@@ -9,15 +9,15 @@ import './NavBar.css';
 const NavBar = () => {
   const navigate = useNavigate();
   const nav = [
-    { text: 'Home', link: '/' },
-    { text: 'Why us', link: '/whyus' },
-    { text: 'Price', link: '/price' },
+    { text: 'Home', link: 'home' },
+    { text: 'How?', link: 'howto' },
+    { text: 'Why us?', link: 'whyus' },
   ];
 
   return (
     <section className="flex justify-between mb-20 max-w-[1376px] mx-auto">
       <div>
-        <Logo fill="#fff" />
+        <Logo fill="#fff" title="Resume Genie Logo" />
       </div>
 
       <div className="flex items-center">
@@ -25,23 +25,28 @@ const NavBar = () => {
           <ul className="flex nav">
             {nav.map((item) => (
               <li
-                className="text-[var(--white)] transition-[transform,color] [&:not(:last-child)]:mr-[40px] [&:not(:first-child)]:text-[var(--home-dark)] relative nav-item"
+                className="text-white transition-[transform,color] [&:not(:last-child)]:mr-10 [&:not(:first-child)]:text-[var(--home-dark)] relative nav-item cursor-pointer"
                 key={item.text}
+                role="link"
+                tabindex="0"
+                onClick={() =>
+                  document.getElementById(item.link).scrollIntoView()
+                }
               >
-                <a href={item.link}>{item.text}</a>
+                {item.text}
               </li>
             ))}
           </ul>
         </nav>
 
         <HomeButton
-          className="py-[9px] border-[var(--home-dark)] mr-7 hover:bg-[var(--home-dark)] transition-colors"
+          className="py-[9px] border-[var(--home-dark)] mr-7 hover:bg-[var(--home-dark)]"
           text="Sign Up"
           onClick={() => navigate('/register')}
         />
 
         <HomeButton
-          className="bg-[var(--home-dark)] py-[9px] border-[var(--home-dark)] hover:bg-transparent transition-colors"
+          className="bg-[var(--home-dark)] py-[9px] border-[var(--home-dark)] hover:bg-transparent"
           text="Log In"
           onClick={() => navigate('/login')}
         />

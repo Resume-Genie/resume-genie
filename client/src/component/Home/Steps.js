@@ -37,7 +37,7 @@ const Steps = () => {
   ];
 
   return (
-    <section className="max-w-[1376px] mx-auto">
+    <section className="max-w-[1376px] mx-auto" id="howto">
       <h2 className="text-[52px] text-white font-bold tracking-[0.08em] mb-9 heading max-w-[700px]">
         Build your dream resume in a snap
       </h2>
@@ -52,7 +52,7 @@ const Steps = () => {
             img={step.img}
           />
         ))}
-        <div className="text-[210px] font-extrabold text-[var(--primary-green)] absolute rotate-90 whitespace-nowrap top-2/4 left-2/4 -z-10 opacity-30 -translate-x-2/4 -translate-y-2/4">
+        <div className="text-[210px] font-extrabold text-[var(--primary-green)] absolute rotate-90 whitespace-nowrap top-2/4 left-2/4 -z-10 opacity-30 -translate-x-2/4 -translate-y-2/4 tracking-[0.08em]">
           RESUME GENIE
         </div>
       </section>

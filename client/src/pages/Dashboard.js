@@ -43,9 +43,9 @@ const Dashboard = () => {
       >
         <SidebarOpen setIsOpenModel={setIsOpenModel} />
 
-        <section className="w-[78vw] h-[100vh] py-[36px] px-[60px]">
+        <section className="w-[78vw] h-[100vh] py-9 px-[60px]">
           <DashboardMenu />
-          <section className="px-[40px] py-[50px]">
+          <section className="px-10 py-[50px]">
             <button
               className="rounded-[10px] border-dashed border-2 w-[250px] h-[300px] border-[var(--dark)]"
               onClick={openModel}

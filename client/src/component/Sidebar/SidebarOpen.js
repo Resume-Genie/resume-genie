@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import DashboardLink from '../../component/DashboardLink';
 import Button from '../../component/UI/Button';
 
-import logo from './../../assests/svg/logo.svg';
+import { ReactComponent as Logo } from './../../assests/svg/logo.svg';
 import dashboard from './../../assests/svg/dashboard/dashboard-svg.svg';
 import library from './../../assests/svg/dashboard/library-svg.svg';
 import profile from './../../assests/svg/dashboard/profile-svg.svg';
@@ -36,14 +36,14 @@ const SidebarOpen = (props) => {
   };
 
   return (
-    <section className="w-[22vw] h-[100vh] bg-[#F1FFFE] flex flex-col items-center p-[40px]">
-      <div>
-        <img src={logo} alt="Resume Genie Logo" />
+    <section className="w-[22vw] h-[100vh] bg-[#F1FFFE] flex flex-col items-center p-10">
+      <div className="mb-10">
+        <Logo fill="var(--dark)" title="Resume Genie Logo" />
       </div>
 
       <Button
         text="CREATE NEW DOCUMENT"
-        className="text-[var(--white)] text-[14px] bg-[var(--dark)] p-[18px] w-full rounded-[5px] max-w-[260px] mt-[40px] font-bold"
+        className="text-white text-[14px] bg-[var(--dark)] p-[18px] w-full rounded-[5px] max-w-[260px] font-bold"
         onClick={() => {
           props.setIsOpenModel(true);
         }}
@@ -66,7 +66,7 @@ const SidebarOpen = (props) => {
           <img src={logOut} alt="Dashboard Logo" />
         </div>
 
-        <p className="text-[18px] text-[var(--text)] ml-[20px]">Log Out</p>
+        <p className="text-[18px] text-[var(--text)] ml-5">Log Out</p>
       </button>
     </section>
   );

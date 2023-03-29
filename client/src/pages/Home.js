@@ -16,7 +16,7 @@ const Home = () => {
       exit={{ opacity: 0, x: '100%' }}
       className="bg-[var(--home-bg)]"
     >
-      <header className="py-[60px] home-bg">
+      <header className="py-[60px] home-bg" id="home">
         <NavBar />
         <Hero />
       </header>

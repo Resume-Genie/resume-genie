@@ -7,7 +7,7 @@ import Button from '../component/UI/Button';
 import { verifyOTP, generateOTP } from './../helper/helper';
 import { useAuthStore } from './../store/Store';
 
-import logo from './../assests/svg/logo.svg';
+import { ReactComponent as Logo } from './../assests/svg/logo.svg';
 import recoverySVG from './../assests/svg/recovery-svg.svg';
 
 import './bg.css';
@@ -88,17 +88,17 @@ const Recovery = () => {
       animate={{ opacity: 1, x: '0' }}
       transition={{ duration: 0.75, ease: [0, 0.99, 1, 0.94] }}
       exit={{ opacity: 0, x: '100%' }}
-      className="w-[100%] min-h-[100vh] flex bg-cover bg-no-repeat bg"
+      className="w-full min-h-[100vh] flex bg-cover bg-no-repeat bg"
     >
       <Toaster position="top-center" reverseOrder={false}></Toaster>
 
-      <div className="w-2/5 p-[40px]">
-        <div>
-          <img src={logo} alt="Resume Genie Logo" />
+      <div className="w-2/5 p-10">
+        <div className="mb-5">
+          <Logo fill="var(--dark)" title="Resume Genie Logo" />
         </div>
 
-        <section className="mt-[20px] p-[40px] text-center">
-          <div className="mb-[36px]">
+        <section className="p-10 text-center">
+          <div className="mb-9">
             <h2 className="text-[28px] font-bold text-[var(--text)] tracking-wider">
               Confirm OTP
             </h2>
@@ -115,7 +115,7 @@ const Recovery = () => {
                   maxLength="1"
                   min="0"
                   max="9"
-                  className="border-solid border-[#F0F0F0] rounded-[5px] border py-[9px]  w-[42.5px] text-[24px] text-center [&:not(:first-child)]:ml-[9px]"
+                  className="border-solid border-[#F0F0F0] rounded-[5px] border py-[9px] w-[42.5px] text-[24px] text-center [&:not(:first-child)]:ml-[9px]"
                   value={element}
                   key={i}
                   onChange={(e) => handleChange(e.target, i)}
@@ -138,7 +138,7 @@ const Recovery = () => {
 
             <p className="text-center max-w-[300px] mx-auto text-[14px] text-[var(--text)] mb-[18px]">
               OTP can be sent again in
-              <span className="ml-[4px] text-[#f23333]">
+              <span className="ml-1 text-[#f23333]">
                 {'0:' + (timer > 10 ? timer : timer > 0 ? '0' + timer : '00')}
               </span>
             </p>
@@ -150,7 +150,7 @@ const Recovery = () => {
             />
           </form>
 
-          <div className="text-[18px] flex justify-center mt-[36px]">
+          <div className="text-[18px] flex justify-center mt-9">
             <p className="text-[var(--text) mr-2">Remember Password?</p>
             <a href="/login" className="text-[var(--primary)]">
               Login Page
