@@ -7,6 +7,7 @@ export default function SKIllS(props) {
     for (var i = 0; i < temp; i++) {
       times.push({});
     }
+
     return (
       <>
         {times.map((index) => (
@@ -14,14 +15,14 @@ export default function SKIllS(props) {
         ))}
       </>
     );
-  } ;
+  };
 
   return (
     <section className="w-[540px]">
-      <p className="text-[40px] font-bold">SKILLS</p>
+      <h2 className="text-[40px] font-bold">SKILLS</h2>
       {props.data.map((element) => {
         return (
-          <div className="flex items-center mb-5">
+          <div className="flex items-center mt-5">
             <p className="bg-[#979ca5] text-white rounded-lg px-3 py-1 text-[18px]">
               {element.skill}
             </p>
@@ -35,5 +36,3 @@ export default function SKIllS(props) {
     </section>
   );
 }
-
-
