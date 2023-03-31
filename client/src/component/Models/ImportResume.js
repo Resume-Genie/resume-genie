@@ -1,15 +1,15 @@
-import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-import Button from "../Button";
+import Button from '../UI/Button';
 
-import upload from "../../assests/svg/dashboard/upload.svg";
-import cross from "../../assests/svg/dashboard/add-svg.svg";
-import jpg from "../../assests/svg/dashboard/jpg.svg";
-import png from "../../assests/svg/dashboard/png.svg";
-import pdf from "../../assests/svg/dashboard/pdf.svg";
-import dft from "../../assests/svg/dashboard/default.svg";
+import upload from '../../assests/svg/dashboard/upload.svg';
+import cross from '../../assests/svg/dashboard/add-svg.svg';
+import jpg from '../../assests/svg/dashboard/jpg.svg';
+import png from '../../assests/svg/dashboard/png.svg';
+import pdf from '../../assests/svg/dashboard/pdf.svg';
+import dft from '../../assests/svg/dashboard/default.svg';
 
 const ImportResume = (props) => {
   const navigation = useNavigate();
@@ -18,13 +18,13 @@ const ImportResume = (props) => {
   const wrapperRef = useRef(null);
 
   const onDragEnter = () => {
-    wrapperRef.current.classList.add("dragover");
+    wrapperRef.current.classList.add('dragover');
   };
 
-  const onDragLeave = () => wrapperRef.current.classList.remove("dragover");
+  const onDragLeave = () => wrapperRef.current.classList.remove('dragover');
 
   const onDrop = () => {
-    wrapperRef.current.classList.remove("dragover");
+    wrapperRef.current.classList.remove('dragover');
   };
 
   const onFileDrop = (e) => {
@@ -38,12 +38,12 @@ const ImportResume = (props) => {
   };
 
   const Media = (props) => {
-    const name = props.fileName.split(".");
+    const name = props.fileName.split('.');
     let img = dft;
 
-    if (name[1] === "jpg") img = jpg;
-    if (name[1] === "png") img = png;
-    if (name[1] === "pdf") img = pdf;
+    if (name[1] === 'jpg') img = jpg;
+    if (name[1] === 'png') img = png;
+    if (name[1] === 'pdf') img = pdf;
 
     console.log(img);
     return (
@@ -52,7 +52,7 @@ const ImportResume = (props) => {
           <img src={img} alt="" className="w-[36px] h-[36px]" />
           <div className="ml-8">
             <p>{name[0]}</p>
-            <p>{Math.ceil(props.fileSize / 1024) + " MB"}</p>
+            <p>{Math.ceil(props.fileSize / 1024) + ' MB'}</p>
           </div>
         </div>
         <div
@@ -68,10 +68,10 @@ const ImportResume = (props) => {
   return (
     <>
       <motion.h2
-        initial={{ opacity: 0, x: "-100%" }}
-        animate={{ opacity: 1, x: "0" }}
+        initial={{ opacity: 0, x: '-100%' }}
+        animate={{ opacity: 1, x: '0' }}
         transition={{ duration: 0.75, ease: [0, 0.99, 1, 0.94] }}
-        exit={{ opacity: 0, x: "100%" }}
+        exit={{ opacity: 0, x: '100%' }}
         className="py-9 text-[32px] font-bold text-[var(--text)]"
       >
         Import your Resume!

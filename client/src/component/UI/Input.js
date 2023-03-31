@@ -1,7 +1,7 @@
 const Input = (props) => {
   return (
     <div className="mb-[18px]">
-      <label htmlFor={props.labelFor} className="invisible absolute">
+      <label htmlFor={props.labelFor} className={props.className}>
         {props.label}
       </label>
 

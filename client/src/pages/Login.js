@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { toast, Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
 
-import Input from '../component/Input';
-import Button from '../component/Button';
+import Input from '../component/UI/Input';
+import Button from '../component/UI/Button';
 import { loginValidate } from '../helper/validate';
 import { verifyPassword } from './../helper/helper';
 import { useAuthStore, useAuthUsername } from '../store/Store';
@@ -87,6 +87,7 @@ const Login = () => {
               labelFor="login-mail"
               placeholder="Your Email"
               formik={formik.getFieldProps('email')}
+              className="invisible absolute"
             />
             <Input
               type="password"
@@ -94,6 +95,7 @@ const Login = () => {
               labelFor="login-password"
               placeholder="Your Password"
               formik={formik.getFieldProps('password')}
+              className="invisible absolute"
             />
 
             <div className="text-right max-w-[300px] mx-auto">

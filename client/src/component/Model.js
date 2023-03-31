@@ -2,9 +2,9 @@ import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 
 import add from './../assests/svg/dashboard/add-svg.svg';
-import CreateResume from './models/CreateResume';
-import DocumentType from './models/DocumentType';
-import ImportResume from './models/ImportResume';
+import CreateResume from './Models/CreateResume';
+import DocumentType from './Models/DocumentType';
+import ImportResume from './Models/ImportResume';
 
 const Model = (props) => {
   if (!props.open) return null;
@@ -19,9 +19,9 @@ const Model = (props) => {
         }}
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.2, ease: [0.2, 0.43, 0.57, 0.99] }}
+        transition={{ duration: 0.3, ease: [0.2, 0.43, 0.57, 0.99] }}
         exit={{ opacity: 0 }}
-      ></motion.div>
+      />
 
       <motion.section
         initial={{
@@ -32,7 +32,7 @@ const Model = (props) => {
         }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
-          duration: 0.3,
+          duration: 0.4,
           ease: [0.2, 0.43, 0.57, 0.99],
         }}
         exit={{ opacity: 0, scale: 0 }}
