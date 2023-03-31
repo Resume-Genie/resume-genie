@@ -16,8 +16,12 @@ const Step = (props) => {
         <div className="rounded-full bg-[var(--primary-green)] w-[50px] h-[50px] text-center shadow-[0_0_24px_20px_rgba(84,184,98,0.2)] mb-[18px]">
           <p className="font-bold text-[36px]">{props.id}</p>
         </div>
-        <h3 className="text-white font-bold mb-9 text-[28px]">{props.title}</h3>
-        <p className="text-white text-[18px]">{props.description}</p>
+        <h3 className="text-white font-bold mb-9 text-[28px] tracking-[0.08em]">
+          {props.title}
+        </h3>
+        <p className="text-white text-[18px] tracking-widest leading-8">
+          {props.description}
+        </p>
       </div>
 
       <div

@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
-import Hero from '../component/Home/Hero';
 
+import Hero from '../component/Home/Hero';
 import NavBar from '../component/Home/NavBar';
 import Steps from '../component/Home/Steps';
+import Whyus from '../component/Home/Whyus';
 
 import './bg.css';
 import './Home.css';
@@ -22,6 +23,7 @@ const Home = () => {
       </header>
 
       <Steps />
+      <Whyus />
     </motion.section>
   );
 };
