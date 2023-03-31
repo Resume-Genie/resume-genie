@@ -10,7 +10,7 @@ import { resetPasswordValidation } from '../helper/validate';
 import { resetPassword } from './../helper/helper';
 import { useAuthStore } from './../store/Store';
 
-import logo from './../assests/svg/logo.svg';
+import { ReactComponent as Logo } from './../assests/svg/logo.svg';
 import resetPasswordSvg from './../assests/svg/reset-password-svg.svg';
 
 import './bg.css';
@@ -52,17 +52,17 @@ const Reset = () => {
       animate={{ opacity: 1, x: '0' }}
       transition={{ duration: 0.75, ease: [0, 0.99, 1, 0.94] }}
       exit={{ opacity: 0, x: '100%' }}
-      className="w-[100%] min-h-[100vh] flex bg-cover bg-no-repeat bg"
+      className="w-full min-h-[100vh] flex bg-cover bg-no-repeat bg"
     >
       <Toaster position="top-center" reverseOrder={false}></Toaster>
 
-      <div className="w-2/5 p-[40px]">
-        <div>
-          <img src={logo} alt="Resume Genie Logo" />
+      <div className="w-2/5 p-10">
+        <div className="mb-5">
+          <Logo fill="var(--dark)" title="Resume Genie Logo" />
         </div>
 
-        <section className="mt-[20px] p-[40px] text-center">
-          <div className="mb-[36px]">
+        <section className="p-10 text-center">
+          <div className="mb-9">
             <h2 className="text-[28px] font-bold text-[var(--text)] tracking-wider">
               Reset Password
             </h2>
@@ -81,7 +81,7 @@ const Reset = () => {
               className="invisible absolute"
             />
 
-            <div className="text-left max-w-[300px] mx-auto text-[14px] text-[var(--text-light)] mt-[-9px] mb-[18px] pl-[4px]">
+            <div className="text-left max-w-[300px] mx-auto text-[14px] text-[var(--text-light)] mt-[-9px] mb-[18px] pl-1">
               Must be at least 8 character.
             </div>
 
@@ -94,7 +94,7 @@ const Reset = () => {
               className="invisible absolute"
             />
 
-            <div className="text-left max-w-[300px] mx-auto text-[14px] text-[var(--text-light)] mt-[-9px] mb-[18px] pl-[4px]">
+            <div className="text-left max-w-[300px] mx-auto text-[14px] text-[var(--text-light)] mt-[-9px] mb-[18px] pl-1">
               Both password must match.
             </div>
 
@@ -105,7 +105,7 @@ const Reset = () => {
             />
           </form>
 
-          <div className="text-[18px] flex justify-center mt-[36px]">
+          <div className="text-[18px] flex justify-center mt-9">
             <p className="text-[var(--text) mr-2">Remember Password?</p>
             <a href="/login" className="text-[var(--primary)]">
               Login Page

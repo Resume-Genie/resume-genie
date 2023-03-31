@@ -9,7 +9,7 @@ const Input = (props) => {
         type={props.type}
         id={props.labelFor}
         placeholder={props.placeholder}
-        className="border-solid border-[#F0F0F0] rounded-[5px] border p-[20px] w-full max-w-[300px] text-[16px]"
+        className="border-solid border-[#F0F0F0] rounded-[5px] border p-5 w-full max-w-[300px] text-[16px]"
         {...props.formik}
       />
     </div>

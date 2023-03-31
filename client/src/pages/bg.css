@@ -1,3 +1,27 @@
 .bg {
   background-image: url('../assests/svg/background-curve.svg');
 }
+
+.home-bg {
+  background-image: radial-gradient(
+      130% 300% at 0% 0%,
+      rgba(35, 66, 33, 0.6) 0%,
+      rgba(26, 47, 25, 0.6) 16.35%,
+      #051806,
+      #051806
+    ),
+    url('../assests/svg/bg.svg');
+
+  background-image: radial-gradient(
+      132% 244.44% at 0% 0%,
+      rgba(5, 24, 6, 0.5) 0%,
+      rgba(5, 24, 6, 0.8) 14.5%,
+      rgba(5, 24, 6, 0.9) 28.64%,
+      #051806 43%,
+      #051806 100%
+    ),
+    url('../assests/svg/bg.svg');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}

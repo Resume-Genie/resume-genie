@@ -73,7 +73,7 @@ const DocumentType = (props) => {
 
       <Button
         text="Back"
-        className="text-[16px] py-[8px] px-[18px] font-medium my-[18px]"
+        className="text-[16px] py-2 px-[18px] font-medium my-[18px]"
         onClick={() => {
           props.setModelNumber(0);
         }}

@@ -36,7 +36,7 @@ const Model = (props) => {
           ease: [0.2, 0.43, 0.57, 0.99],
         }}
         exit={{ opacity: 0, scale: 0 }}
-        className="fixed z-50 rounded-[12px] overflow-hidden top-[50%] left-[50%] shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] cursor-default"
+        className="fixed z-50 rounded-xl overflow-hidden top-[50%] left-[50%] shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] cursor-default"
       >
         <section className="bg-[var(--med)] flex justify-between items-center pl-7 pr-3">
           <p className="font-bold text-[16px] my-4 text-[var(--text)]">

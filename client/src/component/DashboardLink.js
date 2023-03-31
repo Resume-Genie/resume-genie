@@ -5,7 +5,7 @@ const DashboardLink = (props) => {
         <img src={props.logo} alt="Dashboard Logo" />
       </div>
       {props.text ? (
-        <p className="text-[18px] ml-[20px] text-[var(--text)]">{props.text}</p>
+        <p className="text-[18px] ml-5 text-[var(--text)]">{props.text}</p>
       ) : null}
     </a>
   );

@@ -31,10 +31,10 @@ const CreateResume = () => {
         <ul className="flex">
           {buttons.map((button) => (
             <li
-              className="[&:not(:first-child)]:ml-[16px] text-white bg-[var(--dark)] rounded-[4px] font-bold"
+              className="[&:not(:first-child)]:ml-4 text-white bg-[var(--dark)] rounded-[4px] font-bold"
               key={button}
             >
-              <button className="text-[12px] py-[4px] px-[8px] font-bolds tracking-wider">
+              <button className="text-[12px] py-1 px-2 font-bolds tracking-wider">
                 {button}
               </button>
             </li>
