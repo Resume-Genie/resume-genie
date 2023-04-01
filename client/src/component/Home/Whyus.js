@@ -33,7 +33,7 @@ const Whyus = () => {
 
   return (
     <section className="max-w-[1376px] mx-auto py-20" id="whyus">
-      <h2 class="text-[52px] text-white font-bold tracking-[0.08em] heading max-w-[800px] mb-20">
+      <h2 class="text-[52px] text-white font-bold tracking-[0.08em] heading max-w-[800px] mb-20 prevent-select">
         Why use The Resume Genie Resume Builder?
       </h2>
 

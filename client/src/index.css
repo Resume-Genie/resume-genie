@@ -79,11 +79,11 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--dark);
+  background: var(--primary-green);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--text);
+  background-color: var(--dark);
 }
 
 ::-webkit-scrollbar-thumb:active {

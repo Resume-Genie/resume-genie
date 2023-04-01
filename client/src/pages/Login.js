@@ -11,7 +11,7 @@ import { verifyPassword } from './../helper/helper';
 import { useAuthStore, useAuthUsername } from '../store/Store';
 
 import { ReactComponent as Logo } from './../assests/svg/logo.svg';
-import loginSvg from './../assests/svg/login-svg.svg';
+import loginSvg from './../assests/svg/auth/login-svg.svg';
 
 import './bg.css';
 

@@ -11,7 +11,7 @@ import { generateOTP } from './../helper/helper';
 import { useAuthStore, useAuthUsername } from '../store/Store';
 
 import { ReactComponent as Logo } from './../assests/svg/logo.svg';
-import forgotPassword from './../assests/svg/forgot-password-svg.svg';
+import forgotPassword from './../assests/svg/auth/forgot-password-svg.svg';
 
 import './bg.css';
 

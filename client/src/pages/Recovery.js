@@ -8,7 +8,7 @@ import { verifyOTP, generateOTP } from './../helper/helper';
 import { useAuthStore } from './../store/Store';
 
 import { ReactComponent as Logo } from './../assests/svg/logo.svg';
-import recoverySVG from './../assests/svg/recovery-svg.svg';
+import recoverySVG from './../assests/svg/auth/recovery-svg.svg';
 
 import './bg.css';
 

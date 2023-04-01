@@ -11,7 +11,7 @@ import Button from '../component/UI/Button';
 import { useAuthStore, useAuthUsername } from '../store/Store';
 
 import { ReactComponent as Logo } from './../assests/svg/logo.svg';
-import signupSvg from './../assests/svg/signup-svg.svg';
+import signupSvg from './../assests/svg/auth/signup-svg.svg';
 
 import './bg.css';
 

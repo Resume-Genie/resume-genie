@@ -1,7 +1,7 @@
-import Step1 from '../../assests/svg/home/step1.svg';
-import Step2 from '../../assests/svg/home/step2.svg';
-import Step3 from '../../assests/svg/home/step3.svg';
-import Step4 from '../../assests/svg/home/step4.svg';
+import Step1 from '../../assests/svg/home/Steps/step1.svg';
+import Step2 from '../../assests/svg/home/Steps/step2.svg';
+import Step3 from '../../assests/svg/home/Steps/step3.svg';
+import Step4 from '../../assests/svg/home/Steps/step4.svg';
 import Step from './Step';
 
 const Steps = () => {
@@ -38,7 +38,7 @@ const Steps = () => {
 
   return (
     <section className="max-w-[1376px] mx-auto" id="howto">
-      <h2 className="text-[52px] text-white font-bold tracking-[0.08em] mb-9 heading max-w-[700px]">
+      <h2 className="text-[52px] text-white font-bold tracking-[0.08em] mb-9 heading max-w-[700px] prevent-select">
         Build your dream resume in a snap
       </h2>
 

@@ -16,3 +16,9 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.prevent-select {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

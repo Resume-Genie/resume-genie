@@ -1,4 +1,4 @@
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { HomeButton } from '../UI/Button';
 
@@ -14,7 +14,7 @@ const Hero = () => {
       </div>
 
       <section className="max-w-[620px]">
-        <h1 className="text-[52px] text-white font-bold tracking-[0.08em] mb-9 heading">
+        <h1 className="text-[52px] text-white font-bold tracking-[0.08em] mb-9 heading prevent-select">
           Unleash your potential with a standout{' '}
           <span className="span">resume!</span>
         </h1>
