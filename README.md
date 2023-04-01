@@ -1,4 +1,4 @@
-<img src="https://github.com/Gautam25Raj/resume-genie/blob/main/client/src/assests/svg/logo.svg" height="180" alt="Resume Genie logo"  />
+<img src="https://github.com/Gautam25Raj/resume-genie/blob/main/client/src/assests/svg/logo-github.svg" height="180" alt="Resume Genie logo"  />
 
 <br>
 
