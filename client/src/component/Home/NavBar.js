@@ -28,7 +28,7 @@ const NavBar = () => {
                 className="text-white transition-[transform,color] [&:not(:last-child)]:mr-10 [&:not(:first-child)]:text-[var(--home-dark)] relative nav-item cursor-pointer"
                 key={item.text}
                 role="link"
-                tabindex="0"
+                tabIndex="0"
                 onClick={() =>
                   document.getElementById(item.link).scrollIntoView()
                 }

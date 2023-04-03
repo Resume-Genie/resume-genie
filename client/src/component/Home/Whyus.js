@@ -32,8 +32,8 @@ const Whyus = () => {
   ];
 
   return (
-    <section className="max-w-[1376px] mx-auto py-20" id="whyus">
-      <h2 class="text-[52px] text-white font-bold tracking-[0.08em] heading max-w-[800px] mb-20 prevent-select">
+    <section className="max-w-[1376px] mx-auto mt-20 mb-5" id="whyus">
+      <h2 className="text-[52px] text-white font-bold tracking-[0.08em] heading max-w-[800px] mb-20 prevent-select">
         Why use The Resume Genie Resume Builder?
       </h2>
 
@@ -41,8 +41,9 @@ const Whyus = () => {
         {elements.map((element, i) => (
           <section
             className={
-              'flex max-w-[636px ' + (i % 2 != 0 ? 'justify-self-end' : null)
+              'flex max-w-[636px ' + (i % 2 !== 0 ? 'justify-self-end' : null)
             }
+            key={element.title}
           >
             <div>
               <img src={element.img} alt="" />

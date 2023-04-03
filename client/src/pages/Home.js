@@ -7,6 +7,7 @@ import Whyus from '../component/Home/Whyus';
 
 import './bg.css';
 import './Home.css';
+import Footer from '../component/Home/Footer';
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
 
       <Steps />
       <Whyus />
+      <Footer />
     </motion.section>
   );
 };
