@@ -121,3 +121,26 @@ export async function resetPassword({ email, password }) {
     return Promise.reject({ error });
   }
 }
+
+// export async function uploadFile({ file, email }) {
+//   try {
+//     console.log(file);
+//     const formData = new FormData();
+//     formData.append('file', file);
+//     formData.append('fileNames', file.name);
+
+//     const data = await axios
+//       .post('/api/upload', formData, {
+//         headers: {
+//           'Content-Type': 'multipart/form-data',
+//         },
+//       })
+//       .then((res) => {
+//         console.log(res.data);
+//       });
+
+//     return Promise.resolve(data.config.data);
+//   } catch (error) {
+//     return Promise.reject({ error });
+//   }
+// }

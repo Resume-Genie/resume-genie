@@ -20,10 +20,11 @@ const Button = (props) => {
     <button
       type={props.type}
       className={
-        'text-white bg-[var(--dark)] rounded-[5px] shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-[1.02] transition-[transform,shadow] active:scale-[.98] ' +
+        'text-white bg-[var(--dark)] rounded-[5px] shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-[1.02] transition-[transform,shadow] active:scale-[.98] disabled:hover:scale-[1] disabled:hover:shadow-none disabled:active-[1] disabled:opacity-25 disabled:cursor-not-allowed ' +
         props.className
       }
       onClick={props.onClick}
+      disabled={props.disabled}
     >
       {props.text}
     </button>

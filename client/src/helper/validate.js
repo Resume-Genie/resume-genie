@@ -17,6 +17,20 @@ export async function loginValidate(values) {
   return errors;
 }
 
+export async function uploadValidate(values) {
+  if (values) {
+    // const { status } = await authenticate(values.email);
+
+    // if (status !== 200) {
+    // return toast.error('User does not exist...!');
+    // } else {
+    return {};
+    // }
+  }
+
+  return toast.error('Upload a File!');
+}
+
 export async function resetPasswordValidation(values) {
   const errors = passwordVerify({}, values);
 
