@@ -10,19 +10,26 @@ const MediaFileType = (props) => {
   };
 
   const name = props.fileName.split('.');
+  console.log(props.fileSize);
   let img = dft;
 
   if (name[1] === 'jpg') img = jpg;
   if (name[1] === 'png') img = png;
   if (name[1] === 'pdf') img = pdf;
-  
+
+  const fileSize = Math.ceil(props.fileSize / 1024);
+
   return (
     <div className="flex items-center justify-between bg-white rounded-md h-[60px] mt-4 p-4 cursor-pointer group">
       <div className="flex items-center">
         <img src={img} alt="" className="w-9 h-9" />
         <div className="ml-8">
           <p>{name[0]}</p>
-          <p>{Math.ceil(props.fileSize / 1024) + ' MB'}</p>
+          <p>
+            {fileSize < 1024
+              ? fileSize + ' KB'
+              : Math.round((fileSize / 1024) * 10) / 10 + ' MB'}
+          </p>
         </div>
       </div>
 
