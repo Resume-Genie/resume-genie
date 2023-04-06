@@ -2,21 +2,13 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import SidebarClose from '../../component/Sidebar/SidebarClose';
+import Editor from '../../component/Form/Editor';
+import LiveResume from '../../component/Form/LiveResume';
 
 const CreateResume = () => {
   useEffect(() => {
     document.title = 'Resume Genie | Create Resume';
   }, []);
-
-  const buttons = [
-    'CONTACT',
-    'EXPERIENCE',
-    'PROJECTS',
-    'EDUCATION',
-    'SKILLS',
-    'CERTIFICATIONS',
-    'OTHERS',
-  ];
 
   return (
     <motion.section
@@ -27,19 +19,10 @@ const CreateResume = () => {
       className="flex"
     >
       <SidebarClose />
-      <section className="p-4">
-        <ul className="flex">
-          {buttons.map((button) => (
-            <li
-              className="[&:not(:first-child)]:ml-4 text-white bg-[var(--dark)] rounded-[4px] font-bold"
-              key={button}
-            >
-              <button className="text-[12px] py-1 px-2 font-bolds tracking-wider">
-                {button}
-              </button>
-            </li>
-          ))}
-        </ul>
+
+      <section className="p-9 w-full flex">
+        <Editor />
+        <LiveResume />
       </section>
     </motion.section>
   );
