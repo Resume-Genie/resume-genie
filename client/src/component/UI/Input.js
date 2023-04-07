@@ -1,6 +1,6 @@
 const Input = (props) => {
   return (
-    <div className="mb-[18px]">
+    <div className={'mb-[18px] ' + props.inputCon}>
       <label htmlFor={props.labelFor} className={props.className}>
         {props.label}
       </label>
@@ -9,7 +9,10 @@ const Input = (props) => {
         type={props.type}
         id={props.labelFor}
         placeholder={props.placeholder}
-        className="border-solid border-[#F0F0F0] rounded-[5px] border p-5 w-full max-w-[300px] text-[16px]"
+        className={
+          'border-solid border-[#F0F0F0] rounded-[5px] border w-full max-w-[300px] text-[16px] ' +
+          (props.inputCn ? props.inputCn : 'p-5')
+        }
         {...props.formik}
       />
     </div>

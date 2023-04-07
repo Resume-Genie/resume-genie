@@ -5,3 +5,19 @@
 .dragover {
   opacity: 0.6;
 }
+
+.user-box input {
+  border-bottom: 1px solid #000;
+}
+
+.user-box label {
+  transition: 0.5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: var(--dark);
+  font-size: 12px;
+}

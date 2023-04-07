@@ -16,7 +16,7 @@ const Home = () => {
       animate={{ x: '0' }}
       transition={{ duration: 0.75, ease: [0, 0.99, 1, 0.94] }}
       exit={{ opacity: 0, x: '100%' }}
-      className="bg-[var(--home-bg)]"
+      className="bg-[var(--home-bg)] home-scroll"
     >
       <header className="py-[60px] home-bg" id="home">
         <NavBar />
