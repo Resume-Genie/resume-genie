@@ -9,7 +9,7 @@ const FormButton = (props) => {
   };
 
   return props.sections.map((button) => (
-    <li className="[&:not(:first-child)]:ml-4" key={button}>
+    <li className="[&:not(:last-child)]:mr-4 mb-2" key={button}>
       <button
         className={
           'text-[12px] py-1 px-2 font-bold tracking-wider uppercase rounded-[4px] ' +

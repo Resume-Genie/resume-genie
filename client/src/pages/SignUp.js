@@ -79,7 +79,7 @@ const SignUp = () => {
             <Input
               type="text"
               label="Name"
-              labelFor="signup-name"
+              htmlFor="signup-name"
               placeholder="Your Name"
               formik={formik.getFieldProps('username')}
               className="invisible absolute"
@@ -87,7 +87,7 @@ const SignUp = () => {
             <Input
               type="email"
               label="Email"
-              labelFor="signup-mail"
+              htmlFor="signup-mail"
               placeholder="Your Email"
               formik={formik.getFieldProps('email')}
               className="invisible absolute"
@@ -95,7 +95,7 @@ const SignUp = () => {
             <Input
               type="password"
               label="Password"
-              labelFor="signup-password"
+              htmlFor="signup-password"
               placeholder="Your Password"
               formik={formik.getFieldProps('password')}
               className="invisible absolute"

@@ -75,7 +75,7 @@ const Reset = () => {
             <Input
               type="password"
               label="password"
-              labelFor="reset-password"
+              htmlFor="reset-password"
               placeholder="Enter New Password"
               formik={formik.getFieldProps('password')}
               className="invisible absolute"
@@ -88,7 +88,7 @@ const Reset = () => {
             <Input
               type="password"
               label="Password"
-              labelFor="reset-password-confirm"
+              htmlFor="reset-password-confirm"
               placeholder="Confirm New Password"
               formik={formik.getFieldProps('confirm_pwd')}
               className="invisible absolute"

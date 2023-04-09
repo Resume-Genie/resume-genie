@@ -1,5 +1,4 @@
 import FormInput from '../FormInput';
-import Input from '../../UI/Input';
 
 import './ResumeForm.css';
 
@@ -17,21 +16,21 @@ const About = (props) => {
         <FormInput
           type={['text', 'text']}
           label={['Name', 'Role']}
-          labelFor={['resume-about-name', 'resume-about-role']}
+          htmlFor={['resume-about-name', 'resume-about-role']}
           placeholder={['Your Name', 'Your Job Role']}
         />
 
         <FormInput
           type={['email', 'number']}
           label={['Email', 'Phone Number']}
-          labelFor={['resume-about-email', 'resume-about-number']}
+          htmlFor={['resume-about-email', 'resume-about-number']}
           placeholder={['Your Email', 'Your Phone Number']}
         />
 
         <FormInput
           type={['text', 'date']}
           label={['location', 'DOB']}
-          labelFor={['resume-about-location', 'resume-about-dob']}
+          htmlFor={['resume-about-location', 'resume-about-dob']}
           placeholder={['Your Location', '']}
         />
 
@@ -45,8 +44,8 @@ const About = (props) => {
 
           <textarea
             type="text"
-            label="Summary"
-            labelFor="resume-about-summary"
+            id="resume-about-summary"
+            htmlFor="resume-about-summary"
             placeholder="Your Summary"
             className="border-solid border-[#F0F0F0] rounded-[5px] border w-full text-[16px] p-3 h-36"
           />

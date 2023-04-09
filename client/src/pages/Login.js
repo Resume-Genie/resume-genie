@@ -84,7 +84,7 @@ const Login = () => {
             <Input
               type="email"
               label="Email"
-              labelFor="login-mail"
+              htmlFor="login-mail"
               placeholder="Your Email"
               formik={formik.getFieldProps('email')}
               className="invisible absolute"
@@ -92,7 +92,7 @@ const Login = () => {
             <Input
               type="password"
               label="Password"
-              labelFor="login-password"
+              htmlFor="login-password"
               placeholder="Your Password"
               formik={formik.getFieldProps('password')}
               className="invisible absolute"

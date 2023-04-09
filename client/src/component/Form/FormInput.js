@@ -1,21 +1,21 @@
 import Input from '../UI/Input';
 
 const FormInput = (props) => {
-  const [texts, label, labelFor, placeholder] = [
+  const [texts, label, htmlFor, placeholder] = [
     props.type,
     props.label,
-    props.labelFor,
+    props.htmlFor,
     props.placeholder,
   ];
-
+  console.log(htmlFor);
   return (
     <div className="flex justify-between">
       {texts.map((text, index) => (
         <Input
-          key={placeholder[index]}
+          key={htmlFor[index]}
           type={text}
           label={label[index]}
-          labelFor={labelFor[index]}
+          htmlFor={htmlFor[index]}
           placeholder={placeholder[index]}
           className="block mb-2 text-[16px]"
           inputCon="w-[270px]"

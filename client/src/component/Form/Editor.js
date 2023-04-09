@@ -8,6 +8,7 @@ const Editor = () => {
 
   const formSections = {
     About: 'Basic Info',
+    Links: 'Personal Links',
     Experience: 'Work Experience',
     Projects: 'Projects',
     Education: 'Education',
@@ -17,8 +18,9 @@ const Editor = () => {
   };
 
   return (
-    <section>
-      <ul className="flex mb-8">
+    <section className="w-1/2">
+      {/* <section> */}
+      <ul className="flex flex-wrap mb-5">
         <FormButton
           sections={Object.keys(formSections)}
           setSelection={setSelection}
