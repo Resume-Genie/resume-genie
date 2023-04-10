@@ -1,13 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import FormInput from '../FormInput';
 import Button from '../../UI/Button';
 
+import cross from './../../../assests/svg/dashboard/add-svg.svg';
+
 import './ResumeForm.css';
 
 const Experience = (props) => {
+  const [addExperience, setAddExperience] = useState([]);
+
+  // const
+
   const Template = () => (
-    <section className="rounded p-4 mb-4 bg-[var(--light)]">
+    <section className="rounded p-4 mb-4 bg-[var(--light)] relative">
+      {addExperience.length > 0 && (
+        <button
+          type="button"
+          className="rotate-45 w-6 absolute top-2 right-3 z-10"
+        >
+          <img src={cross} alt="" />
+        </button>
+      )}
+
       <div className="user-box relative">
         <input
           type="text"
@@ -54,10 +69,15 @@ const Experience = (props) => {
     </section>
   );
 
-  const [addExperience, setAddExperience] = useState([<Template />]);
+  useEffect(() => {
+    setAddExperience([<Template key={addExperience.length + 1} />]);
+  }, []);
 
   const handleAddExperience = () => {
-    setAddExperience([...addExperience, <Template />]);
+    setAddExperience([
+      ...addExperience,
+      <Template key={addExperience.length + 1} />,
+    ]);
   };
 
   return (

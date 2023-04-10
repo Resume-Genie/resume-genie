@@ -22,7 +22,7 @@ const CreateResume = () => {
 
       <section className="p-9 w-full flex">
         <Editor />
-        <LiveResume />
+        {/* <LiveResume /> */}
       </section>
     </motion.section>
   );

@@ -11,34 +11,21 @@ const FormSelection = (props) => {
   let output = null;
 
   if (props.selection === 'About')
-    output = <About title={props.formSections.About} key={props.section} />;
+    output = <About title={props.formSections.About} />;
   else if (props.selection === 'Links')
-    output = (
-      <PersonalLinks title={props.formSections.Links} key={props.section} />
-    );
+    output = <PersonalLinks title={props.formSections.Links} />;
   else if (props.selection === 'Experience')
-    output = (
-      <Experience title={props.formSections.Experience} key={props.section} />
-    );
+    output = <Experience title={props.formSections.Experience} />;
   else if (props.selection === 'Projects')
-    output = (
-      <Projects title={props.formSections.Projects} key={props.section} />
-    );
+    output = <Projects title={props.formSections.Projects} />;
   else if (props.selection === 'Skills')
-    output = <Skills title={props.formSections.Skills} key={props.section} />;
+    output = <Skills title={props.formSections.Skills} />;
   else if (props.selection === 'Certificates')
-    output = (
-      <Certificates
-        title={props.formSections.Certificates}
-        key={props.section}
-      />
-    );
+    output = <Certificates title={props.formSections.Certificates} />;
   else if (props.selection === 'Education')
-    output = (
-      <Education title={props.formSections.Education} key={props.section} />
-    );
+    output = <Education title={props.formSections.Education} />;
   else if (props.selection === 'Others')
-    output = <Others title={props.formSections.Others} key={props.section} />;
+    output = <Others title={props.formSections.Others} />;
 
   return <section className="p-4 border border-[var(--med)]">{output}</section>;
 };

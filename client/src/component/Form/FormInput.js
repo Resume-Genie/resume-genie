@@ -7,7 +7,7 @@ const FormInput = (props) => {
     props.htmlFor,
     props.placeholder,
   ];
-  console.log(htmlFor);
+
   return (
     <div className="flex justify-between">
       {texts.map((text, index) => (

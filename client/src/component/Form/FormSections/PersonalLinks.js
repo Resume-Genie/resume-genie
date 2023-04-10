@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Button from '../../UI/Button';
 import FormInput from '../FormInput';
@@ -6,19 +6,25 @@ import FormInput from '../FormInput';
 import './ResumeForm.css';
 
 const PersonalLinks = (props) => {
-  const [inputList, setInputList] = useState([
-    <FormInput
-      type={['url', 'url']}
-      label={['Portfolio', 'Github']}
-      htmlFor={['resume-link-portfolio', 'resume-link-github']}
-      placeholder={['Your Personal Website', 'Your Github Profile']}
-    />,
-  ]);
+  const [inputList, setInputList] = useState([]);
+
+  useEffect(() => {
+    setInputList([
+      <FormInput
+        key={inputList.length + 1}
+        type={['url', 'url']}
+        label={['Portfolio', 'Github']}
+        htmlFor={['resume-link-portfolio', 'resume-link-github']}
+        placeholder={['Your Personal Website', 'Your Github Profile']}
+      />,
+    ]);
+  }, []);
 
   const handleAddLinks = () =>
     setInputList((prev) => [
       ...prev,
       <FormInput
+        key={inputList.length + 1}
         type={['url', 'url']}
         label={['Link', 'Link']}
         htmlFor={[

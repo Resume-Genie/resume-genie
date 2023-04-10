@@ -1,14 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import FormInput from '../FormInput';
 import Input from '../../UI/Input';
 import Button from '../../UI/Button';
 
+import cross from './../../../assests/svg/dashboard/add-svg.svg';
+
 import './ResumeForm.css';
 
 const Education = (props) => {
+  const [addEducation, setAddEducation] = useState([]);
+
   const Template = () => (
-    <section className="rounded p-4 mb-4 bg-[var(--light)]">
+    <section className="rounded p-4 mb-4 bg-[var(--light)] relative">
+      {addEducation.length > 0 && (
+        <button
+          type="button"
+          className="rotate-45 w-6 absolute top-2 right-3 z-10"
+        >
+          <img src={cross} alt="" />
+        </button>
+      )}
+
       <div className="user-box relative">
         <input
           type="text"
@@ -49,10 +62,15 @@ const Education = (props) => {
     </section>
   );
 
-  const [addEducation, setAddEducation] = useState([<Template />]);
+  useEffect(() => {
+    setAddEducation([<Template key={addEducation.length + 1} />]);
+  }, []);
 
   const handleAddEducation = () => {
-    setAddEducation([...addEducation, <Template />]);
+    setAddEducation([
+      ...addEducation,
+      <Template key={addEducation.length + 1} />,
+    ]);
   };
 
   return (

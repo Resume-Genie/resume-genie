@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import FormInput from '../FormInput';
 import Button from '../../UI/Button';
 
+import cross from './../../../assests/svg/dashboard/add-svg.svg';
+
 import './ResumeForm.css';
 
 const Certificates = (props) => {
+  const [addCertificate, setAddCertificate] = useState([]);
+
   const Template = () => (
-    <section className="rounded p-4 mb-4 bg-[var(--light)]">
+    <section className="rounded p-4 mb-4 bg-[var(--light)] relative">
+      {addCertificate.length > 0 && (
+        <button
+          type="button"
+          className="rotate-45 w-6 absolute top-2 right-3 z-10"
+        >
+          <img src={cross} alt="" />
+        </button>
+      )}
+
       <div className="user-box relative">
         <input
           type="text"
@@ -37,10 +50,15 @@ const Certificates = (props) => {
     </section>
   );
 
-  const [addCertificate, setAddCertificate] = useState([<Template />]);
+  useEffect(() => {
+    setAddCertificate([<Template key={addCertificate.length + 1} />]);
+  }, []);
 
   const handleAddCertificate = () => {
-    setAddCertificate([...addCertificate, <Template />]);
+    setAddCertificate([
+      ...addCertificate,
+      <Template key={addCertificate.length + 1} />,
+    ]);
   };
 
   return (

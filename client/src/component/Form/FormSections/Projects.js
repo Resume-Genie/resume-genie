@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import FormInput from '../FormInput';
 import Button from '../../UI/Button';
 
+import cross from './../../../assests/svg/dashboard/add-svg.svg';
+
 import './ResumeForm.css';
 
 const Projects = (props) => {
+  const [addProject, setAddProject] = useState([]);
+
   const Template = () => (
-    <section className="rounded p-4 mb-4 bg-[var(--light)]">
+    <section className="rounded p-4 mb-4 bg-[var(--light)] relative">
+      {addProject.length > 0 && (
+        <button
+          type="button"
+          className="rotate-45 w-6 absolute top-2 right-3 z-10"
+        >
+          <img src={cross} alt="" />
+        </button>
+      )}
+
       <div className="user-box relative">
         <input
           type="text"
@@ -47,10 +60,12 @@ const Projects = (props) => {
     </section>
   );
 
-  const [addProject, setAddProject] = useState([<Template />]);
+  useEffect(() => {
+    setAddProject([<Template key={addProject.length + 1} />]);
+  }, []);
 
   const handleAddProject = () => {
-    setAddProject([...addProject, <Template />]);
+    setAddProject([...addProject, <Template key={addProject.length + 1} />]);
   };
 
   return (
