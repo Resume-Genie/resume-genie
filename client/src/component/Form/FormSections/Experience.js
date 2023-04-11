@@ -8,21 +8,8 @@ import cross from './../../../assests/svg/dashboard/add-svg.svg';
 import './ResumeForm.css';
 
 const Experience = (props) => {
-  const [addExperience, setAddExperience] = useState([]);
-
-  // const
-
   const Template = () => (
-    <section className="rounded p-4 mb-4 bg-[var(--light)] relative">
-      {addExperience.length > 0 && (
-        <button
-          type="button"
-          className="rotate-45 w-6 absolute top-2 right-3 z-10"
-        >
-          <img src={cross} alt="" />
-        </button>
-      )}
-
+    <>
       <div className="user-box relative">
         <input
           type="text"
@@ -66,18 +53,19 @@ const Experience = (props) => {
           className="border-solid border-[#F0F0F0] rounded-[5px] border w-full text-[16px] p-3 h-36"
         />
       </div>
-    </section>
+    </>
   );
 
-  useEffect(() => {
-    setAddExperience([<Template key={addExperience.length + 1} />]);
-  }, []);
+  const [addExperience, setAddExperience] = useState([<Template />]);
 
   const handleAddExperience = () => {
-    setAddExperience([
-      ...addExperience,
-      <Template key={addExperience.length + 1} />,
-    ]);
+    setAddExperience([...addExperience, <Template />]);
+  };
+
+  const closeHandler = (index) => {
+    const newExperience = [...addExperience];
+    newExperience.splice(index, 1);
+    setAddExperience(newExperience);
   };
 
   return (
@@ -87,7 +75,25 @@ const Experience = (props) => {
       </h1>
 
       <form action="" className="max-h-[515px] login-box overflow-y-auto c1">
-        {addExperience}
+        {addExperience.map((experience, i) => (
+          <section
+            className="rounded p-4 mb-4 bg-[var(--light)] relative"
+            key={i}
+            data-index={i}
+          >
+            {i > 0 && (
+              <button
+                type="button"
+                className="rotate-45 w-6 absolute top-2 right-3 z-10"
+                onClick={() => closeHandler(i)}
+              >
+                <img src={cross} alt="" />
+              </button>
+            )}
+
+            {experience}
+          </section>
+        ))}
         <Button
           type="button"
           text="Add Experience"

@@ -9,19 +9,8 @@ import cross from './../../../assests/svg/dashboard/add-svg.svg';
 import './ResumeForm.css';
 
 const Education = (props) => {
-  const [addEducation, setAddEducation] = useState([]);
-
   const Template = () => (
-    <section className="rounded p-4 mb-4 bg-[var(--light)] relative">
-      {addEducation.length > 0 && (
-        <button
-          type="button"
-          className="rotate-45 w-6 absolute top-2 right-3 z-10"
-        >
-          <img src={cross} alt="" />
-        </button>
-      )}
-
+    <>
       <div className="user-box relative">
         <input
           type="text"
@@ -59,18 +48,19 @@ const Education = (props) => {
         inputCon="w-[270px]"
         inputCn="p-3"
       />
-    </section>
+    </>
   );
 
-  useEffect(() => {
-    setAddEducation([<Template key={addEducation.length + 1} />]);
-  }, []);
+  const [addEducation, setAddEducation] = useState([<Template />]);
 
   const handleAddEducation = () => {
-    setAddEducation([
-      ...addEducation,
-      <Template key={addEducation.length + 1} />,
-    ]);
+    setAddEducation([...addEducation, <Template />]);
+  };
+
+  const closeHandler = (index) => {
+    const newEducation = [...addEducation];
+    newEducation.splice(index, 1);
+    setAddEducation(newEducation);
   };
 
   return (
@@ -80,7 +70,20 @@ const Education = (props) => {
       </h1>
 
       <form action="" className="max-h-[515px] login-box overflow-y-auto c1">
-        {addEducation}
+        {addEducation.map((education, i) => (
+          <section className="rounded p-4 mb-4 bg-[var(--light)] relative">
+            {i > 0 && (
+              <button
+                type="button"
+                className="rotate-45 w-6 absolute top-2 right-3 z-10"
+                onClick={() => closeHandler(i)}
+              >
+                <img src={cross} alt="" />
+              </button>
+            )}
+            {education}
+          </section>
+        ))}
 
         <Button
           type="button"

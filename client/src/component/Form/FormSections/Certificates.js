@@ -8,19 +8,8 @@ import cross from './../../../assests/svg/dashboard/add-svg.svg';
 import './ResumeForm.css';
 
 const Certificates = (props) => {
-  const [addCertificate, setAddCertificate] = useState([]);
-
   const Template = () => (
-    <section className="rounded p-4 mb-4 bg-[var(--light)] relative">
-      {addCertificate.length > 0 && (
-        <button
-          type="button"
-          className="rotate-45 w-6 absolute top-2 right-3 z-10"
-        >
-          <img src={cross} alt="" />
-        </button>
-      )}
-
+    <>
       <div className="user-box relative">
         <input
           type="text"
@@ -47,18 +36,19 @@ const Certificates = (props) => {
         htmlFor={['resume-certificate-issue', 'resume-certificate-expiration']}
         placeholder={['', '']}
       />
-    </section>
+    </>
   );
 
-  useEffect(() => {
-    setAddCertificate([<Template key={addCertificate.length + 1} />]);
-  }, []);
+  const [addCertificate, setAddCertificate] = useState([<Template />]);
 
   const handleAddCertificate = () => {
-    setAddCertificate([
-      ...addCertificate,
-      <Template key={addCertificate.length + 1} />,
-    ]);
+    setAddCertificate([...addCertificate, <Template />]);
+  };
+
+  const closeHandler = (index) => {
+    const newCertificate = [...addCertificate];
+    newCertificate.splice(index, 1);
+    setAddCertificate(newCertificate);
   };
 
   return (
@@ -68,7 +58,25 @@ const Certificates = (props) => {
       </h1>
 
       <form action="" className="max-h-[515px] login-box overflow-y-auto c1">
-        {addCertificate}
+        {addCertificate.map((certificate, i) => (
+          <section
+            className="rounded p-4 mb-4 bg-[var(--light)] relative"
+            key={i}
+            data-index={i}
+          >
+            {i > 0 && (
+              <button
+                type="button"
+                className="rotate-45 w-6 absolute top-2 right-3 z-10"
+                onClick={() => closeHandler(i)}
+              >
+                <img src={cross} alt="" />
+              </button>
+            )}
+
+            {certificate}
+          </section>
+        ))}
 
         <Button
           type="button"

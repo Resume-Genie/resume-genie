@@ -8,19 +8,8 @@ import cross from './../../../assests/svg/dashboard/add-svg.svg';
 import './ResumeForm.css';
 
 const Projects = (props) => {
-  const [addProject, setAddProject] = useState([]);
-
   const Template = () => (
-    <section className="rounded p-4 mb-4 bg-[var(--light)] relative">
-      {addProject.length > 0 && (
-        <button
-          type="button"
-          className="rotate-45 w-6 absolute top-2 right-3 z-10"
-        >
-          <img src={cross} alt="" />
-        </button>
-      )}
-
+    <>
       <div className="user-box relative">
         <input
           type="text"
@@ -57,15 +46,19 @@ const Projects = (props) => {
           className="border-solid border-[#F0F0F0] rounded-[5px] border w-full text-[16px] p-3 h-36"
         />
       </div>
-    </section>
+    </>
   );
 
-  useEffect(() => {
-    setAddProject([<Template key={addProject.length + 1} />]);
-  }, []);
+  const [addProject, setAddProject] = useState([<Template />]);
 
   const handleAddProject = () => {
-    setAddProject([...addProject, <Template key={addProject.length + 1} />]);
+    setAddProject([...addProject, <Template />]);
+  };
+
+  const closeHandler = (index) => {
+    const newProject = [...addProject];
+    newProject.splice(index, 1);
+    setAddProject(newProject);
   };
 
   return (
@@ -75,7 +68,25 @@ const Projects = (props) => {
       </h1>
 
       <form action="" className="max-h-[515px] login-box overflow-y-auto c1">
-        {addProject}
+        {addProject.map((project, i) => (
+          <section
+            className="rounded p-4 mb-4 bg-[var(--light)] relative"
+            key={i}
+            data-index={i}
+          >
+            {i > 0 && (
+              <button
+                type="button"
+                className="rotate-45 w-6 absolute top-2 right-3 z-10"
+                onClick={() => closeHandler(i)}
+              >
+                <img src={cross} alt="" />
+              </button>
+            )}
+
+            {project}
+          </section>
+        ))}
 
         <Button
           type="button"
