@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import FormInput from '../FormInput';
 import Button from '../../UI/Button';
@@ -79,7 +79,6 @@ const Experience = (props) => {
           <section
             className="rounded p-4 mb-4 bg-[var(--light)] relative"
             key={i}
-            data-index={i}
           >
             {i > 0 && (
               <button

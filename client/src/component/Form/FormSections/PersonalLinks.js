@@ -1,37 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
+import Input from '../../UI/Input';
 import Button from '../../UI/Button';
-import FormInput from '../FormInput';
 
 import './ResumeForm.css';
 
 const PersonalLinks = (props) => {
-  const [inputList, setInputList] = useState([]);
-
-  useEffect(() => {
-    setInputList([
-      <FormInput
-        key={inputList.length + 1}
-        type={['url', 'url']}
-        label={['Portfolio', 'Github']}
-        htmlFor={['resume-link-portfolio', 'resume-link-github']}
-        placeholder={['Your Personal Website', 'Your Github Profile']}
-      />,
-    ]);
-  }, []);
+  const [inputList, setInputList] = useState([
+    <Input
+      key={0}
+      type="text"
+      label="Portfolio"
+      htmlFor="resume-link-0"
+      placeholder="Your Personal Portfolio"
+      className="block mb-2 text-[16px]"
+      inputCon="w-[270px]"
+      inputCn="p-3"
+    />,
+  ]);
 
   const handleAddLinks = () =>
     setInputList((prev) => [
       ...prev,
-      <FormInput
-        key={inputList.length + 1}
-        type={['url', 'url']}
-        label={['Link', 'Link']}
-        htmlFor={[
-          'resume-link-' + inputList.length,
-          'resume-link-' + inputList.length + 1,
-        ]}
-        placeholder={['Your Link', 'Your Link']}
+      <Input
+        key={prev.length}
+        type="text"
+        label="Link"
+        htmlFor={'resume-link-' + prev.length}
+        placeholder="Your Link"
+        className="block mb-2 text-[16px]"
+        inputCon="w-[270px]"
+        inputCn="p-3"
       />,
     ]);
 
@@ -45,7 +44,9 @@ const PersonalLinks = (props) => {
         action=""
         className="px-4 max-h-[515px] login-box overflow-y-auto c1"
       >
-        {inputList}
+        <section className="grid grid-cols-2">
+          {inputList.map((input) => input)}
+        </section>
 
         <Button
           type="button"

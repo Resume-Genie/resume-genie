@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import FormInput from '../FormInput';
 import Input from '../../UI/Input';
@@ -71,7 +71,7 @@ const Education = (props) => {
 
       <form action="" className="max-h-[515px] login-box overflow-y-auto c1">
         {addEducation.map((education, i) => (
-          <section className="rounded p-4 mb-4 bg-[var(--light)] relative">
+          <section className="rounded p-4 mb-4 bg-[var(--light)] relative" key={i}>
             {i > 0 && (
               <button
                 type="button"
