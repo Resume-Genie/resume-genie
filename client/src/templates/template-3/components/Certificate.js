@@ -7,7 +7,7 @@ export default function Certificate({ data, className }) {
           <li
             key={index}
             className={
-              "list-disc list-inside text-[20px] [&:not(:last-child)]:mb-[8px] " +
+              'list-disc list-inside text-[20px] [&:not(:last-child)]:mb-[8px] ' +
               className
             }
           >

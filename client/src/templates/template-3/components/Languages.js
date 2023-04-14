@@ -1,4 +1,4 @@
-import { ReactComponent as Rectangle } from "../../image/icon/Rectangle.svg";
+import { ReactComponent as Rectangle } from '../../image/icon/Rectangle.svg';
 
 export default function Languages(props) {
   return (

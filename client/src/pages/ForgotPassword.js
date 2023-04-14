@@ -78,7 +78,7 @@ const ForgotPassword = () => {
             <Input
               type="email"
               label="Email"
-              labelFor="forgot-mail"
+              htmlFor="forgot-mail"
               placeholder="Your Email"
               formik={formik.getFieldProps('email')}
               className="invisible absolute"

@@ -9,12 +9,13 @@ const MediaFileType = (props) => {
     props.setFile();
   };
 
-  const name = props.fileName.split(".");
+  const name = props.fileName.split('.');
+  console.log(props.fileSize);
   let img = dft;
 
-  if (name[1] === "jpg") img = jpg;
-  if (name[1] === "png") img = png;
-  if (name[1] === "pdf") img = pdf;
+  if (name[1] === 'jpg') img = jpg;
+  if (name[1] === 'png') img = png;
+  if (name[1] === 'pdf') img = pdf;
 
   const fileSize = Math.ceil(props.fileSize / 1024);
 
@@ -26,8 +27,8 @@ const MediaFileType = (props) => {
           <p>{name[0]}</p>
           <p>
             {fileSize < 1024
-              ? fileSize + " KB"
-              : Math.round((fileSize / 1024) * 10) / 10 + " MB"}
+              ? fileSize + ' KB'
+              : Math.round((fileSize / 1024) * 10) / 10 + ' MB'}
           </p>
         </div>
       </div>
