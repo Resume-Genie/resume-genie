@@ -7,19 +7,43 @@ import cross from './../../../assests/svg/dashboard/add-svg.svg';
 
 import './ResumeForm.css';
 
-const Others = (props) => {
+const Others = () => {
+  const [heading, setHeading] = useState('Others');
+
+  const Heading = () => (
+    <div className="user-box relative">
+      <input
+        type="text"
+        placeholder=""
+        onChange={(e) => setHeading(e.target.value)}
+        required
+        className="w-full text-base text-black mb-6 bg-transparent pb-1 pt-2 border-none border-[var(--text)] outline-none"
+        onFocus={(e) => (e.target.placeholder = 'Ex- Internship')}
+        onBlur={(e) => (e.target.placeholder = '')}
+      />
+
+      <label className="absolute top-0 left-0 text-base text-black pointer-events-none py-[10px]">
+        Heading
+      </label>
+    </div>
+  );
+
   const Template = () => (
     <>
       <div className="user-box relative">
         <input
           type="text"
-          name=""
+          placeholder=""
           required
-          className="w-full text-base text-black mb-8 bg-transparent py-[10px] border-none border-[var(--text)] outline-none"
+          className="w-full text-base text-black mb-8 bg-transparent pb-1 pt-2 border-none border-[var(--text)] outline-none"
+          onFocus={(e) =>
+            (e.target.placeholder = 'Ex- Where you did your internship')
+          }
+          onBlur={(e) => (e.target.placeholder = '')}
         />
 
-        <label className="absolute top-0 left-0 text-base text-black pointer-events-none py-[14px]">
-          Title Name
+        <label className="absolute top-0 left-0 text-base text-black pointer-events-none py-[10px]">
+          Title
         </label>
       </div>
 
@@ -56,26 +80,31 @@ const Others = (props) => {
     </>
   );
 
-  const [addProject, setAddProject] = useState([<Template />]);
+  const [addOther, setAddOther] = useState([
+    <>
+      <Heading />
+      <Template />
+    </>,
+  ]);
 
-  const handleAddProject = () => {
-    setAddProject([...addProject, <Template />]);
+  const handleAddOther = () => {
+    setAddOther([...addOther, <Template />]);
   };
 
   const closeHandler = (index) => {
-    const newProject = [...addProject];
-    newProject.splice(index, 1);
-    setAddProject(newProject);
+    const newOther = [...addOther];
+    newOther.splice(index, 1);
+    setAddOther(newOther);
   };
 
   return (
     <>
       <h1 className="text-[36px] font-bold text-[text-var(--text)] mb-5">
-        {props.title}
+        {heading}
       </h1>
 
       <form action="" className="max-h-[515px] login-box overflow-y-auto c1">
-        {addProject.map((project, i) => (
+        {addOther.map((other, i) => (
           <section
             className="rounded p-4 mb-4 bg-[var(--light)] relative"
             key={i}
@@ -89,16 +118,15 @@ const Others = (props) => {
                 <img src={cross} alt="" />
               </button>
             )}
-
-            {project}
+            {other}
           </section>
         ))}
 
         <Button
           type="button"
-          text="Add project"
+          text="Add Title"
           className="p-2 mt-4"
-          onClick={handleAddProject}
+          onClick={handleAddOther}
         />
       </form>
     </>

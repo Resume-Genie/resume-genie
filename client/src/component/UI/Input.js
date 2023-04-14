@@ -13,6 +13,11 @@ const Input = (props) => {
           'border-solid border-[#F0F0F0] rounded-[5px] border w-full max-w-[300px] text-[16px] ' +
           (props.inputCn ? props.inputCn : 'p-5')
         }
+        value={props.value}
+        onChange={(e) => {
+          props.onChange(e.target.value);
+          console.log(e.target.value);
+        }}
         {...props.formik}
       />
     </div>

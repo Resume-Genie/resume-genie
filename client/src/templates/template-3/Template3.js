@@ -1,12 +1,12 @@
-import Navbar from "./components/Navbar";
-import data from "../data";
-import Body from "./components/Body";
+import Navbar from './components/Navbar';
+import data from '../data';
+import Body from './components/Body';
 
-export default function Template3() {
+export default function Template3(props) {
   return (
     <>
-      <Navbar data={data.info} />
-      <Body data={data} />
+      <Navbar data={data.info} information={props.information} />
+      <Body data={data} information={props.information} />
     </>
   );
 }

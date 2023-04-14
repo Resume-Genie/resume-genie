@@ -6,11 +6,11 @@ export default function Certificate({ data, className }) {
         {times.map((index) => (
           <li
             className={
-              "list-disc list-inside text-[20px] [&:not(:last-child)]:mb-[8px] " +
+              'list-disc list-inside text-[20px] [&:not(:last-child)]:mb-[8px] ' +
               className
             }
           >
-            {index}{" "}
+            {index}{' '}
           </li>
         ))}
       </ul>

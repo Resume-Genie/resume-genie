@@ -1,7 +1,7 @@
-import React from 'react';
+import { useState } from 'react';
 
 const FormButton = (props) => {
-  const [active, setActive] = React.useState(props.sections[0]);
+  const [active, setActive] = useState(props.sections[0]);
 
   const handleClick = (e) => {
     setActive(e.target.innerText);

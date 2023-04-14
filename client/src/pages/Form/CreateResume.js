@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import SidebarClose from '../../component/Sidebar/SidebarClose';
-import Editor from '../../component/Form/Editor';
-import LiveResume from '../../component/Form/LiveResume';
+import FormBody from '../../component/Form/FormBody';
 
 const CreateResume = () => {
   useEffect(() => {
@@ -16,14 +15,10 @@ const CreateResume = () => {
       animate={{ opacity: 1, x: '0' }}
       transition={{ duration: 0.75, ease: [0, 0.99, 1, 0.94] }}
       exit={{ opacity: 0, x: '100%' }}
-      className="flex"
+      className="flex h-[100vh]"
     >
       <SidebarClose />
-
-      <section className="p-9 w-full flex">
-        <Editor />
-        {/* <LiveResume /> */}
-      </section>
+      <FormBody />
     </motion.section>
   );
 };

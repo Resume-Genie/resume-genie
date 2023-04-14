@@ -1,4 +1,4 @@
-import { ReactComponent as Rectangle } from "../../image/icon/Rectangle.svg";
+import { ReactComponent as Rectangle } from '../../image/icon/Rectangle.svg';
 
 export default function Languages(props) {
   return (
@@ -10,7 +10,7 @@ export default function Languages(props) {
         <h3 className="text-[40px] font-bold ">LANGUAGES</h3>
         {props.data.map((index) => (
           <div className="flex items-center">
-            <p className="text-[28px] mr-4">{index.language + " :"}</p>
+            <p className="text-[28px] mr-4">{index.language + ' :'}</p>
             <p className="text-[#449297] text-[20px]">{index.level}</p>
           </div>
         ))}

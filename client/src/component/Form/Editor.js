@@ -3,23 +3,12 @@ import { useState } from 'react';
 import FormButton from './FormButton';
 import FormSelection from './FormSelection';
 
-const Editor = () => {
+const Editor = ({ formSections, setResumeInformation, resumeInformation }) => {
   const [selection, setSelection] = useState('About');
 
-  const formSections = {
-    About: 'Basic Info',
-    Links: 'Personal Links',
-    Experience: 'Work Experience',
-    Projects: 'Projects',
-    Education: 'Education',
-    Skills: 'Skills',
-    Certificates: 'Certificates',
-    Others: 'Others',
-  };
-
   return (
-    // <section className="w-1//2">
-    <section>
+    <section className="w-1/2 h-full login-box">
+      {/* <section> */}
       <ul className="flex flex-wrap mb-5">
         <FormButton
           sections={Object.keys(formSections)}
@@ -27,7 +16,12 @@ const Editor = () => {
         />
       </ul>
 
-      <FormSelection formSections={formSections} selection={selection} />
+      <FormSelection
+        formSections={formSections}
+        selection={selection}
+        information={resumeInformation}
+        setResumeInformation={setResumeInformation}
+      />
     </section>
   );
 };
