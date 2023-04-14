@@ -41,14 +41,17 @@ const data = {
   ],
   language: [
     {
+      id:1,
       language: "English",
       level: "Intermediate",
     },
     {
+      id:2,
       language: "Hindi",
       level: "Expert",
     },
     {
+      id:3,
       language: "Maithli",
       level: "Expert",
     },

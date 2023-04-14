@@ -9,18 +9,22 @@ import ProfilePhoto from '../../image/ProfilePhoto.jpg';
 export default function Navbar({ data }) {
   const me = [
     {
+      id:1,
       text: data.email,
       img: email,
     },
     {
+      id:2,
       text: data.phone_no,
       img: phone,
     },
     {
+      id:3,
       text: data.location,
       img: location,
     },
     {
+      id:4,
       text: data.dob,
       img: calendar,
     },
@@ -48,7 +52,7 @@ export default function Navbar({ data }) {
         </div>
         <div className="mr-4">
           {me.map((element) => (
-            <div className="flex justify-end mb-6">
+            <div key={element.id}className="flex justify-end mb-6">
               <p className="text-[20px] mr-5">{element.text}</p>
               <img src={element.img} alt=""></img>
             </div>

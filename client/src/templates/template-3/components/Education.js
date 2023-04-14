@@ -2,7 +2,7 @@ import { ReactComponent as Rectangle } from "../../image/icon/Rectangle.svg";
 
 export default function Education(props) {
   return props.data.map((element) => (
-    <div className="flex mb-10">
+    <div key={element.id} className="flex mb-10">
       <div className="mt-12">
         <Rectangle fill="#449297" />
       </div>

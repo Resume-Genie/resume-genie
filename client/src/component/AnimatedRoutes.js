@@ -12,6 +12,7 @@ import Samples from './../pages/Dashboard/Samples';
 import ForgotPassword from './../pages/ForgotPassword';
 import CreateResume from '../pages/Form/CreateResume';
 import Template3 from '../templates/template-3/Template3';
+import Template2 from '../templates/template-2/Template2';
 
 import { AnimatePresence } from 'framer-motion';
 
@@ -33,6 +34,7 @@ const AnimatedRoutes = () => {
         <Route path="/form/createResume" element={<CreateResume />} />
         <Route path="/page-not-found" element={<PageNotFound />} />
         <Route path="/template-3" element={<Template3 />} />
+        <Route path="/template-2" element={<Template2 />} />
       </Routes>
     </AnimatePresence>
   );

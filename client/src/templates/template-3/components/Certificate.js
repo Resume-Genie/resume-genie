@@ -3,14 +3,15 @@ export default function Certificate({ data, className }) {
     const times = data.point;
     return (
       <ul>
-        {times.map((index) => (
+        {times.map((content, index) => (
           <li
+            key={index}
             className={
               "list-disc list-inside text-[20px] [&:not(:last-child)]:mb-[8px] " +
               className
             }
           >
-            {index}{" "}
+            {content}{" "}
           </li>
         ))}
       </ul>

@@ -5,13 +5,17 @@ export default function SKIllS(props) {
     const temp = props.level;
     const times = [];
     for (var i = 0; i < temp; i++) {
-      times.push({});
+      times.push({
+        id: i,
+      });
     }
 
     return (
       <>
-        {times.map((index) => (
-          <SkillsMeter key={index} className="mr-5" />
+        {times.map((content) => (
+          <div key={content.id} className="mr-5">
+            <SkillsMeter />
+          </div>
         ))}
       </>
     );
@@ -20,9 +24,9 @@ export default function SKIllS(props) {
   return (
     <section className="w-[540px]">
       <h2 className="text-[40px] font-bold">SKILLS</h2>
-      {props.data.map((element) => {
+      {props.data.map((element, index) => {
         return (
-          <div className="flex items-center mt-5">
+          <div key={index} className="flex items-center mt-5">
             <p className="bg-[#979ca5] text-white rounded-lg px-3 py-1 text-[18px]">
               {element.skill}
             </p>
