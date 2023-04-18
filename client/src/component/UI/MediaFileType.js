@@ -1,8 +1,8 @@
-import cross from '../../assests/svg/dashboard/add-svg.svg';
-import jpg from '../../assests/svg/dashboard/jpg.svg';
-import png from '../../assests/svg/dashboard/png.svg';
-import pdf from '../../assests/svg/dashboard/pdf.svg';
-import dft from '../../assests/svg/dashboard/default.svg';
+import cross from "../../assests/svg/dashboard/add-svg.svg";
+import jpg from "../../assests/svg/dashboard/jpg.svg";
+import png from "../../assests/svg/dashboard/png.svg";
+import pdf from "../../assests/svg/dashboard/pdf.svg";
+import dft from "../../assests/svg/dashboard/default.svg";
 
 const MediaFileType = (props) => {
   const removeFile = () => {
@@ -40,7 +40,7 @@ const MediaFileType = (props) => {
         <img src={cross} alt="" className="rotate-45" />
       </div>
     </div>
-  );
+  ); 
 };
 
 export default MediaFileType;

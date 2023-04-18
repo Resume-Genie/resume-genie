@@ -3,9 +3,12 @@ export default function Others({ data }) {
     const times = data.point;
     return (
       <ul>
-        {times.map((index) => (
-          <li className="list-disc list-inside text-[20px] [&:not(:last-child)]:mb-[8px]">
-            {index}{" "}
+        {times.map((content, index) => (
+          <li
+            key={index}
+            className="list-disc list-inside text-[2vh] [&:not(:last-child)]:mb-[8px]"
+          >
+            {content}{" "}
           </li>
         ))}
       </ul>
@@ -13,10 +16,10 @@ export default function Others({ data }) {
   };
 
   return (
-    <section className="mt-12 w-[540px]">
-      <h2 className="text-[40px] font-bold mb-2">{data.title}</h2>
+    <section className="mt-12 max-w-[400px]">
+      <h2 className="text-[3.4vh] font-bold mb-2">{data.title}</h2>
 
-      <h3 className="text-[28px]">{data.subTitle}</h3>
+      <h3 className="text-[2.3vh]">{data.subTitle}</h3>
 
       <Print point={data.point} />
     </section>

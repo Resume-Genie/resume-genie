@@ -1,10 +1,17 @@
+import React from "react";
+import About from "./Body";
 
-import React from 'react'
+const Body = ({data}) => {
+  return(
+    <div className="flex w-[100%]">
+      <section className="w-[50%]">
+      <About data={data.info}/>
+      </section>
+      <section>
 
-const Body = () => {
-  return (
-    <div>Body</div>
+      </section>
+    </div>
   )
-}
+};
 
-export default Body
+export default Body;
