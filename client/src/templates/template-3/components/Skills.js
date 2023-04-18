@@ -12,8 +12,8 @@ export default function SKIllS(props) {
 
     return (
       <>
-        {times.map((content) => (
-          <div key={content.id} className="mr-5">
+        {times.map((content,index) => (
+          <div key={index} className="mr-2">
             <SkillsMeter />
           </div>
         ))}
@@ -22,12 +22,12 @@ export default function SKIllS(props) {
   };
 
   return (
-    <section className="w-[540px]">
-      <h2 className="text-[40px] font-bold">SKILLS</h2>
+    <section className="w-[540px] mr-[0vh]">
+      <h2 className="text-[3.4vh] font-bold">SKILLS</h2>
       {props.data.map((element, index) => {
         return (
           <div key={index} className="flex items-center mt-5">
-            <p className="bg-[#979ca5] text-white rounded-lg px-3 py-1 text-[18px]">
+            <p className="bg-[#979ca5] text-white rounded-lg px-3 py-1 text-[1.8vh]">
               {element.skill}
             </p>
 
