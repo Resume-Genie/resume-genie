@@ -8,7 +8,6 @@ const Editor = ({ formSections, setResumeInformation, resumeInformation }) => {
 
   return (
     <section className="w-1/2 h-full login-box">
-      {/* <section> */}
       <ul className="flex flex-wrap mb-5">
         <FormButton
           sections={Object.keys(formSections)}

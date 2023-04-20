@@ -15,8 +15,19 @@ const Input = (props) => {
         }
         value={props.value}
         onChange={(e) => {
-          props.onChange(e.target.value);
-          console.log(e.target.value);
+          props.onStateChange(e.target.value);
+        }}
+        onFocus={
+          props.setFocus
+            ? (e) => {
+                e.target.value = '';
+              }
+            : null
+        }
+        onBlur={(e) => {
+          if (e.target.value === '') {
+            e.target.value = props.value;
+          }
         }}
         {...props.formik}
       />

@@ -11,11 +11,13 @@ import './FormSections/ResumeForm.css';
 
 const FormSelection = (props) => {
   let output = null;
+  const title = props.formSections[props.selection];
+
   if (props.selection === 'About')
     output = (
       <About
-        title={props.formSections.About}
-        information={props.information}
+        title={title}
+        information={props.information[title]}
         setInformation={props.setResumeInformation}
       />
     );
@@ -23,7 +25,7 @@ const FormSelection = (props) => {
     output = (
       <PersonalLinks
         title={props.formSections.Links}
-        information={props.information}
+        information={props.information[title]}
         setInformation={props.setResumeInformation}
       />
     );
@@ -31,7 +33,7 @@ const FormSelection = (props) => {
     output = (
       <Experience
         title={props.formSections.Experience}
-        information={props.information}
+        information={props.information[title]}
         setInformation={props.setResumeInformation}
       />
     );
@@ -39,7 +41,7 @@ const FormSelection = (props) => {
     output = (
       <Projects
         title={props.formSections.Projects}
-        information={props.information}
+        information={props.information[title]}
         setInformation={props.setResumeInformation}
       />
     );
@@ -47,7 +49,7 @@ const FormSelection = (props) => {
     output = (
       <Skills
         title={props.formSections.Skills}
-        information={props.information}
+        information={props.information[title]}
         setInformation={props.setResumeInformation}
       />
     );
@@ -55,7 +57,7 @@ const FormSelection = (props) => {
     output = (
       <Certificates
         title={props.formSections.Certificates}
-        information={props.information}
+        information={props.information[title]}
         setInformation={props.setResumeInformation}
       />
     );
@@ -63,7 +65,7 @@ const FormSelection = (props) => {
     output = (
       <Education
         title={props.formSections.Education}
-        information={props.information}
+        information={props.information[title]}
         setInformation={props.setResumeInformation}
       />
     );
@@ -71,7 +73,7 @@ const FormSelection = (props) => {
     output = (
       <Others
         title={props.formSections.Others}
-        information={props.information}
+        information={props.information[title]}
         setInformation={props.setResumeInformation}
       />
     );

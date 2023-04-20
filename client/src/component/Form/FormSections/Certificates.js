@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import FormInput from '../FormInput';
 import Button from '../../UI/Button';
@@ -8,41 +8,49 @@ import cross from './../../../assests/svg/dashboard/add-svg.svg';
 import './ResumeForm.css';
 
 const Certificates = (props) => {
-  const Template = () => (
-    <>
-      <div className="user-box relative">
-        <input
-          type="text"
-          name=""
-          required
-          className="w-full text-base text-black mb-8 bg-transparent py-[10px] border-none border-[var(--text)] outline-none"
-        />
+  const title = props.title;
+  const details = props.information.details;
 
-        <label className="absolute top-0 left-0 text-base text-black pointer-events-none py-[14px]">
-          Certificate Name
-        </label>
-      </div>
-
-      <FormInput
-        type={['text', 'text']}
-        label={['Issuing organization', 'Credential ID']}
-        htmlFor={['resume-certificate-org', 'resume-certificate-id']}
-        placeholder={['Ex- Google', '']}
-      />
-
-      <FormInput
-        type={['month', 'month']}
-        label={['Issue date', 'Expiration date']}
-        htmlFor={['resume-certificate-issue', 'resume-certificate-expiration']}
-        placeholder={['', '']}
-      />
-    </>
+  const [certificateName, setCertificateName] = useState(
+    details[0].certificateName
+  );
+  const [issuingOrganization, setIssuingOrganization] = useState(
+    details[0].organization
+  );
+  const [credentialId, setCredentialId] = useState(details[0].credentialId);
+  const [issueDate, setIssueDate] = useState(details[0].issueDate);
+  const [expirationDate, setExpirationDate] = useState(
+    details[0].expirationDate
   );
 
-  const [addCertificate, setAddCertificate] = useState([<Template />]);
+  useEffect(() => {
+    props.setInformation((prev) => {
+      return {
+        ...prev,
+        [title]: {
+          ...prev[title],
+          detail: {
+            certificateName: certificateName,
+            organization: issuingOrganization,
+            credentialId: credentialId,
+            issueDate: issueDate,
+            expirationDate: expirationDate,
+          },
+        },
+      };
+    });
+  }, [
+    certificateName,
+    issuingOrganization,
+    credentialId,
+    issueDate,
+    expirationDate,
+  ]);
+
+  const [addCertificate, setAddCertificate] = useState(['']);
 
   const handleAddCertificate = () => {
-    setAddCertificate([...addCertificate, <Template />]);
+    setAddCertificate([...addCertificate, '']);
   };
 
   const closeHandler = (index) => {
@@ -57,7 +65,7 @@ const Certificates = (props) => {
         {props.title}
       </h1>
 
-      <form action="" className="max-h-[515px] login-box overflow-y-auto c1">
+      <form action="" className="max-h-[515px] login-box  c1">
         {addCertificate.map((certificate, i) => (
           <section
             className="rounded p-4 mb-4 bg-[var(--light)] relative"
@@ -73,14 +81,58 @@ const Certificates = (props) => {
               </button>
             )}
 
-            {certificate}
+            <div className="user-box relative">
+              <input
+                type="text"
+                name=""
+                required
+                className="w-full text-base text-black mb-8 bg-transparent pt-4 pb-1 border-none border-[var(--text)] outline-none"
+                onChange={(e) => setCertificateName(e.target.value)}
+                value={certificateName}
+                onFocus={(e) => {
+                  e.target.value = '';
+                }}
+                onBlur={(e) => {
+                  if (e.target.value === '') {
+                    e.target.value = 'Abc';
+                  }
+                }}
+              />
+
+              <label className="absolute top-0 left-0 text-base text-black pointer-events-none py-[14px]">
+                Certificate Name
+              </label>
+            </div>
+
+            <FormInput
+              type={['text', 'text']}
+              label={['Issuing organization', 'Credential ID']}
+              htmlFor={['resume-certificate-org', 'resume-certificate-id']}
+              placeholder={['Ex- Google', '']}
+              onStateChange={[setIssuingOrganization, setCredentialId]}
+              setFocus={[true, true]}
+              value={[issuingOrganization, credentialId]}
+            />
+
+            <FormInput
+              type={['month', 'month']}
+              label={['Issue date', 'Expiration date']}
+              htmlFor={[
+                'resume-certificate-issue',
+                'resume-certificate-expiration',
+              ]}
+              placeholder={['', '']}
+              onStateChange={[setIssueDate, setExpirationDate]}
+              setFocus={[true, true]}
+              value={[issueDate, expirationDate]}
+            />
           </section>
         ))}
 
         <Button
           type="button"
           text="Add Certificate"
-          className="p-2 mt-4"
+          className="p-2 my-4"
           onClick={handleAddCertificate}
         />
       </form>
