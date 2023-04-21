@@ -6,18 +6,16 @@ import './ResumeForm.css';
 
 const About = (props) => {
   const title = props.title;
-  const [name, setName] = useState(props.information.name);
-  const [role, setRole] = useState(props.information.role);
-  const [email, setEmail] = useState(props.information.email);
-  const [number, setNumber] = useState(props.information.number);
-  const [location, setLocation] = useState(props.information.location);
-  const [dob, setDob] = useState(props.information.dob);
-  const [summary, setSummary] = useState(props.information.summary);
+  const details = props.information.detail;
 
-  console.log(title);
-  // console.log(props.information[title].detail.name);
-  props.information[title].detail.name = 'Gautam Raj';
-  // console.log(props.information[title].detail.name);
+  const [name, setName] = useState(details.name);
+  const [role, setRole] = useState(details.role);
+  const [email, setEmail] = useState(details.email);
+  const [number, setNumber] = useState(details.number);
+  const [location, setLocation] = useState(details.location);
+  const [dob, setDob] = useState(details.dob);
+  const [summary, setSummary] = useState(details.summary);
+
   useEffect(() => {
     props.setInformation((prev) => {
       return {
@@ -44,16 +42,14 @@ const About = (props) => {
         {title}
       </h1>
 
-      <form
-        action=""
-        className="px-4 max-h-[515px] login-box overflow-y-auto c1"
-      >
+      <form action="" className="px-4 max-h-[515px] login-box c1">
         <FormInput
           type={['text', 'text']}
           label={['Name', 'Role']}
           htmlFor={['resume-about-name', 'resume-about-role']}
           placeholder={['Your Name', 'Your Job Role']}
-          onChange={[setName, setRole]}
+          onStateChange={[setName, setRole]}
+          setFocus={[true, true]}
           value={[name, role]}
         />
 
@@ -62,7 +58,8 @@ const About = (props) => {
           label={['Email', 'Phone Number']}
           htmlFor={['resume-about-email', 'resume-about-number']}
           placeholder={['Your Email', 'Your Phone Number']}
-          onChange={[setEmail, setNumber]}
+          onStateChange={[setEmail, setNumber]}
+          setFocus={[true, true]}
           value={[email, number]}
         />
 
@@ -71,7 +68,8 @@ const About = (props) => {
           label={['location', 'DOB']}
           htmlFor={['resume-about-location', 'resume-about-dob']}
           placeholder={['Your Location', '']}
-          onChange={[setLocation, setDob]}
+          onStateChange={[setLocation, setDob]}
+          setFocus={[true, true]}
           value={[location, dob]}
         />
 
@@ -91,6 +89,9 @@ const About = (props) => {
             className="border-solid border-[#F0F0F0] rounded-[5px] border w-full text-[16px] p-3 h-36"
             value={summary}
             onChange={(e) => setSummary(e.target.value)}
+            onFocus={(e) => {
+              e.target.value = '';
+            }}
           />
         </div>
       </form>

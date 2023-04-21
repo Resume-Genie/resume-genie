@@ -1,16 +1,13 @@
 import Input from '../UI/Input';
 
 const FormInput = (props) => {
-  const [texts, label, htmlFor, placeholder, onChange, value] = [
+  const [texts, label, htmlFor, placeholder, value] = [
     props.type,
     props.label,
     props.htmlFor,
     props.placeholder,
-    props.onChange,
     props.value,
   ];
-
-  console.log(onChange);
 
   return (
     <div className="flex justify-between">
@@ -24,7 +21,8 @@ const FormInput = (props) => {
           className="block mb-2 text-[16px]"
           inputCon="w-[270px]"
           inputCn="p-3"
-          onChange={onChange[index]}
+          setFocus={props.setFocus[index]}
+          onStateChange={props.onStateChange[index]}
           value={value[index]}
         />
       ))}
