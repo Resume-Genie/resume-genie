@@ -1,3 +1,7 @@
+import hackerrank from './image/icon/hackerrank.svg';
+import leetcode from './image/icon/leetcode.svg';
+import linkedin from './image/icon/linkedin.svg';
+
 const data = {
   info: {
     id: 1,
@@ -75,6 +79,25 @@ const data = {
       level: 3,
     },
   ],
+  experience:[
+    {
+      id:1,
+      companyName:"Company name",
+      role:"Front End Developer",
+      startingYear: '04/2015 ',
+      endingYear: ' 04/2016',
+      info:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a elit facilisis, adipiscing leo in, dignissim magna.",
+    },
+    {
+      id:1,
+      companyName:"Company name",
+      role:"Freelance,Web Designer",
+      startingYear: '04/2015 ',
+      endingYear: ' 04/2016',
+      info:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a elit facilisis, adipiscing leo in, dignissim magna.",
+    },
+  ],
+
   projects: {
     id: 1,
     title: 'PROJECTS',
@@ -102,16 +125,29 @@ const data = {
       'Soft Skill Development - NPTEL(Jan-Mar 2020)',
     ],
   },
-  link: {
-    id: 1,
-    title: 'LINK',
-    point: [
-      'Linkedln:- www.linkedin.com/in/sourabhsingh754',
-      ' Hackerrank:- https://www.hackerrank.com/sourabh_singhdb1',
-      'Soft Skill Development - NPTEL(Jan-Mar 2020)',
-      'Leetcode:- https://leetcode.com/Sourabh_Singh_754/',
-    ],
-  },
+  link:[
+      {
+        id:1,
+        name:'Linkedin',
+        profileName:'@sourabh754',
+        url:'www.linkedin.com/in/sourabhsingh754',
+        img:linkedin,
+      },
+      {
+        id:2,
+        name:'Hackerrank',
+        profileName:'@sourabh754',
+        url:'https://www.hackerrank.com/sourabh_singhdb1',
+        img:hackerrank,
+      },
+      {
+        id:2,
+        name:'Leetcode',
+        profileName:'@sourabh754',
+        url:'https://leetcode.com/Sourabh_Singh_754/',
+        img:leetcode,
+      },
+    ]
 };
 
 export default data;

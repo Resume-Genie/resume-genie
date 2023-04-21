@@ -39,8 +39,8 @@ export default function Navbar({ data }) {
           </div>
           <div className="ml-2">
             <p className="text-[2vw]  text-[#313c4e] ">{data.name}</p>
-            <p className="text-[1vw] font-bold text-[#449297] mt-2">{data.role}</p>
-            <p className="mt-4 text-[0.8vw] font-bold">{data.description}</p>
+            <p className="text-[1vw] font-bold text-[#449297] mt-1">{data.role}</p>
+            <p className="mt-3 text-[0.8vw] font-bold">{data.description}</p>
           </div>
         </div>
         <div className="w-[20vh] h-[18vh] rounded-full overflow-hidden border-[#449297] border-[0.6vh] border-solid flex items-center justify-center mt-[3vh]">
