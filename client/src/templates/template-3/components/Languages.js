@@ -11,7 +11,9 @@ export default function Languages(props) {
         {props.data.map((content, index) => (
           <div key={index} className="flex items-center">
             <p className="text-[2.3vh] ">{content.language + " :"}</p>
-            <p className="text-[#449297] text-[2.1vh] ml-[1vh]">{content.level}</p>
+            <p className="text-[#449297] text-[2.1vh] ml-[1vh]">
+              {content.level}
+            </p>
           </div>
         ))}
       </div>

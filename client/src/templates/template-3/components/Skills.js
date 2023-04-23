@@ -12,7 +12,7 @@ export default function SKIllS(props) {
 
     return (
       <>
-        {times.map((content,index) => (
+        {times.map((content, index) => (
           <div key={index} className="mr-2">
             <SkillsMeter />
           </div>

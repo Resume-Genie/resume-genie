@@ -3,6 +3,7 @@ import Skills from "./Skills";
 import Others from "./Others";
 import Certifiate from "./Certificate";
 import Languages from "./Languages";
+import Link from "./Link";
 
 export default function Body({ data }) {
   return (
@@ -17,7 +18,7 @@ export default function Body({ data }) {
         <Others data={data.projects} />
         <Others data={data.internship} />
         <Certifiate data={data.certificate} />
-        <Certifiate data={data.link} className="text-sky-400" />
+        <Link data={data.link} />
       </section>
     </section>
   );
