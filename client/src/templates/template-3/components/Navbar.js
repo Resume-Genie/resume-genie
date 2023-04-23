@@ -1,31 +1,31 @@
-import { ReactComponent as Rectangle } from '../../image/icon/Rectangle.svg';
+import { ReactComponent as Rectangle } from "../../image/icon/Rectangle.svg";
 
-import email from '../../image/icon/email.svg';
-import phone from '../../image/icon/phone.svg';
-import location from '../../image/icon/location.svg';
-import calendar from '../../image/icon/calendar.svg';
-import ProfilePhoto from '../../image/ProfilePhoto.jpg';
+import email from "../../image/icon/email.svg";
+import phone from "../../image/icon/phone.svg";
+import location from "../../image/icon/location.svg";
+import calendar from "../../image/icon/calendar.svg";
+import ProfilePhoto from "../../image/ProfilePhoto.jpg";
 
-export default function Navbar({ information }) {
+export default function Navbar({ data }) {
   const me = [
     {
       id: 1,
-      text: information.detail.email,
+      text: data.email,
       img: email,
     },
     {
       id: 2,
-      text: information.detail.number,
+      text: data.phone_no,
       img: phone,
     },
     {
       id: 3,
-      text: information.detail.location,
+      text: data.location,
       img: location,
     },
     {
       id: 4,
-      text: information.detail.dob,
+      text: data.dob,
       img: calendar,
     },
   ];
@@ -38,15 +38,11 @@ export default function Navbar({ information }) {
             <Rectangle fill="#313c4e" />
           </div>
           <div className="ml-2">
-            <p className="text-[2vw]  text-[#313c4e] ">
-              {information.detail.name}
-            </p>
+            <p className="text-[2vw]  text-[#313c4e] ">{data.name}</p>
             <p className="text-[1vw] font-bold text-[#449297] mt-2">
-              {information.detail.role}
+              {data.role}
             </p>
-            <p className="mt-4 text-[0.8vw] font-bold">
-              {information.detail.summary}
-            </p>
+            <p className="mt-4 text-[0.8vw] font-bold">{data.description}</p>
           </div>
         </div>
         <div className="w-[20vh] h-[18vh] rounded-full overflow-hidden border-[#449297] border-[0.6vh] border-solid flex items-center justify-center mt-[3vh]">
