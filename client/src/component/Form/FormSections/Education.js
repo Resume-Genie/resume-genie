@@ -10,6 +10,8 @@ import './ResumeForm.css';
 
 const Education = (props) => {
   const details = props.information.details;
+  const [data, setData] = useState(details);
+  const [change, setChange] = useState(false);
 
   const [heading, setHeading] = useState(details[0].name);
   const [degree, setDegree] = useState(details[0].degree);
@@ -19,27 +21,59 @@ const Education = (props) => {
   const [grade, setGrade] = useState(details[0].grade);
 
   useEffect(() => {
+    if (change) {
+      props.setInformation((prev) => ({
+        ...prev,
+        [props.title]: {
+          ...prev[props.title],
+          details: [
+            ...data,
+            {
+              name: heading,
+              degree: degree,
+              field: field,
+              start: start,
+              end: end,
+              grade: grade,
+            },
+          ],
+        },
+      }));
+    } else {
+      props.setInformation((prev) => ({
+        ...prev,
+        [props.title]: {
+          ...prev[props.title],
+          details: [
+            {
+              name: heading,
+              degree: degree,
+              field: field,
+              start: start,
+              end: end,
+              grade: grade,
+            },
+          ],
+        },
+      }));
+    }
+  }, [heading, degree, field, start, end, grade]);
+
+  useEffect(() => {
     props.setInformation((prev) => ({
       ...prev,
       [props.title]: {
         ...prev[props.title],
-        detail: {
-          name: heading,
-          degree: degree,
-          field: field,
-          start: start,
-          end: end,
-          grade: grade,
-        },
+        details: data,
       },
     }));
-  }, [heading, degree, field, start, end, grade]);
+  }, [data]);
 
   const [addEducation, setAddEducation] = useState(['']);
 
-  const handleAddEducation = () => {
-    setAddEducation([...addEducation, '']);
-  };
+  // const handleAddEducation = () => {
+  //   setAddEducation([...addEducation, '']);
+  // };
 
   const closeHandler = (index) => {
     const newEducation = [...addEducation];
@@ -47,11 +81,50 @@ const Education = (props) => {
     setAddEducation(newEducation);
   };
 
+  const handleSave = () => {
+    if (change) {
+      setData([
+        ...data,
+        {
+          name: heading,
+          degree: degree,
+          field: field,
+          start: start,
+          end: end,
+          grade: grade,
+        },
+      ]);
+    } else {
+      setData([
+        {
+          name: heading,
+          degree: degree,
+          field: field,
+          start: start,
+          end: end,
+          grade: grade,
+        },
+      ]);
+    }
+
+    setChange(true);
+  };
+
   return (
     <>
+      {/* <div className="flex justify-between items-start"> */}
       <h1 className="text-[36px] font-bold text-[text-var(--text)] mb-5">
         {props.title}
       </h1>
+
+      {/* <Button
+        type="button"
+        text="Add Education"
+        className="p-2"
+        onClick={handleSave}
+      /> */}
+
+      {/* </div> */}
 
       <form action="" className="max-h-[515px] login-box  c1">
         {addEducation.map((education, i) => (
@@ -82,9 +155,7 @@ const Education = (props) => {
                   e.target.value = '';
                 }}
                 onBlur={(e) => {
-                  if (e.target.value === '') {
-                    e.target.value = 'ABC College';
-                  }
+                  e.target.value = heading;
                 }}
               />
 
@@ -128,12 +199,19 @@ const Education = (props) => {
             />
           </section>
         ))}
-
+        {/* 
         <Button
           type="button"
           text="Add Education"
           className="p-2 my-4"
           onClick={handleAddEducation}
+        /> */}
+
+        <Button
+          type="button"
+          text="Add Education"
+          className="p-2"
+          onClick={handleSave}
         />
       </form>
     </>

@@ -10,7 +10,8 @@ import './ResumeForm.css';
 const Others = (props) => {
   const title = props.title;
   const details = props.information.details;
-  console.log(details[0]);
+  const [data, setData] = useState(details);
+  const [change, setChange] = useState(false);
 
   const [heading, setHeading] = useState(title);
   const [title1, setTitle1] = useState(details[0].title);
@@ -21,36 +22,87 @@ const Others = (props) => {
   const [summary, setSummary] = useState(details[0].summary);
 
   useEffect(() => {
-    props.setInformation((prev) => {
-      return {
-        ...prev,
-        [title]: {
-          ...prev[title],
-          details: [
-            {
-              title: title1,
-              other1: other1,
-              other2: other2,
-              start: start,
-              end: end,
-              summary: summary,
-            },
-          ],
-        },
-      };
-    });
+    if (change) {
+      props.setInformation((prev) => {
+        return {
+          ...prev,
+          [title]: {
+            ...prev[title],
+            details: [
+              ...data,
+              {
+                title: title1,
+                other1: other1,
+                other2: other2,
+                start: start,
+                end: end,
+                summary: summary,
+              },
+            ],
+          },
+        };
+      });
+    } else {
+      props.setInformation((prev) => {
+        return {
+          ...prev,
+          [title]: {
+            ...prev[title],
+            details: [
+              {
+                title: title1,
+                other1: other1,
+                other2: other2,
+                start: start,
+                end: end,
+                summary: summary,
+              },
+            ],
+          },
+        };
+      });
+    }
   }, [title1, other1, other2, start, end, summary]);
 
   const [addOther, setAddOther] = useState(['']);
 
-  const handleAddOther = () => {
-    setAddOther([...addOther, '']);
-  };
+  // const handleAddOther = () => {
+  //   setAddOther([...addOther, '']);
+  // };
 
   const closeHandler = (index) => {
     const newOther = [...addOther];
     newOther.splice(index, 1);
     setAddOther(newOther);
+  };
+
+  const handleSave = () => {
+    if (change) {
+      setData([
+        ...data,
+        {
+          title: title1,
+          other1: other1,
+          other2: other2,
+          start: start,
+          end: end,
+          summary: summary,
+        },
+      ]);
+    } else {
+      setData([
+        {
+          title: title1,
+          other1: other1,
+          other2: other2,
+          start: start,
+          end: end,
+          summary: summary,
+        },
+      ]);
+    }
+
+    setChange(true);
   };
 
   return (
@@ -87,7 +139,7 @@ const Others = (props) => {
                     e.target.placeholder = 'Ex- Internship';
                   }}
                   onBlur={(e) => {
-                    e.target.placeholder = '';
+                    e.target.value = title1;
                   }}
                 />
 
@@ -158,11 +210,17 @@ const Others = (props) => {
           </section>
         ))}
 
-        <Button
+        {/* <Button
           type="button"
           text="Add Title"
           className="p-2 my-4"
           onClick={handleAddOther}
+        /> */}
+        <Button
+          type="button"
+          text="Add Education"
+          className="p-2"
+          onClick={handleSave}
         />
       </form>
     </>

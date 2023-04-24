@@ -10,6 +10,8 @@ import './ResumeForm.css';
 const Certificates = (props) => {
   const title = props.title;
   const details = props.information.details;
+  const [data, setData] = useState(details);
+  const [change, setChange] = useState(false);
 
   const [certificateName, setCertificateName] = useState(
     details[0].certificateName
@@ -24,21 +26,44 @@ const Certificates = (props) => {
   );
 
   useEffect(() => {
-    props.setInformation((prev) => {
-      return {
-        ...prev,
-        [title]: {
-          ...prev[title],
-          detail: {
-            certificateName: certificateName,
-            organization: issuingOrganization,
-            credentialId: credentialId,
-            issueDate: issueDate,
-            expirationDate: expirationDate,
+    if (change) {
+      props.setInformation((prev) => {
+        return {
+          ...prev,
+          [title]: {
+            ...prev[title],
+            details: [
+              ...data,
+              {
+                certificateName: certificateName,
+                organization: issuingOrganization,
+                credentialId: credentialId,
+                issueDate: issueDate,
+                expirationDate: expirationDate,
+              },
+            ],
           },
-        },
-      };
-    });
+        };
+      });
+    } else {
+      props.setInformation((prev) => {
+        return {
+          ...prev,
+          [title]: {
+            ...prev[title],
+            details: [
+              {
+                certificateName: certificateName,
+                organization: issuingOrganization,
+                credentialId: credentialId,
+                issueDate: issueDate,
+                expirationDate: expirationDate,
+              },
+            ],
+          },
+        };
+      });
+    }
   }, [
     certificateName,
     issuingOrganization,
@@ -49,14 +74,41 @@ const Certificates = (props) => {
 
   const [addCertificate, setAddCertificate] = useState(['']);
 
-  const handleAddCertificate = () => {
-    setAddCertificate([...addCertificate, '']);
-  };
+  // const handleAddCertificate = () => {
+  //   setAddCertificate([...addCertificate, '']);
+  // };
 
   const closeHandler = (index) => {
     const newCertificate = [...addCertificate];
     newCertificate.splice(index, 1);
     setAddCertificate(newCertificate);
+  };
+
+  const handleSave = () => {
+    if (change) {
+      setData([
+        ...data,
+        {
+          certificateName: certificateName,
+          organization: issuingOrganization,
+          credentialId: credentialId,
+          issueDate: issueDate,
+          expirationDate: expirationDate,
+        },
+      ]);
+    } else {
+      setData([
+        {
+          certificateName: certificateName,
+          organization: issuingOrganization,
+          credentialId: credentialId,
+          issueDate: issueDate,
+          expirationDate: expirationDate,
+        },
+      ]);
+    }
+
+    setChange(true);
   };
 
   return (
@@ -93,9 +145,7 @@ const Certificates = (props) => {
                   e.target.value = '';
                 }}
                 onBlur={(e) => {
-                  if (e.target.value === '') {
-                    e.target.value = 'Abc';
-                  }
+                  e.target.value = certificateName;
                 }}
               />
 
@@ -129,11 +179,17 @@ const Certificates = (props) => {
           </section>
         ))}
 
-        <Button
+        {/* <Button
           type="button"
           text="Add Certificate"
           className="p-2 my-4"
           onClick={handleAddCertificate}
+        /> */}
+        <Button
+          type="button"
+          text="Add Education"
+          className="p-2"
+          onClick={handleSave}
         />
       </form>
     </>

@@ -9,6 +9,8 @@ import './ResumeForm.css';
 
 const Projects = (props) => {
   const details = props.information.details;
+  const [data, setData] = useState(details);
+  const [change, setChange] = useState(false);
 
   const [projectName, setProjectName] = useState(details[0].name);
   const [start, setStart] = useState(details[0].start);
@@ -17,14 +19,24 @@ const Projects = (props) => {
 
   const [addProject, setAddProject] = useState(['']);
 
-  const handleAddProject = () => {
-    setAddProject([...addProject, '']);
-  };
+  // const handleAddProject = () => {
+  //   setAddProject([...addProject, '']);
+  // };
 
   const closeHandler = (index) => {
     const newProject = [...addProject];
     newProject.splice(index, 1);
     setAddProject(newProject);
+  };
+
+  const handleSave = () => {
+    if (change) {
+      setData([]);
+    } else {
+      setData([]);
+    }
+
+    setChange(true);
   };
 
   return (
@@ -61,9 +73,7 @@ const Projects = (props) => {
                   e.target.value = '';
                 }}
                 onBlur={(e) => {
-                  if (e.target.value === '') {
-                    e.target.value = 'Resume Genie';
-                  }
+                  e.target.value = projectName;
                 }}
               />
 
@@ -101,16 +111,25 @@ const Projects = (props) => {
                 onFocus={(e) => {
                   e.target.value = '';
                 }}
+                onBlur={(e) => {
+                  e.target.value = summary;
+                }}
               />
             </div>
           </section>
         ))}
 
-        <Button
+        {/* <Button
           type="button"
           text="Add project"
           className="p-2 my-4"
           onClick={handleAddProject}
+        /> */}
+        <Button
+          type="button"
+          text="Add Education"
+          className="p-2"
+          onClick={handleSave}
         />
       </form>
     </>

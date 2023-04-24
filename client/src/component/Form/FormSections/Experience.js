@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import FormInput from '../FormInput';
 import Button from '../../UI/Button';
@@ -10,6 +10,8 @@ import './ResumeForm.css';
 const Experience = (props) => {
   const title = props.title;
   const details = props.information.details;
+  const [data, setData] = useState(details);
+  const [change, setChange] = useState(false);
 
   const [companyName, setCompanyName] = useState(details.company);
   const [role, setRole] = useState(details.role);
@@ -20,14 +22,24 @@ const Experience = (props) => {
 
   const [addExperience, setAddExperience] = useState(['']);
 
-  const handleAddExperience = () => {
-    setAddExperience([...addExperience, '']);
-  };
+  // const handleAddExperience = () => {
+  //   setAddExperience([...addExperience, '']);
+  // };
 
   const closeHandler = (index) => {
     const newExperience = [...addExperience];
     newExperience.splice(index, 1);
     setAddExperience(newExperience);
+  };
+
+  const handleSave = () => {
+    if (change) {
+      setData([]);
+    } else {
+      setData([]);
+    }
+
+    setChange(true);
   };
 
   return (
@@ -128,11 +140,17 @@ const Experience = (props) => {
           </section>
         ))}
 
-        <Button
+        {/* <Button
           type="button"
           text="Add Experience"
           className="p-2 my-4"
           onClick={handleAddExperience}
+        /> */}
+        <Button
+          type="button"
+          text="Add Education"
+          className="p-2"
+          onClick={handleSave}
         />
       </form>
     </>

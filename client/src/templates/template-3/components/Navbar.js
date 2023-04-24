@@ -1,12 +1,14 @@
-import { ReactComponent as Rectangle } from "../../image/icon/Rectangle.svg";
+import { ReactComponent as Rectangle } from '../../image/icon/Rectangle.svg';
 
-import email from "../../image/icon/email.svg";
-import phone from "../../image/icon/phone.svg";
-import location from "../../image/icon/location.svg";
-import calendar from "../../image/icon/calendar.svg";
-import ProfilePhoto from "../../image/ProfilePhoto.jpg";
+import email from '../../image/icon/email.svg';
+import phone from '../../image/icon/phone.svg';
+import location from '../../image/icon/location.svg';
+import calendar from '../../image/icon/calendar.svg';
+import ProfilePhoto from '../../image/ProfilePhoto.jpg';
 
-export default function Navbar({ data }) {
+export default function Navbar({ information }) {
+  const data = information.detail;
+
   const me = [
     {
       id: 1,
@@ -15,7 +17,7 @@ export default function Navbar({ data }) {
     },
     {
       id: 2,
-      text: data.phone_no,
+      text: data.number,
       img: phone,
     },
     {
@@ -42,7 +44,7 @@ export default function Navbar({ data }) {
             <p className="text-[1vw] font-bold text-[#449297] mt-2">
               {data.role}
             </p>
-            <p className="mt-4 text-[0.8vw] font-bold">{data.description}</p>
+            <p className="mt-4 text-[0.8vw] font-bold">{data.summary}</p>
           </div>
         </div>
         <div className="w-[20vh] h-[18vh] rounded-full overflow-hidden border-[#449297] border-[0.6vh] border-solid flex items-center justify-center mt-[3vh]">

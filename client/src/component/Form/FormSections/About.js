@@ -92,6 +92,9 @@ const About = (props) => {
             onFocus={(e) => {
               e.target.value = '';
             }}
+            onBlur={(e) => {
+              e.target.value = summary;
+            }}
           />
         </div>
       </form>
