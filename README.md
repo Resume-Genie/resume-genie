@@ -1,5 +1,7 @@
-<img src="https://github.com/Gautam25Raj/resume-genie/blob/main/client/src/assests/svg/logo-github.svg" height="180" alt="Resume Genie logo"  />
+<img src="https://github.com/Gautam25Raj/resume-genie/blob/main/client/src/assests/svg/logo-github.svg#gh-dark-mode-only" height="160" alt="Resume Genie logo"  />
+<img src="https://github.com/Gautam25Raj/resume-genie/blob/main/client/src/assests/svg/logo.svg#gh-light-mode-only" height="160" alt="Resume Genie logo"  />
 
+<br>
 <br>
 
 ![Made-With-React](https://img.shields.io/badge/MADE%20WITH-REACT-00caef.svg?colorA=222222&style=for-the-badge&logoWidth=14&logo=react)
