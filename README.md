@@ -1,5 +1,5 @@
-<img src="https://github.com/Gautam25Raj/resume-genie/blob/main/client/src/assests/svg/logo-github.svg#gh-dark-mode-only" height="160" alt="Resume Genie logo"  />
-<img src="https://github.com/Gautam25Raj/resume-genie/blob/main/client/src/assests/svg/logo.svg#gh-light-mode-only" height="160" alt="Resume Genie logo"  />
+<img src="https://github.com/Gautam25Raj/resume-genie/blob/main/client/src/assests/svg/logo-github.svg#gh-light-mode-only" height="160" alt="Resume Genie logo"  />
+<img src="https://github.com/Gautam25Raj/resume-genie/blob/main/client/src/assests/svg/logo.svg#gh-dark-mode-only" height="160" alt="Resume Genie logo"  />
 
 <br>
 <br>
