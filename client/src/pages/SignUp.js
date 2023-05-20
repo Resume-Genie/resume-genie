@@ -10,8 +10,8 @@ import Input from '../component/UI/Input';
 import Button from '../component/UI/Button';
 import { useAuthStore, useAuthUsername } from '../store/Store';
 
-import { ReactComponent as Logo } from './../assests/svg/logo.svg';
-import signupSvg from './../assests/svg/auth/signup-svg.svg';
+import { ReactComponent as Logo } from './../assets/svg/logo.svg';
+import signupSvg from './../assets/svg/auth/signup-svg.svg';
 
 import './bg.css';
 

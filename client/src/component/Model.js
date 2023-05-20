@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 
-import add from './../assests/svg/dashboard/add-svg.svg';
+import add from './../assets/svg/dashboard/add-svg.svg';
 import CreateResume from './Models/CreateResume';
 import DocumentType from './Models/DocumentType';
 import ImportResume from './Models/ImportResume';

@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { HomeButton } from '../UI/Button';
 
-import { ReactComponent as Logo } from '../../assests/svg/logo.svg';
+import { ReactComponent as Logo } from '../../assets/svg/logo.svg';
 
 import './NavBar.css';
 

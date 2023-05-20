@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import DashboardLink from '../../component/DashboardLink';
 import Button from '../../component/UI/Button';
 
-import { ReactComponent as Logo } from './../../assests/svg/logo.svg';
-import dashboard from './../../assests/svg/dashboard/dashboard-svg.svg';
-import library from './../../assests/svg/dashboard/library-svg.svg';
-import profile from './../../assests/svg/dashboard/profile-svg.svg';
-import logOut from './../../assests/svg/dashboard/log-out-svg.svg';
+import { ReactComponent as Logo } from './../../assets/svg/logo.svg';
+import dashboard from './../../assets/svg/dashboard/dashboard-svg.svg';
+import library from './../../assets/svg/dashboard/library-svg.svg';
+import profile from './../../assets/svg/dashboard/profile-svg.svg';
+import logOut from './../../assets/svg/dashboard/log-out-svg.svg';
 
 const SidebarOpen = (props) => {
   const navigate = useNavigate();

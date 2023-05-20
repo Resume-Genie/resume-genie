@@ -1,8 +1,8 @@
-import cross from "../../assests/svg/dashboard/add-svg.svg";
-import jpg from "../../assests/svg/dashboard/jpg.svg";
-import png from "../../assests/svg/dashboard/png.svg";
-import pdf from "../../assests/svg/dashboard/pdf.svg";
-import dft from "../../assests/svg/dashboard/default.svg";
+import cross from "../../assets/svg/dashboard/add-svg.svg";
+import jpg from "../../assets/svg/dashboard/jpg.svg";
+import png from "../../assets/svg/dashboard/png.svg";
+import pdf from "../../assets/svg/dashboard/pdf.svg";
+import dft from "../../assets/svg/dashboard/default.svg";
 
 const MediaFileType = (props) => {
   const removeFile = () => {

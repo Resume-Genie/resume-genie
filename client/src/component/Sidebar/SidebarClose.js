@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router-dom';
 
 import DashboardLink from '../DashboardLink';
 
-import logoShort from './../../assests/svg/logo-short.svg';
-import dashboard from './../../assests/svg/dashboard/dashboard-svg.svg';
-import library from './../../assests/svg/dashboard/library-svg.svg';
-import profile from './../../assests/svg/dashboard/profile-svg.svg';
-import logOut from './../../assests/svg/dashboard/log-out-svg.svg';
+import logoShort from './../../assets/svg/logo-short.svg';
+import dashboard from './../../assets/svg/dashboard/dashboard-svg.svg';
+import library from './../../assets/svg/dashboard/library-svg.svg';
+import profile from './../../assets/svg/dashboard/profile-svg.svg';
+import logOut from './../../assets/svg/dashboard/log-out-svg.svg';
 
 import './SidebarClose.css';
 

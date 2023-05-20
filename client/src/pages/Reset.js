@@ -10,8 +10,8 @@ import { resetPasswordValidation } from '../helper/validate';
 import { resetPassword } from './../helper/helper';
 import { useAuthStore } from './../store/Store';
 
-import { ReactComponent as Logo } from './../assests/svg/logo.svg';
-import resetPasswordSvg from './../assests/svg/auth/reset-password-svg.svg';
+import { ReactComponent as Logo } from './../assets/svg/logo.svg';
+import resetPasswordSvg from './../assets/svg/auth/reset-password-svg.svg';
 
 import './bg.css';
 

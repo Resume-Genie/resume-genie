@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 import Model from '../component/Model';
 
-import add from './../assests/svg/dashboard/add-svg.svg';
+import add from './../assets/svg/dashboard/add-svg.svg';
 import SidebarOpen from '../component/Sidebar/SidebarOpen';
 import DashboardMenu from '../component/Dashboard/DashboardMenu';
 

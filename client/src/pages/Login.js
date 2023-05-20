@@ -10,8 +10,8 @@ import { loginValidate } from '../helper/validate';
 import { verifyPassword } from './../helper/helper';
 import { useAuthStore, useAuthUsername } from '../store/Store';
 
-import { ReactComponent as Logo } from './../assests/svg/logo.svg';
-import loginSvg from './../assests/svg/auth/login-svg.svg';
+import { ReactComponent as Logo } from './../assets/svg/logo.svg';
+import loginSvg from './../assets/svg/auth/login-svg.svg';
 
 import './bg.css';
 

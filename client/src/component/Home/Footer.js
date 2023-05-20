@@ -1,6 +1,6 @@
-import { ReactComponent as Logo } from '../../assests/svg/logo.svg';
-import { ReactComponent as Github } from '../../assests/svg/home/Footer/github.svg';
-import { ReactComponent as Arrow } from '../../assests/svg/home/Footer/arrow.svg';
+import { ReactComponent as Logo } from '../../assets/svg/logo.svg';
+import { ReactComponent as Github } from '../../assets/svg/home/Footer/github.svg';
+import { ReactComponent as Arrow } from '../../assets/svg/home/Footer/arrow.svg';
 
 import './Footer.css';
 

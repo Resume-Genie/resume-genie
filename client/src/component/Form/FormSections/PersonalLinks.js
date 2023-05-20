@@ -5,7 +5,7 @@ import Button from '../../UI/Button';
 
 import './ResumeForm.css';
 
-import icon from '../../../assests/svg/dashboard/log-out-svg.svg';
+import icon from '../../../assets/svg/dashboard/log-out-svg.svg';
 
 const PersonalLinks = (props) => {
   const [link, setLink] = useState(['']);

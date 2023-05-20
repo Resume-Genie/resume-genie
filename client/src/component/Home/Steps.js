@@ -1,7 +1,7 @@
-import Step1 from '../../assests/svg/home/Steps/step1.svg';
-import Step2 from '../../assests/svg/home/Steps/step2.svg';
-import Step3 from '../../assests/svg/home/Steps/step3.svg';
-import Step4 from '../../assests/svg/home/Steps/step4.svg';
+import Step1 from '../../assets/svg/home/Steps/step1.svg';
+import Step2 from '../../assets/svg/home/Steps/step2.svg';
+import Step3 from '../../assets/svg/home/Steps/step3.svg';
+import Step4 from '../../assets/svg/home/Steps/step4.svg';
 import Step from './Step';
 
 const Steps = () => {

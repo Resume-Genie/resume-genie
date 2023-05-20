@@ -1,7 +1,7 @@
-import edit from '../../assests/svg/home/WhyUs/edit.svg';
-import free from '../../assests/svg/home/WhyUs/free.svg';
-import noCharges from '../../assests/svg/home/WhyUs/no-charges.svg';
-import template from '../../assests/svg/home/WhyUs/template.svg';
+import edit from '../../assets/svg/home/WhyUs/edit.svg';
+import free from '../../assets/svg/home/WhyUs/free.svg';
+import noCharges from '../../assets/svg/home/WhyUs/no-charges.svg';
+import template from '../../assets/svg/home/WhyUs/template.svg';
 
 const Whyus = () => {
   const elements = [

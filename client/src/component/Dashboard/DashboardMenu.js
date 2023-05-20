@@ -1,7 +1,7 @@
 import Button from '../../component/UI/Button';
 import { useAuthUsername } from '../../store/Store';
 
-import dp from '../../assests/svg/dashboard/dp-svg.svg';
+import dp from '../../assets/svg/dashboard/dp-svg.svg';
 
 const DashboardMenu = () => {
   const username = useAuthUsername((state) => state.auth.username);

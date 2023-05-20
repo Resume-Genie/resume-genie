@@ -11,7 +11,7 @@ import { uploadValidate } from './../../helper/validate';
 import Button from '../UI/Button';
 import Media from '../UI/MediaFileType';
 
-import upload from '../../assests/svg/dashboard/upload.svg';
+import upload from '../../assets/svg/dashboard/upload.svg';
 import TesseractHelper from '../../helper/TesseractHelper';
 
 const ImportResume = (props) => {

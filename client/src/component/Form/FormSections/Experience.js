@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import FormInput from '../FormInput';
 import Button from '../../UI/Button';
 
-import cross from './../../../assests/svg/dashboard/add-svg.svg';
+import cross from './../../../assets/svg/dashboard/add-svg.svg';
 
 import './ResumeForm.css';
 

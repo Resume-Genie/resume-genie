@@ -1,5 +1,5 @@
 .bg {
-  background-image: url('../assests/svg/background-curve.svg');
+  background-image: url('../assets/svg/background-curve.svg');
 }
 
 .home-bg {
@@ -10,7 +10,7 @@
       #051806,
       #051806
     ),
-    url('../assests/svg/bg.svg');
+    url('../assets/svg/bg.svg');
 
   background-image: radial-gradient(
       132% 244.44% at 0% 0%,
@@ -20,7 +20,7 @@
       #051806 43%,
       #051806 100%
     ),
-    url('../assests/svg/bg.svg');
+    url('../assets/svg/bg.svg');
 
   background-repeat: no-repeat;
   background-size: cover;
