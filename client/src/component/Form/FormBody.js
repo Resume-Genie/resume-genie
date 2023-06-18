@@ -21,7 +21,7 @@ const FormBody = () => {
       sectionTitle: formSections.About,
       detail: {
         id: '1',
-        name: 'Gautam Raj',
+        name: 'Sourabh Kumar Singh',
         email: 'a@resume-genie.com',
         number: '1234567890',
         location: 'abc, India',

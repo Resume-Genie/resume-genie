@@ -33,6 +33,8 @@ const AnimatedRoutes = () => {
         <Route path="/dashboard/profile" element={<Profile />} />
         <Route path="/form/createResume" element={<CreateResume />} />
         <Route path="/page-not-found" element={<PageNotFound />} />
+        <Route path="/template2" element={<Template2 />} />
+        <Route path="/template3" element={<Template3 />} />
       </Routes>
     </AnimatePresence>
   );

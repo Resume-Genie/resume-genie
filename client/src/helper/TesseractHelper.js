@@ -39,6 +39,7 @@ const TesseractHelper = (props) => {
       toast.success('Image Converted to Text!');
       setDisabled(false);
       setText(text);
+      alert(text);
     });
   };
 
