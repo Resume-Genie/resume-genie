@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "resume genie server",
   "version": "1.0.0",
   "description": "Backend server for Resume Genie",
   "type": "module",

@@ -48,7 +48,7 @@ So why wait? Start building your dream resume today with our innovative software
 
 <br>
 
-<h2 id='getting-started'>Getting Started</h2>
+<h2 id='getting-started'>🌟 Getting Started</h2>
 To get started with Resume Genie locally, please follow the instructions below **Super fast setup:** 
 
   - Clone the repository:
@@ -73,11 +73,11 @@ To get started with Resume Genie locally, please follow the instructions below *
 
   - Open your web browser and navigate to `http://localhost:3000`  to access the Resume Genie application.
 
-  **For More details, please refer to [Developer Guide](DEVELOPER.md)**
+  **For More details, please refer to [Developer's Guide](DEVELOPER.md)**
 
 <br>
 
-<h2 id='contribute'>Contributing to ResumeGenie</h2>
+<h2 id='contribute'>😇 Contributing to ResumeGenie</h2>
 
 We love your help! We want to make contributing to this project as easy and transparent as possible. Feel free to Contribute.
 
@@ -103,11 +103,11 @@ In short, when you submit code changes, your submissions are understood to be un
 
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/Gautam25Raj/ResumeGenie/issues/new?template=bug_report.md).
 
-**For more details refer [Contribution Guide](CONTRIBUTING.md) & [Developer Guide](DEVELOPER.md)**
+**For more details refer [Contribution Guide](CONTRIBUTING.md) & [Developer's Guide](DEVELOPER.md)**
 
 <br>
 
-<h2 id='code-of-conduct'>Code of Conduct</h2>
+<h2 id='code-of-conduct'>✍ Code of Conduct</h2>
 
 Before you begin coding and collaborating, please read our [Code of Conduct](CODE_OF_CONDUCT.md) thoroughly to understand the standards (that you are required to adhere to) for community engagement. As part of our open-source community, we hold ourselves and other contributors to a high standard of communication. As a participant and contributor to this project, you are agreeing to abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
 
@@ -119,21 +119,21 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 
 <br>
 
-## 💻Need Help?
+## 💻 Need Help?
 
 We are more than happy to help you. If you are getting any errors or facing problems while working on this project, [email](mailto:gautamraj255225@gmail.com) and ask for help. We are open to discussing anything related to the project.
 
 <br>
 
-<h2 id='stale-prs'>Stale Pull Requests</h2>
+<h2 id='stale-prs'>📍 Stale Pull Requests</h2>
 
 After a pull request has been open for over 30 days with no activity or response from the author, it'll be automatically marked as stale. We might fork your changes and merge the changes ourselves. Since GitHub tracks contributions by commits, you will be credited.
 
 <br>
 
-<h2 id='licence'>License</h2>
+<h2 id='licence'>© License</h2>
 
-Completely free (MIT)! See [MIT LICENSE](LICENSE) for more.
+Resume Genie is open-source software released under the MIT License.! See [MIT LICENSE](LICENSE) for more.
 
 <br>
 

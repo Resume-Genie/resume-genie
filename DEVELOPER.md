@@ -1,8 +1,50 @@
 # Developer Guide
 
-## 🏃‍♀️ Running Project in Local
+Welcome to the Resume Genie Developers Guide! This guide provides essential information for developers who want to contribute to the project or work on the codebase. It covers the project's architecture, setup instructions, coding conventions, and more.
 
-Ensure that you have Node.js installed on your machine. You can download the latest version from the official Node.js website: https://nodejs.org
+<br>
+
+<h2 id='table-of-contents'>📑 Table of Contents</h2>
+<ul>
+  <li><a href="#project-overview">Project Overview</a></li>
+  <li><a href="#architecture">Architecture</a></li>
+  <li><a href="#prerequisites">Prerequisites</a></li>
+  <li><a href="#running-project-in-local">Running Project in Local</a></li>
+  <li><a href="#development-workflow">Development Workflow</a></li>
+  <li><a href="#coding-style-and-guidelines">Coding Convention, Style and Guidelines</a></li>
+  <li><a href="#deployment">Deployment</a></li>
+  <li><a href="#contributing">Contribution</a></li>
+</ul>
+
+<br>
+
+<h2 id='project-overview'>📦 Project Overview</h2>
+
+Resume Genie is a free and open-source resume builder software that aims to make the process of creating, updating, and sharing resumes easy and efficient. It leverages technologies like React, Node.js, Tesseract.js, MongoDB, and Tailwind CSS to provide a user-friendly and feature-rich experience for users.
+
+<br>
+
+<h2 id='architecture'>🔨 Architecture</h2>
+
+Resume Genie follows a client-server architecture. The frontend is built using React and Tailwind CSS, providing a responsive and interactive user interface. The backend is developed with Node.js and Express.js, which handles API requests and interacts with the MongoDB database. Tesseract.js is integrated to extract information from resume images.
+
+For more detailed Architecture to the project, refer to the [Architecture Guide](Architecture.md) document.
+
+<br>
+
+<h2 id='prerequisites'>💁‍♂️ Prerequisites</h2>
+
+Before setting up the project, ensure you have the following prerequisites installed on your system:
+
+- [Node.js](https://nodejs.org) (version >= 14.x)
+- Npm or Yarn package manager
+- [MongoDB](https://www.mongodb.com/) (running locally or a remote instance)
+
+<br>
+
+<h2 id='running-project-in-local'>🏃‍♀️ Running Project in Local</h2>
+
+To set up the Resume Genie project locally, follow these steps:
 
 - **Fork** the repo
   - For more information **How to fork a repo** refer: [Fork Guide](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
@@ -63,86 +105,71 @@ You have now successfully set up and run the Resume Genie project on your local 
 
 <br>
 
-## 👨‍💻 Coding Style and Guidelines
+<h2 id='development-workflow'>⚒ Development Workflow</h2>
 
-To maintain consistency and readability across the codebase, we follow the following coding style and guidelines for Resume Genie:
-
-### General Guidelines
-
-- Use meaningful and descriptive variable, function, and class names.
-- Write code that is easy to understand and maintain.
-- Keep lines of code reasonably short (preferably less than 80 characters) to enhance readability.
-- Comment your code when necessary to provide clarity and context.
-- Use Prettier for better and easy Formatting
-
-### Indentation and Formatting
-
-- Use spaces for indentation with a consistent indentation level of 2 spaces.
-- Use spaces around operators for better readability.
-- Use consistent and clear formatting throughout the codebase.
-
-### JavaScript/TypeScript
-
-- Use camelCase for variable and function names.
-- Use PascalCase for class and component names.
-- Use single quotes ('') for string literals unless interpolation is required.
-- Prefer arrow functions (`() => {}`) over traditional function expressions.
-- Use template literals (\`\`) for concatenating strings when necessary.
-- Prefer `const` for declaring variables unless the value needs to be reassigned.
-- Use destructuring where appropriate to simplify code.
-- Avoid unnecessary or redundant code and imports.
-- Follow best practices and conventions for React components, Redux state management, and other libraries used in the project.
-
-### Tailwind CSS
-
-- Use Tailwind CSS for styling components and layouts.
-- Follow the utility-first approach and utilize Tailwind CSS classes directly in your JSX.
-- Avoid writing custom CSS whenever possible to leverage the built-in Tailwind CSS utilities.
-- Organize your styles by using the `className` prop or by applying multiple utility classes to an element.
-- Reuse existing Tailwind CSS classes instead of creating new ones whenever possible.
-- Follow the responsive design principles provided by Tailwind CSS for handling different screen sizes.
-
-### JSX/CSS
-
-- Use proper indentation and formatting for JSX markup.
-- Use lowercase for JSX tags and attributes.
-- Use double quotes ("") for attribute values.
-- Prefer CSS classes for styling over inline styles.
-- Follow a consistent and scalable CSS architecture (e.g., BEM, SMACSS, or your preferred methodology).
-
-<br>
-
-### 🧢 Basic Git Commands Guidelines
-
-- Check out a new branch if you want to, based and name it to what you intend to do:
+- Create a new branch and check out a new branch from the main branch, if you want to and name it to what you intend to do:
 
   ```
-  $ git checkout -b BRANCH_NAME
+  $ git branch "BRANCH_NAME"
+  $ git checkout "BRANCH_NAME"
   ```
+
+- Make your changes and write clean, well-documented code.
 
 - **Commit** your changes
 
   - Please provide a git message that explains what you've done
   - Commit to the forked repository
     ```
-    $ git commit -am 'Add some proper message'
+    $ git commit -m "Add new feature: My Feature"
     ```
 
 - **Push** to the branch
-
   ```
-  $ git push origin BRANCH_NAME
+  $ git push origin "BRANCH_NAME"
   ```
 
 - Make a pull request
   - **Please do apply labels to pull request.**
 
-Once done, we will review the changes and merge to <code>main</code> branch
+- Collaborate with maintainers and reviewers to address feedback and make necessary improvements.
+
+Once done, the changes will be merged to <code>main</code> branch.
 
 <br>
 
+<h2 id='coding-style-and-guidelines'>👨‍💻 Coding Conventions, Style and Guidelines</h2>
+
+To maintain consistency and readability across the codebase, we follow the following coding style and guidelines for Resume Genie:
+
+- Use meaningful and descriptive variable, function, and class names that are descriptive and self-explanatory.
+- Write code that is easy to understand and maintain.
+- Modularize the code and follow separation of concerns.
+- Keep lines of code reasonably short (preferably less than 80 characters) to enhance readability.
+- Comment your code when necessary to provide clarity and context.
+- Maintain good code structure and organization.
+- Use Prettier for better and easy Formatting
+
+For more detailed coding conventions specific to the project, refer to the [Coding Conventions](CODING_CONVENTION.md) document.
+
+<br>
+
+<h2 id='deployment'>🔒 Deployment</h2>
+
+Resume Genie can be deployed to various environments. Ensure you have the necessary configuration files and deployment scripts in place. The deployment process may vary based on your chosen hosting platform or infrastructure.
+
+<br>
+
+<h2 id='contributing'>😇 Contributing</h2>
+
+Contributions to Resume Genie are welcome! If you would like to contribute to the project, please read the [CONTRIBUTING GUIDE](CONTRIBUTING.md) file for guidelines on how to contribute, submit bug reports, and request new features.
+
+<br>
+
+---
+
 These guidelines are meant to ensure consistent and maintainable code throughout the project. When contributing to Resume Genie, please follow these coding style and guidelines to help maintain a clean and cohesive codebase.
 
-If you have any questions or need clarification on any specific coding style aspect, feel free to reach out to the project maintainers.
+Thank you for choosing to contribute to Resume Genie! We appreciate your time and effort in improving the project. If you have any questions or need assistance, feel free to reach out to us at [gautamraj255225@gmail.com](mailto:gautamraj255225@gmail.com).
 
-**Happy contributing! 💖**
+**Happy coding! Happy contributing! 💖**

@@ -81,7 +81,7 @@ Start by forking the Resume Genie repository to your GitHub account. This will c
 
 <h3 id='set-up-your-local-environment'> 2. Set Up Your Local Environment:</h3>
 
-Clone the forked repository to your local machine and follow the installation instructions provided in the project's [Developers Guide](DEVELOPER.md). This will set up the necessary dependencies and get you ready to work on the project.
+Clone the forked repository to your local machine and follow the installation instructions provided in the project's [Developer's Guide](DEVELOPER.md). This will set up the necessary dependencies and get you ready to work on the project.
 
 - **Clone** the forked repo
 - Install the dependencies
@@ -105,7 +105,7 @@ After running these commands, you will have created a new branch with a name of 
 
 <h3 id='make-changes'> 4. Make Changes:</h3>
 
-Implement your changes or additions in the appropriate files within the project. Ensure that your code follows the existing coding style and conventions [Developers Guide](DEVELOPER.md).
+Implement your changes or additions in the appropriate files within the project. Ensure that your code follows the existing coding style and conventions [Developer's Guide](DEVELOPER.md).
 
 <h3 id='test-your-changes'> 5. Test Your Changes:</h3>
 Thoroughly test your changes to ensure they work as intended and do not introduce any new issues.
@@ -147,6 +147,8 @@ Your pull request will undergo review by the project maintainers. Be responsive 
 Once your pull request has been approved, it will be merged into the `main` branch. The changes will be incorporated into future releases of Resume Genie.
 
 <br>
+
+---
 
 Thank you for your contributions to Resume Genie! We value your time and effort in helping us improve our open-source resume builder software. Together, we can make Resume Genie a more powerful and user-friendly tool for creating outstanding resumes.
 
