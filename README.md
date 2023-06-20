@@ -49,7 +49,8 @@ So why wait? Start building your dream resume today with our innovative software
 <br>
 
 <h2 id='getting-started'>🌟 Getting Started</h2>
-To get started with Resume Genie locally, please follow the instructions below **Super fast setup:** 
+
+To get started with Resume Genie locally, please follow the instructions below: **#Super fast setup** 
 
   - Clone the repository:
 
