@@ -1,7 +1,6 @@
+# Resume Genie Environment Variables Setup Guide
 
-# Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
+This guide provides instructions on setting up the development environment for the project.To run this project, you need `.env` files in your `frontend` and `backend` folders. Add the following environment variables to your .env file: 
 
 <br>
 
@@ -17,18 +16,20 @@ To run this project, you will need to add the following environment variables to
 
 ## Back-End Environment Variables
 
-`PORT` : 8000 || 8080
+`PORT` : 8000
 
 `NODE_ENV` : development || production
 
-`JWT_SECRET` : Your JWT secret key
+`MONGO_URI` : Your Mongo Uri for defining connections between application and MongoDB database.
+
+`JWT_SECRET` : Your JWT secret key. Ex-AnythingYouLinkAndThisShouldBeSecret
 
 `EMAIL` : Your development environment email from which you you to send emails.
 
-`PASSWORD` : Your development environment email password.
+`PASSWORD` : Your development environment email's password.
 
 `PROD_EMAIL` : Your production environment email from which you you to send emails.
 
-`PROD_PASSWORD` : Your production environment email password.
+`PROD_PASSWORD` : Your production environment email's password.
 
 

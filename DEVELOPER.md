@@ -1,4 +1,4 @@
-# Developer Guide
+# Resume Genie Developer Guide
 
 Welcome to the Resume Genie Developers Guide! This guide provides essential information for developers who want to contribute to the project or work on the codebase. It covers the project's architecture, setup instructions, coding conventions, and more.
 
@@ -28,7 +28,7 @@ Resume Genie is a free and open-source resume builder software that aims to make
 
 Resume Genie follows a client-server architecture. The frontend is built using React and Tailwind CSS, providing a responsive and interactive user interface. The backend is developed with Node.js and Express.js, which handles API requests and interacts with the MongoDB database. Tesseract.js is integrated to extract information from resume images.
 
-For more detailed Architecture to the project, refer to the [Architecture Guide](Architecture.md) document.
+For more detailed Architecture to the project, refer to the [Architecture Guide](ARCHITECTURE.md) document.
 
 <br>
 

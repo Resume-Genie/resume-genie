@@ -6,6 +6,7 @@ frontend/dev-dist
 frontend/.env
 backend/node_modules
 backend/.env
+/client
 
 /.pnp
 .pnp.js
