@@ -2,6 +2,7 @@
 
 # dependencies
 frontend/node_modules
+frontend/dev-dist
 frontend/.env
 backend/node_modules
 backend/.env
