@@ -1,3 +1,8 @@
+---
+name: Feature Addition
+about: Request a new feature or enhancement
+---
+
 ## Checklist
 
 - [ ] I have thoroughly tested the new feature and verified its functionality.

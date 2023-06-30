@@ -2,6 +2,7 @@
 name: Question
 about: Ask a question or seek clarification
 title: "[YOUR QUESTION]"
+labels: 'question'
 ---
 
 **Question**
