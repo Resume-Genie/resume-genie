@@ -1,9 +1,14 @@
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes/Routes';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="bg-black h-screen w-screen">
-      <h1 className="text-white">Counter</h1>
+    <div className="">
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
     </div>
   );
 }
