@@ -1,6 +1,7 @@
 ---
 name: Bug Fix
 about: Report a bug and propose a fix
+labels: ['bug']
 ---
 
 ## Checklist

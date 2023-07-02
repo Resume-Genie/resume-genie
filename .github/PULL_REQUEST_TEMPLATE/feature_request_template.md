@@ -1,6 +1,7 @@
 ---
 name: Feature Addition
 about: Request a new feature or enhancement
+labels: ['enhancement']
 ---
 
 ## Checklist
