@@ -1,7 +1,3 @@
----
-name: Default Template
----
-
 ## Checklist
 
 - [ ] I have followed the coding conventions and guidelines of the project.

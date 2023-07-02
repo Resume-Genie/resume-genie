@@ -1,9 +1,3 @@
----
-name: Bug Fix
-about: Report a bug and propose a fix
-labels: ['bug']
----
-
 ## Checklist
 
 - [ ] I have thoroughly tested the bug fix and verified its resolution.
